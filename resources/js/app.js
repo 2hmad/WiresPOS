@@ -10,28 +10,7 @@ import { createStore } from "vuex";
 import { createI18n } from "vue-i18n";
 import en from "./locales/en";
 import ar from "./locales/ar";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-    faHouse,
-    faBowlRice,
-    faClockRotateLeft,
-    faWallet,
-    faPercent,
-    faGear,
-    faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-// Font Awesome Library
-library.add(
-    faHouse,
-    faBowlRice,
-    faClockRotateLeft,
-    faWallet,
-    faPercent,
-    faGear,
-    faMagnifyingGlass
-);
+import { aliases, mdi } from "vuetify/lib/iconsets/mdi-svg";
 
 // I18n Configurations
 const messages = {
@@ -61,10 +40,16 @@ const i18n = createI18n({
 const vuetify = createVuetify({
     components,
     directives,
+    icons: {
+        defaultSet: "mdi",
+        aliases,
+        sets: {
+            mdi,
+        },
+    },
 });
 
 const app = createApp({});
-app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);
 app.use(store);
 app.use(i18n);

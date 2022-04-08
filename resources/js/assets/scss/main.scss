@@ -7,20 +7,19 @@ $primary: #7e74f1;
 html,
 body {
     box-sizing: border-box;
-    background-color: #f1f1f1;
+    background-color: #f9f8fb;
     overflow: auto;
 }
 .app-en {
     direction: ltr;
     text-align: left;
     font-family: "Poppins", sans-serif;
+    min-height: 100vh;
 }
 .app-ar {
     direction: rtl;
     text-align: right;
     font-family: "Cairo", sans-serif;
-}
-.app {
     min-height: 100vh;
 }
 .btn {

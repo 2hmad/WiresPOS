@@ -1,5 +1,5 @@
 <template>
-    <v-app :class="`app-${$i18n.locale}`">
+    <div :class="`app-${$i18n.locale}`">
         <div class="login">
             <div class="sides">
                 <div class="side">
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </v-app>
+    </div>
 </template>
 <script>
 export default {

@@ -1,9 +1,9 @@
 <template>
-    <v-app :class="`app-${$i18n.locale}`">
+    <div :class="`app-${$i18n.locale}`">
         <div class="dashboard">
             <Sidebar />
         </div>
-    </v-app>
+    </div>
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";

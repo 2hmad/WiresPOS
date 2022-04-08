@@ -109,7 +109,7 @@ html,
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #f1f1f1;
+  background-color: #f9f8fb;
   overflow: auto;
 }
 
@@ -117,15 +117,13 @@ body {
   direction: ltr;
   text-align: left;
   font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
 .app-ar {
   direction: rtl;
   text-align: right;
   font-family: "Cairo", sans-serif;
-}
-
-.app {
   min-height: 100vh;
 }
 
@@ -166,6 +164,7 @@ ul {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+  min-height: 100vh;
 }
 
 .login .sides .side {
@@ -346,6 +345,7 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 100vh;
 }
 
 .menu {
@@ -355,18 +355,17 @@ ul {
 }
 
 .menu .sides {
-  margin-left: 3%;
+  margin-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  gap: 40px;
 }
 
 .menu .sides .side:nth-child(1) {
-  margin-top: 20px;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  width: 800px;
+  margin-top: 3%;
 }
 
 .menu .sides .side:nth-child(1) .heading {
@@ -379,32 +378,104 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .menu .sides .side:nth-child(1) .heading .search form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 350px;
 }
 
 .menu .sides .side:nth-child(1) .heading .search form .search-box {
-  padding: 7px;
+  padding: 10px;
   background: white;
   width: 100%;
   outline: none;
+  font-size: 15px;
 }
 
-.menu .sides .side:nth-child(2) {
-  margin-top: 20px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.menu .sides .side:nth-child(1) .heading .search form button {
+  position: relative;
+  right: 30px;
+  color: #4c4c4c;
+  font-size: 19px;
 }
 
-.menu .sides .side:nth-child(2) .heading {
+.menu .sides .side:nth-child(1) .categories {
+  margin-top: 5%;
+  overflow: auto;
+}
+
+.menu .sides .side:nth-child(1) .categories .cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card {
+  background-color: white;
+  padding: 12px 23px;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  -webkit-filter: opacity(0.85);
+          filter: opacity(0.85);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card.active {
+  border: 1px solid #704332;
+  background-color: #f9d9cd2e;
+  font-weight: 600;
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card:hover {
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card .icon {
+  max-width: 50px;
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card .icon img {
+  width: 100%;
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card .title {
+  color: #704332;
+}
+
+.menu .sides .side:nth-child(2) {
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+}
+
+.menu .sides .side:nth-child(2) .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -413,11 +484,173 @@ ul {
           justify-content: space-between;
 }
 
-.menu .sides .side:nth-child(2) .heading .search .search-box {
-  padding: 7px;
-  background: white;
+.menu .sides .side:nth-child(2) .account .avatar {
+  max-width: 50px;
+}
+
+.menu .sides .side:nth-child(2) .account .avatar img {
+  border-radius: 15px;
   width: 100%;
-  outline: none;
+}
+
+.menu .sides .side:nth-child(2) .account .job-title {
+  display: block;
+  color: #4c4c4c;
+  font-size: 13px;
+}
+
+.menu .sides .side:nth-child(2) .account .fullname {
+  font-weight: 600;
+}
+
+.menu .sides .side:nth-child(2) .account .notification {
+  font-size: 18px;
+  color: #585858;
+}
+
+.menu .sides .side:nth-child(2) .bills {
+  margin-top: 30px;
+}
+
+.menu .sides .side:nth-child(2) .bills h2 {
+  font-weight: 600;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .image {
+  max-width: 50px;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .image img {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .info .title {
+  font-weight: 600;
+  color: #141414;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .number {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .price {
+  color: #818181;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.menu .sides .side:nth-child(2) .bills .subtotal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  font-size: 15px;
+}
+
+.menu .sides .side:nth-child(2) .bills .subtotal .title {
+  font-weight: 500;
+}
+
+.menu .sides .side:nth-child(2) .bills .subtotal .price {
+  font-weight: 500;
+}
+
+.menu .sides .side:nth-child(2) .bills .tax {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+}
+
+.menu .sides .side:nth-child(2) .bills .tax .title {
+  color: #4c4c4c;
+}
+
+.menu .sides .side:nth-child(2) .bills .tax .price {
+  color: #4c4c4c;
+}
+
+.menu .sides .side:nth-child(2) .bills .total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 2px dashed #d1d1d1;
+  padding-top: 5%;
+  margin-top: 2%;
+}
+
+.menu .sides .side:nth-child(2) .bills .total .title {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.menu .sides .side:nth-child(2) .bills .total .price {
+  font-weight: 600;
+  font-size: 17px;
 }
 
 .sidebar {
@@ -430,10 +663,17 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: -11px 16px 20px 8px #d9d9d9;
-          box-shadow: -11px 16px 20px 8px #d9d9d9;
-  height: 100%;
+  -webkit-box-shadow: -11px 16px 20px 8px #f1f1f1;
+          box-shadow: -11px 16px 20px 8px #f1f1f1;
   max-width: 135px;
+  height: 100%;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }
 
 .sidebar .brand {
