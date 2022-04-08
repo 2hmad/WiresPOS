@@ -1,0 +1,52 @@
+$primary: #7e74f1;
+@import "fonts";
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    overflow: auto;
+}
+.app-en {
+    direction: ltr;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+}
+.app-ar {
+    direction: rtl;
+    text-align: right;
+    font-family: "Cairo", sans-serif;
+}
+.app {
+    min-height: 100vh;
+}
+.btn {
+    background-color: $primary;
+    padding: 10px;
+    width: 120px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+    margin: 3%;
+    display: block;
+    &:focus {
+        background-color: #675af8;
+    }
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+}
+@import "login";
+@import "dashboard";
+@import "menu";
+@import "components/sidebar";

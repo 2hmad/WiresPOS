@@ -1,0 +1,47 @@
+.menu {
+    display: flex;
+    .sides {
+        margin-left: 3%;
+        display: flex;
+        width: 100%;
+        .side {
+            &:nth-child(1) {
+                margin-top: 20px;
+                flex: 2;
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .search {
+                        form {
+                            display: flex;
+                            .search-box {
+                                padding: 7px;
+                                background: white;
+                                width: 100%;
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                margin-top: 20px;
+                flex: 1;
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .search {
+                        .search-box {
+                            padding: 7px;
+                            background: white;
+                            width: 100%;
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

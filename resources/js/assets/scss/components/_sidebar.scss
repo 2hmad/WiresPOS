@@ -1,0 +1,44 @@
+.sidebar {
+    background: white;
+    padding: 1% 2%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -11px 16px 20px 8px rgb(217, 217, 217);
+    height: 100%;
+    max-width: 135px;
+    .brand {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .items {
+        text-align: center;
+        margin-top: 30px;
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            li {
+                color: #b0b0b0;
+                padding: 13px 18px;
+                a {
+                    display: block;
+                    &.active {
+                        background-color: #704332;
+                        width: 100%;
+                        border-radius: 15px;
+                        color: white;
+                        padding: 13px 18px;
+                    }
+                }
+                .title {
+                    font-size: 14px;
+                }
+                .icon {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
