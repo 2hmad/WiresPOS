@@ -472,6 +472,136 @@ ul {
   color: #704332;
 }
 
+.menu .sides .side:nth-child(1) .products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 4%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu .sides .side:nth-child(1) .products .product {
+  max-width: 390px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 7px;
+  -webkit-box-shadow: 3px 2px 13px 1px #f3f3f3;
+          box-shadow: 3px 2px 13px 1px #f3f3f3;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu .sides .side:nth-child(1) .products .product:hover .add {
+  visibility: visible;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .image {
+  width: 100%;
+  max-width: 120px;
+  height: 140px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .details .title {
+  font-size: 19px;
+  display: block;
+  font-weight: 600;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .details .desc {
+  color: #6e6e6e;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .details .price {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .info .details .price .currency {
+  font-size: 13px;
+  position: relative;
+  bottom: 6px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .sizes {
+  margin-top: 5%;
+}
+
+.menu .sides .side:nth-child(1) .products .product .sizes h3 {
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.menu .sides .side:nth-child(1) .products .product .sizes .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+  margin-top: 1%;
+}
+
+.menu .sides .side:nth-child(1) .products .product .sizes .cards .size {
+  font-weight: 700;
+  font-size: 17px;
+  width: 35px;
+  height: 35px;
+  background: rgba(249, 217, 205, 0.28);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menu .sides .side:nth-child(1) .products .product .sizes .cards .size.active {
+  border: 1px solid #704332;
+}
+
+.menu .sides .side:nth-child(1) .products .product .add {
+  background-color: #704332;
+  padding: 13px;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+  margin-top: 5%;
+  visibility: hidden;
+}
+
 .menu .sides .side:nth-child(2) {
   background-color: white;
   padding: 20px;
@@ -692,7 +822,7 @@ ul {
 }
 
 .menu .sides .side:nth-child(2) .payment .cards .card .icon {
-  font-size: 23px;
+  height: 36px;
 }
 
 .menu .sides .side:nth-child(2) .payment .cards .card.active {
@@ -702,6 +832,11 @@ ul {
   color: white;
   -webkit-filter: opacity(1);
           filter: opacity(1);
+}
+
+.menu .sides .side:nth-child(2) .payment .cards .card.active .icon {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
 }
 
 .menu .sides .side:nth-child(2) .print-bill {
@@ -730,8 +865,10 @@ ul {
   height: 100%;
   min-height: 100vh;
   position: fixed;
-  left: 0;
   z-index: 99;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -767,7 +904,7 @@ ul {
 }
 
 .sidebar .items ul li {
-  color: #b0b0b0;
+  color: #797979;
   padding: 13px 18px;
 }
 
@@ -783,11 +920,16 @@ ul {
   padding: 13px 18px;
 }
 
+.sidebar .items ul li a.active img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
 .sidebar .items ul li .title {
   font-size: 14px;
 }
 
-.sidebar .items ul li .icon {
-  font-size: 24px;
+.sidebar .items ul li .icon img {
+  width: 33px;
 }
 /*# sourceMappingURL=main.css.map */

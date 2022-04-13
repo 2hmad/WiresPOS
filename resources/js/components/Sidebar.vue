@@ -8,7 +8,7 @@
                 <li>
                     <router-link to="/" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiHomeVariantOutline" />
+                            <img src="icons/icons8-home.svg" />
                         </div>
                         <div class="title">Home</div>
                     </router-link>
@@ -16,7 +16,7 @@
                 <li>
                     <router-link to="/menu" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiBlenderOutline" />
+                            <img src="icons/icons8-cooking-pot.svg" />
                         </div>
                         <div class="title">Menu</div>
                     </router-link>
@@ -24,7 +24,7 @@
                 <li>
                     <router-link to="/history" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiHistory" />
+                            <img src="icons/icons8-clock.svg" />
                         </div>
                         <div class="title">History</div>
                     </router-link>
@@ -32,25 +32,25 @@
                 <li>
                     <router-link to="/wallet" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiWallet" />
+                            <img src="icons/icons8-wallet.svg" />
                         </div>
                         <div class="title">Wallet</div>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/promos" class-active="active" exact>
+                    <router-link to="/setting" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiPercentOutline" />
+                            <img src="icons/icons8-settings.svg" />
                         </div>
-                        <div class="title">Promos</div>
+                        <div class="title">Setting</div>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/setting" class-active="active" exact>
                         <div class="icon">
-                            <v-icon :icon="mdiCogOutline" />
+                            <img src="icons/icons8-logout.svg" />
                         </div>
-                        <div class="title">Setting</div>
+                        <div class="title">Logout</div>
                     </router-link>
                 </li>
             </ul>
@@ -58,24 +58,9 @@
     </nav>
 </template>
 <script>
-import {
-    mdiHomeVariantOutline,
-    mdiBlenderOutline,
-    mdiHistory,
-    mdiWallet,
-    mdiPercentOutline,
-    mdiCogOutline,
-} from "@mdi/js";
 export default {
     data() {
-        return {
-            mdiHomeVariantOutline,
-            mdiBlenderOutline,
-            mdiHistory,
-            mdiWallet,
-            mdiPercentOutline,
-            mdiCogOutline,
-        };
+        return {};
     },
 };
 </script>

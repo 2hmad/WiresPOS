@@ -15,8 +15,14 @@
                                     placeholder="Search menu..."
                                     class="search-box"
                                 />
-                                <button type="submit">
-                                    <v-icon :icon="mdiMagnify" />
+                                <button
+                                    type="submit"
+                                    style="display: flex; align-items: center"
+                                >
+                                    <img
+                                        src="icons/icons8-search.svg"
+                                        style="width: 23px"
+                                    />
                                 </button>
                             </form>
                         </div>
@@ -27,18 +33,72 @@
                                 :settings="settings"
                                 :breakpoints="breakpoints"
                             >
-                                <Slide v-for="n in 9" :key="n">
-                                    <div class="card">
-                                        <div class="icon">
-                                            <img
-                                                src="https://cdn-icons-png.flaticon.com/512/924/924514.png"
-                                                alt=""
-                                            />
+                                <Slide v-for="item in items" :key="item">
+                                    <button @click="setCat(item.id)">
+                                        <div
+                                            class="card"
+                                            :class="{
+                                                active:
+                                                    this.selectedCat == item.id,
+                                            }"
+                                        >
+                                            <div class="icon">
+                                                <img :src="item.icon" alt="" />
+                                            </div>
+                                            <div class="title">
+                                                {{ item.title }}
+                                            </div>
                                         </div>
-                                        <div class="title">Coffee</div>
-                                    </div>
+                                    </button>
                                 </Slide>
                             </Carousel>
+                        </div>
+                    </div>
+                    <h2 style="font-weight: 600; margin-top: 3%">
+                        {{
+                            selectedCat
+                                ? items.find((item) => item.id === selectedCat)
+                                      .title + " Menu"
+                                : ""
+                        }}
+                    </h2>
+                    <div class="products">
+                        <div class="product" v-for="n in 3">
+                            <div class="info">
+                                <div class="image">
+                                    <img
+                                        src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                                    />
+                                </div>
+                                <div class="details">
+                                    <span class="title">
+                                        Caramel Frappaccino
+                                    </span>
+                                    <span class="desc">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </span>
+                                    <span class="price">
+                                        <span class="currency">EGP</span>
+                                        3,95
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="sizes">
+                                <h3>Size</h3>
+                                <div class="cards">
+                                    <button class="size" @click="activeSize">
+                                        S
+                                    </button>
+                                    <button class="size" @click="activeSize">
+                                        M
+                                    </button>
+                                    <button class="size" @click="activeSize">
+                                        L
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="add">Add to Billing</button>
                         </div>
                     </div>
                 </div>
@@ -58,14 +118,17 @@
                         </div>
                         <div class="notification">
                             <v-badge dot color="red">
-                                <v-icon :icon="mdiBellOutline" />
+                                <img
+                                    src="icons/icons8-notification.svg"
+                                    style="max-width: 27px"
+                                />
                             </v-badge>
                         </div>
                     </div>
                     <div class="bills">
                         <h2>Bills</h2>
                         <div class="cards">
-                            <div class="card" v-for="n in 10">
+                            <div class="card">
                                 <div class="image">
                                     <img
                                         src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
@@ -112,7 +175,7 @@
                                 v-bind:class="{ active: this.method == 1 }"
                             >
                                 <div class="icon">
-                                    <v-icon :icon="mdiCash" />
+                                    <img src="icons/icons8-money.svg" />
                                 </div>
                                 <div class="title">Cash</div>
                             </div>
@@ -122,7 +185,7 @@
                                 v-bind:class="{ active: this.method == 2 }"
                             >
                                 <div class="icon">
-                                    <v-icon :icon="mdiCreditCard" />
+                                    <img src="icons/icons8-debit-card.svg" />
                                 </div>
                                 <div class="title">Credit Card</div>
                             </div>
@@ -132,7 +195,9 @@
                                 v-bind:class="{ active: this.method === 3 }"
                             >
                                 <div class="icon">
-                                    <v-icon :icon="mdiQrcodeScan" />
+                                    <img
+                                        src="icons/icons8-business-card-scanner.svg"
+                                    />
                                 </div>
                                 <div class="title">E-Wallet</div>
                             </div>
@@ -148,13 +213,6 @@
 import Sidebar from "../components/Sidebar.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
-import {
-    mdiBellOutline,
-    mdiMagnify,
-    mdiCash,
-    mdiCreditCard,
-    mdiQrcodeScan,
-} from "@mdi/js";
 export default {
     name: "menu",
     components: {
@@ -162,32 +220,48 @@ export default {
         Carousel,
         Slide,
     },
-    data: () => ({
-        mdiBellOutline,
-        mdiMagnify,
-        mdiCash,
-        mdiCreditCard,
-        mdiQrcodeScan,
-        method: null,
-        settings: {
-            itemsToShow: 1,
-            snapAlign: "start",
-        },
-        breakpoints: {
-            700: {
-                itemsToShow: 3.5,
+    data() {
+        return {
+            method: null,
+            selectedCat: null,
+            items: [
+                {
+                    id: 1,
+                    title: "All",
+                    icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png",
+                },
+                {
+                    id: 2,
+                    title: "Coffee",
+                    icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png",
+                },
+            ],
+            settings: {
+                itemsToShow: 1,
                 snapAlign: "start",
             },
-            1024: {
-                itemsToShow: 7,
-                snapAlign: "start",
+            breakpoints: {
+                700: {
+                    itemsToShow: 3.5,
+                    snapAlign: "start",
+                },
+                1024: {
+                    itemsToShow: 7,
+                    snapAlign: "start",
+                },
             },
-        },
-    }),
+        };
+    },
     methods: {
         payment(id) {
             this.method = id;
             console.log(this.payment);
+        },
+        setCat(id) {
+            this.selectedCat = id;
+        },
+        activeSize(event) {
+            event.target.classList.toggle("active");
         },
     },
 };
