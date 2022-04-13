@@ -30,14 +30,6 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/wallet" class-active="active" exact>
-                        <div class="icon">
-                            <img src="icons/icons8-wallet.svg" />
-                        </div>
-                        <div class="title">Wallet</div>
-                    </router-link>
-                </li>
-                <li>
                     <router-link to="/setting" class-active="active" exact>
                         <div class="icon">
                             <img src="icons/icons8-settings.svg" />

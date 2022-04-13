@@ -63,24 +63,25 @@
                         }}
                     </h2>
                     <div class="products">
-                        <div class="product" v-for="n in 3">
+                        <div
+                            class="product"
+                            v-for="product in filterProducts"
+                            :key="product.id"
+                        >
                             <div class="info">
                                 <div class="image">
-                                    <img
-                                        src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                    />
+                                    <img :src="product.image" />
                                 </div>
                                 <div class="details">
                                     <span class="title">
-                                        Caramel Frappaccino
+                                        {{ product.title }}
                                     </span>
                                     <span class="desc">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit.
+                                        {{ product.desc }}
                                     </span>
                                     <span class="price">
                                         <span class="currency">EGP</span>
-                                        3,95
+                                        {{ product.price }}
                                     </span>
                                 </div>
                             </div>
@@ -98,7 +99,9 @@
                                     </button>
                                 </div>
                             </div>
-                            <button class="add">Add to Billing</button>
+                            <button class="add" @click="addBill(product.id)">
+                                Add to Billing
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -128,7 +131,11 @@
                     <div class="bills">
                         <h2>Bills</h2>
                         <div class="cards">
-                            <div class="card">
+                            <div
+                                class="card"
+                                v-for="(bill, index) in filterBills"
+                                :key="index"
+                            >
                                 <div class="image">
                                     <img
                                         src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
@@ -136,11 +143,13 @@
                                 </div>
                                 <div class="info">
                                     <span class="title">
-                                        Caramel Frappuccino
+                                        {{ bill.title }}
                                     </span>
                                     <div class="quantity">
                                         <span class="number">1</span>
-                                        <span class="price">$3.95</span>
+                                        <span class="price">
+                                            ${{ bill.price }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -236,6 +245,27 @@ export default {
                     icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png",
                 },
             ],
+            products: [
+                {
+                    id: 1,
+                    title: "Caramel Frappaccino",
+                    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                    price: "3.95",
+                    cat: 1,
+                },
+                {
+                    id: 2,
+                    title: "Caramel",
+                    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                    price: "4.95",
+                    cat: 2,
+                },
+            ],
+            filterProducts: [],
+            bill: null,
+            filterBills: [],
             settings: {
                 itemsToShow: 1,
                 snapAlign: "start",
@@ -259,9 +289,22 @@ export default {
         },
         setCat(id) {
             this.selectedCat = id;
+            if (id == 1) {
+                this.filterProducts = this.products;
+            } else {
+                this.filterProducts = this.products.filter(
+                    (p) => p.cat === this.selectedCat
+                );
+            }
         },
         activeSize(event) {
             event.target.classList.toggle("active");
+        },
+        addBill(id) {
+            this.bill = id;
+            this.filterBills.push(
+                this.products.filter((p) => p.id === this.bill)
+            );
         },
     },
 };
