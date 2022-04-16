@@ -38,7 +38,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/setting" class-active="active" exact>
+                    <router-link to="/logout" class-active="active" exact>
                         <div class="icon">
                             <img src="icons/icons8-logout.svg" />
                         </div>
