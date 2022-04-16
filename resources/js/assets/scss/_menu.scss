@@ -59,10 +59,13 @@
                             transition: 0.5s;
                             cursor: pointer;
                             &.active {
-                                border: 1px solid #704332;
-                                background-color: #f9d9cd2e;
+                                border: 1px solid #3154aa;
+                                background-color: #3153aa2c;
                                 font-weight: 600;
                                 filter: opacity(1);
+                                .title {
+                                    color: #3154aa;
+                                }
                             }
                             &:hover {
                                 filter: opacity(1);
@@ -74,7 +77,7 @@
                                 }
                             }
                             .title {
-                                color: #704332;
+                                color: #2c2c2c;
                             }
                         }
                     }
@@ -116,7 +119,8 @@
                                 gap: 10px;
                                 .title {
                                     font-size: 19px;
-                                    display: block;
+                                    display: flex;
+                                    align-items: center;
                                     font-weight: 600;
                                 }
                                 .desc {
@@ -157,19 +161,27 @@
                                     align-items: center;
                                     justify-content: center;
                                     &.active {
-                                        border: 1px solid #704332;
+                                        border: 1px solid #3154aa;
                                     }
                                 }
                             }
                         }
                         .add {
-                            background-color: #704332;
                             padding: 13px;
-                            width: 100%;
+                            width: 15px;
+                            height: 15px;
                             color: white;
-                            border-radius: 10px;
-                            margin-top: 5%;
-                            visibility: hidden;
+                            border-radius: 50%;
+                            border: 1px solid #3154aa;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-left: auto;
+                            background-color: #3154aa;
+                            img {
+                                width: 20px;
+                                height: 20px;
+                            }
                         }
                     }
                 }
@@ -311,9 +323,9 @@
                                 height: 36px;
                             }
                             &.active {
-                                border: 1px solid #704332;
+                                border: 1px solid #3154aa;
                                 border-radius: 15px;
-                                background: #704332;
+                                background: #3154aa;
                                 color: white;
                                 filter: opacity(1);
                                 .icon {
@@ -324,7 +336,7 @@
                     }
                 }
                 .print-bill {
-                    background-color: #704332;
+                    background-color: #3154aa;
                     width: 100%;
                     padding: 13px;
                     color: white;

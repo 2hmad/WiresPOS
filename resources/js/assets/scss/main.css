@@ -448,11 +448,15 @@ ul {
 }
 
 .menu .sides .side:nth-child(1) .categories .cards .card.active {
-  border: 1px solid #704332;
-  background-color: #f9d9cd2e;
+  border: 1px solid #3154aa;
+  background-color: #3153aa2c;
   font-weight: 600;
   -webkit-filter: opacity(1);
           filter: opacity(1);
+}
+
+.menu .sides .side:nth-child(1) .categories .cards .card.active .title {
+  color: #3154aa;
 }
 
 .menu .sides .side:nth-child(1) .categories .cards .card:hover {
@@ -469,7 +473,7 @@ ul {
 }
 
 .menu .sides .side:nth-child(1) .categories .cards .card .title {
-  color: #704332;
+  color: #2c2c2c;
 }
 
 .menu .sides .side:nth-child(1) .products {
@@ -531,7 +535,12 @@ ul {
 
 .menu .sides .side:nth-child(1) .products .product .info .details .title {
   font-size: 19px;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: 600;
 }
 
@@ -589,17 +598,32 @@ ul {
 }
 
 .menu .sides .side:nth-child(1) .products .product .sizes .cards .size.active {
-  border: 1px solid #704332;
+  border: 1px solid #3154aa;
 }
 
 .menu .sides .side:nth-child(1) .products .product .add {
-  background-color: #704332;
   padding: 13px;
-  width: 100%;
+  width: 15px;
+  height: 15px;
   color: white;
-  border-radius: 10px;
-  margin-top: 5%;
-  visibility: hidden;
+  border-radius: 50%;
+  border: 1px solid #3154aa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: auto;
+  background-color: #3154aa;
+}
+
+.menu .sides .side:nth-child(1) .products .product .add img {
+  width: 20px;
+  height: 20px;
 }
 
 .menu .sides .side:nth-child(2) {
@@ -826,9 +850,9 @@ ul {
 }
 
 .menu .sides .side:nth-child(2) .payment .cards .card.active {
-  border: 1px solid #704332;
+  border: 1px solid #3154aa;
   border-radius: 15px;
-  background: #704332;
+  background: #3154aa;
   color: white;
   -webkit-filter: opacity(1);
           filter: opacity(1);
@@ -840,13 +864,133 @@ ul {
 }
 
 .menu .sides .side:nth-child(2) .print-bill {
-  background-color: #704332;
+  background-color: #3154aa;
   width: 100%;
   padding: 13px;
   color: white;
   border-radius: 7px;
   font-weight: 500;
   margin-top: 30px;
+}
+
+.history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+}
+
+.history .side {
+  margin-left: 155px;
+  width: 100%;
+  margin-top: 3%;
+}
+
+@media screen and (max-width: 768px) {
+  .history .side {
+    margin-left: 20px;
+  }
+}
+
+.history .side .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+}
+
+.history .side .card {
+  background-color: white;
+  padding: 15px 30px 15px 30px;
+  width: 300px;
+  max-width: 100%;
+  -webkit-box-shadow: 2px 4px 17px 0px #f3f3f3;
+          box-shadow: 2px 4px 17px 0px #f3f3f3;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin-top: 3%;
+}
+
+.history .side .card .title {
+  color: #919191;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.history .side .card .amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.history .side .card .amount .currency {
+  color: #4d4d4d;
+  font-size: 16px;
+  position: relative;
+}
+
+.history .side .card .amount .number {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.history .side .invoices .heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 1%;
+  gap: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .history .side .invoices .heading {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.history .side .invoices .heading p {
+  font-size: 15px;
+  color: #666;
+}
+
+.history .side .invoices .heading .add {
+  background-color: #3154aa;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+}
+
+.history .side .invoices .heading .add img {
+  width: 15px;
 }
 
 .sidebar {
@@ -913,7 +1057,7 @@ ul {
 }
 
 .sidebar .items ul li a.active {
-  background-color: #704332;
+  background-color: #3154aa;
   width: 100%;
   border-radius: 15px;
   color: white;

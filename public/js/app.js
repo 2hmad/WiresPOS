@@ -22778,6 +22778,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Sidebar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Sidebar.vue */ "./resources/js/components/Sidebar.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Sidebar: _components_Sidebar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  setup: function setup() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Login.vue?vue&type=script&lang=js":
 /*!******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Login.vue?vue&type=script&lang=js ***!
@@ -22848,6 +22870,24 @@ __webpack_require__.r(__webpack_exports__);
         title: "Coffee",
         icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png"
       }],
+      products: [{
+        id: 1,
+        title: "Caramel Frappaccino",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        price: "3.95",
+        cat: 1
+      }, {
+        id: 2,
+        title: "Caramel",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        price: "4.95",
+        cat: 2
+      }],
+      filterProducts: [],
+      bill: null,
+      filterBills: [],
       settings: {
         itemsToShow: 1,
         snapAlign: "start"
@@ -22870,10 +22910,28 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.payment);
     },
     setCat: function setCat(id) {
+      var _this = this;
+
       this.selectedCat = id;
+
+      if (id == 1) {
+        this.filterProducts = this.products;
+      } else {
+        this.filterProducts = this.products.filter(function (p) {
+          return p.cat === _this.selectedCat;
+        });
+      }
     },
     activeSize: function activeSize(event) {
       event.target.classList.toggle("active");
+    },
+    addBill: function addBill(id) {
+      var _this2 = this;
+
+      this.bill = id;
+      this.filterBills.push(this.products.filter(function (p) {
+        return p.id === _this2.bill;
+      }));
     }
   }
 });
@@ -22954,32 +23012,18 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "icons/icons8-wallet.svg"
+  src: "icons/icons8-settings.svg"
 })], -1
 /* HOISTED */
 );
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
-}, "Wallet", -1
-/* HOISTED */
-);
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "icon"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "icons/icons8-settings.svg"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "title"
 }, "Setting", -1
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "icons/icons8-logout.svg"
@@ -22987,7 +23031,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
 }, "Logout", -1
 /* HOISTED */
@@ -23030,7 +23074,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/wallet",
+    to: "/setting",
     "class-active": "active",
     exact: ""
   }, {
@@ -23047,17 +23091,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_12, _hoisted_13];
-    }),
-    _: 1
-    /* STABLE */
-
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/setting",
-    "class-active": "active",
-    exact: ""
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_14, _hoisted_15];
     }),
     _: 1
     /* STABLE */
@@ -23089,6 +23122,43 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("app-".concat(_ctx.$i18n.locale))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar)])], 2
+  /* CLASS */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=template&id=11b1931b":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=template&id=11b1931b ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "history"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "side"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Payments"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card"
+})], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("app-".concat(_ctx.$i18n.locale))
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar), _hoisted_2])], 2
   /* CLASS */
   );
 }
@@ -23291,43 +23361,57 @@ var _hoisted_12 = {
   "class": "products"
 };
 var _hoisted_13 = {
-  "class": "product"
+  "class": "info"
+};
+var _hoisted_14 = {
+  "class": "image"
+};
+var _hoisted_15 = ["src"];
+var _hoisted_16 = {
+  "class": "details"
+};
+var _hoisted_17 = {
+  "class": "title"
+};
+var _hoisted_18 = {
+  "class": "desc"
+};
+var _hoisted_19 = {
+  "class": "price"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"info\"><div class=\"image\"><img src=\"https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260\"></div><div class=\"details\"><span class=\"title\"> Caramel Frappaccino </span><span class=\"desc\"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </span><span class=\"price\"><span class=\"currency\">EGP</span> 3,95 </span></div></div>", 1);
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "currency"
+}, "EGP", -1
+/* HOISTED */
+);
 
-var _hoisted_15 = {
+var _hoisted_21 = {
   "class": "sizes"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Size", -1
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Size", -1
 /* HOISTED */
 );
 
-var _hoisted_17 = {
+var _hoisted_23 = {
   "class": "cards"
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "add"
-}, "Add to Billing", -1
-/* HOISTED */
-);
-
-var _hoisted_19 = {
+var _hoisted_24 = ["onClick"];
+var _hoisted_25 = {
   "class": "side"
 };
-var _hoisted_20 = {
+var _hoisted_26 = {
   "class": "account"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div style=\"display:flex;gap:10px;\"><div class=\"avatar\"><img src=\"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&amp;w=740\"></div><div class=\"name\"><span class=\"job-title\"> I&#39;m a Cashier </span><span class=\"fullname\"> Ahmed Mohamed </span></div></div>", 1);
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div style=\"display:flex;gap:10px;\"><div class=\"avatar\"><img src=\"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&amp;w=740\"></div><div class=\"name\"><span class=\"job-title\"> I&#39;m a Cashier </span><span class=\"fullname\"> Ahmed Mohamed </span></div></div>", 1);
 
-var _hoisted_22 = {
+var _hoisted_28 = {
   "class": "notification"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "icons/icons8-notification.svg",
   style: {
     "max-width": "27px"
@@ -23336,21 +23420,61 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bills\"><h2>Bills</h2><div class=\"cards\"><div class=\"card\"><div class=\"image\"><img src=\"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&amp;w=740\"></div><div class=\"info\"><span class=\"title\"> Caramel Frappuccino </span><div class=\"quantity\"><span class=\"number\">1</span><span class=\"price\">$3.95</span></div></div></div></div><div style=\"display:flex;flex-direction:column;gap:5px;\"><div class=\"subtotal\"><span class=\"title\">Subtotal</span><span class=\"price\">$18.31</span></div><div class=\"tax\"><span class=\"title\">Tax (14%)</span><span class=\"price\">$2</span></div><div class=\"total\"><span class=\"title\">Total</span><span class=\"price\">$20.31</span></div></div></div>", 1);
-
-var _hoisted_25 = {
-  "class": "payment"
+var _hoisted_30 = {
+  "class": "bills"
 };
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Payment Method", -1
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Bills", -1
 /* HOISTED */
 );
 
-var _hoisted_27 = {
+var _hoisted_32 = {
   "class": "cards"
 };
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "image"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_34 = {
+  "class": "info"
+};
+var _hoisted_35 = {
+  "class": "title"
+};
+var _hoisted_36 = {
+  "class": "quantity"
+};
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "number"
+}, "1", -1
+/* HOISTED */
+);
+
+var _hoisted_38 = {
+  "class": "price"
+};
+
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div style=\"display:flex;flex-direction:column;gap:5px;\"><div class=\"subtotal\"><span class=\"title\">Subtotal</span><span class=\"price\">$18.31</span></div><div class=\"tax\"><span class=\"title\">Tax (14%)</span><span class=\"price\">$2</span></div><div class=\"total\"><span class=\"title\">Total</span><span class=\"price\">$20.31</span></div></div>", 1);
+
+var _hoisted_40 = {
+  "class": "payment"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Payment Method", -1
+/* HOISTED */
+);
+
+var _hoisted_42 = {
+  "class": "cards"
+};
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "icons/icons8-money.svg"
@@ -23358,15 +23482,15 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
 }, "Cash", -1
 /* HOISTED */
 );
 
-var _hoisted_30 = [_hoisted_28, _hoisted_29];
+var _hoisted_45 = [_hoisted_43, _hoisted_44];
 
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "icons/icons8-debit-card.svg"
@@ -23374,15 +23498,15 @@ var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
 }, "Credit Card", -1
 /* HOISTED */
 );
 
-var _hoisted_33 = [_hoisted_31, _hoisted_32];
+var _hoisted_48 = [_hoisted_46, _hoisted_47];
 
-var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "icons/icons8-business-card-scanner.svg"
@@ -23390,15 +23514,15 @@ var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
 }, "E-Wallet", -1
 /* HOISTED */
 );
 
-var _hoisted_36 = [_hoisted_34, _hoisted_35];
+var _hoisted_51 = [_hoisted_49, _hoisted_50];
 
-var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "print-bill"
 }, "Print Bill", -1
 /* HOISTED */
@@ -23467,8 +23591,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return item.id === $data.selectedCat;
   }).title + " Menu" : ""), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(3, function (n) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.filterProducts, function (product) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "product",
+      key: product.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: product.image
+    }, null, 8
+    /* PROPS */
+    , _hoisted_15)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.title), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.desc), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price), 1
+    /* TEXT */
+    )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "size",
       onClick: _cache[0] || (_cache[0] = function () {
         return $options.activeSize && $options.activeSize.apply($options, arguments);
@@ -23483,27 +23620,45 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[2] || (_cache[2] = function () {
         return $options.activeSize && $options.activeSize.apply($options, arguments);
       })
-    }, " L ")])]), _hoisted_18]);
-  }), 64
-  /* STABLE_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_badge, {
+    }, " L ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "add",
+      onClick: function onClick($event) {
+        return $options.addBill(product.id);
+      }
+    }, " Add to Billing ", 8
+    /* PROPS */
+    , _hoisted_24)]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_badge, {
     dot: "",
     color: "red"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_23];
+      return [_hoisted_29];
     }),
     _: 1
     /* STABLE */
 
-  })])]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.filterBills, function (bill, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "card",
+      key: index
+    }, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bill.title), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [_hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_38, " $" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bill.price), 1
+    /* TEXT */
+    )])])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]), _hoisted_39]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["card", {
       active: this.method == 1
     }]),
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.payment(1);
     })
-  }, _hoisted_30, 2
+  }, _hoisted_45, 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["card", {
@@ -23512,7 +23667,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.payment(2);
     })
-  }, _hoisted_33, 2
+  }, _hoisted_48, 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["card", {
@@ -23521,9 +23676,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[5] || (_cache[5] = function ($event) {
       return $options.payment(3);
     })
-  }, _hoisted_36, 2
+  }, _hoisted_51, 2
   /* CLASS */
-  )])]), _hoisted_37])])])], 2
+  )])]), _hoisted_52])])])], 2
   /* CLASS */
   );
 }
@@ -23643,10 +23798,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _pages_Login_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Login.vue */ "./resources/js/pages/Login.vue");
 /* harmony import */ var _pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Dashboard.vue */ "./resources/js/pages/Dashboard.vue");
 /* harmony import */ var _pages_Menu_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Menu.vue */ "./resources/js/pages/Menu.vue");
+/* harmony import */ var _pages_History_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/History.vue */ "./resources/js/pages/History.vue");
+
 
 
 
@@ -23660,9 +23817,12 @@ var routes = [{
 }, {
   path: "/menu",
   component: _pages_Menu_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: "/history",
+  component: _pages_History_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createWebHistory)(),
   linkActiveClass: "active",
   routes: routes
 });
@@ -23717,7 +23877,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Poppins_ExtraBold_ttf__WEBPACK_IMPORTED_MODULE_9__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Poppins_Black_ttf__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-weight: 100;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-weight: 200;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n  font-weight: 500;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  font-weight: 600;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  font-weight: 700;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  font-weight: 800;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  font-weight: 900;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-weight: 200;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n  font-weight: 500;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  font-weight: 600;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  font-weight: 700;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  font-weight: 800;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  font-weight: 900;\n}\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  box-sizing: border-box;\n  background-color: #f9f8fb;\n  overflow: auto;\n}\n\n.app-en {\n  direction: ltr;\n  text-align: left;\n  font-family: \"Poppins\", sans-serif;\n  min-height: 100vh;\n}\n\n.app-ar {\n  direction: rtl;\n  text-align: right;\n  font-family: \"Cairo\", sans-serif;\n  min-height: 100vh;\n}\n\n.btn {\n  background-color: #7e74f1;\n  padding: 10px;\n  width: 120px;\n  border-radius: 3px;\n  border: none;\n  outline: none;\n  color: white;\n  cursor: pointer;\n  transition: 0.4s;\n  margin: 3%;\n  display: block;\n}\n.btn:focus {\n  background-color: #675af8;\n}\n\na {\n  text-decoration: none;\n  color: inherit;\n}\n\nul {\n  list-style: none;\n}\n\n.login {\n  min-height: 100vh;\n}\n.login .sides {\n  display: flex;\n  height: 100%;\n  min-height: 100vh;\n}\n.login .sides .side {\n  flex-grow: 1;\n  width: 100%;\n}\n.login .sides .side:nth-child(1) {\n  text-align: center;\n  background: #3154aa;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n@media screen and (max-width: 768px) {\n  .login .sides .side:nth-child(1) {\n    display: none;\n  }\n}\n.login .sides .side:nth-child(1) .image {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n}\n.login .sides .side:nth-child(1) .text {\n  color: white;\n  max-width: 250px;\n}\n.login .sides .side:nth-child(1) .text h4 {\n  font-size: 25px;\n  font-weight: 400;\n  text-transform: capitalize;\n}\n.login .sides .side:nth-child(1) .text p {\n  line-height: 1.6em;\n  font-size: 15px;\n  font-weight: 300;\n}\n@media screen and (max-width: 768) {\n  .login .sides .side:nth-child(1) {\n    display: none;\n  }\n}\n.login .sides .side:nth-child(2) {\n  padding: 40px;\n}\n.login .sides .side:nth-child(2) .header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 10%;\n}\n.login .sides .side:nth-child(2) .header .brand {\n  max-width: 100px;\n}\n.login .sides .side:nth-child(2) .header .brand img {\n  width: 100%;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher {\n  font-weight: bold;\n  font-size: 15px;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher .link {\n  color: #727272;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher .active {\n  color: black !important;\n}\n.login .sides .side:nth-child(2) h4 {\n  text-align: center;\n}\n.login .sides .side:nth-child(2) .form {\n  max-width: 400px;\n  margin: 5% auto;\n}\n.login .sides .side:nth-child(2) .form h2 {\n  text-align: center;\n  font-weight: bold;\n}\n.login .sides .side:nth-child(2) .form p {\n  text-align: center;\n  color: #b0b3c4;\n}\n.login .sides .side:nth-child(2) .form form {\n  text-align: inherit;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.login .sides .side:nth-child(2) .form form .form-group .input-label {\n  display: inline-block;\n  background: white;\n  position: relative;\n  top: 13px;\n  left: 15px;\n  right: 15px;\n  color: rgb(75, 75, 75);\n}\n.login .sides .side:nth-child(2) .form form .form-group #email-input,\n.login .sides .side:nth-child(2) .form form .form-group #password-input {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid rgb(224, 224, 224);\n  border-radius: 4px;\n  outline: none;\n  transition: 0.4s;\n}\n.login .sides .side:nth-child(2) .form form .form-group:focus-within #email-input,\n.login .sides .side:nth-child(2) .form form .form-group:focus-within #password-input {\n  border: 1px solid #3154aa;\n}\n.login .sides .side:nth-child(2) .form form .form-group:focus-within .input-label {\n  color: #3154aa;\n}\n.login .sides .side:nth-child(2) .form form .login-btn {\n  background-color: #3154aa;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n  color: white;\n  font-weight: 500;\n  transition: 0.5s;\n}\n.login .sides .side:nth-child(2) .form form .login-btn:focus {\n  background-color: #4065c4;\n}\n\n.dashboard {\n  display: flex;\n  min-height: 100vh;\n}\n\n.menu {\n  display: flex;\n}\n.menu .sides {\n  margin-left: 155px;\n  display: grid;\n  grid-auto-columns: 2fr 1fr;\n  grid-auto-flow: column;\n  width: 100%;\n  gap: 20px;\n}\n@media screen and (max-width: 768px) {\n  .menu .sides {\n    margin-left: 20px;\n  }\n}\n.menu .sides .side:nth-child(1) {\n  width: 800px;\n  max-width: 100%;\n  margin-top: 3%;\n}\n.menu .sides .side:nth-child(1) .heading {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.menu .sides .side:nth-child(1) .heading .search form {\n  display: flex;\n  width: 350px;\n}\n.menu .sides .side:nth-child(1) .heading .search form .search-box {\n  padding: 10px;\n  background: white;\n  width: 100%;\n  outline: none;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(1) .heading .search form button {\n  position: relative;\n  right: 30px;\n  color: #4c4c4c;\n  font-size: 19px;\n}\n.menu .sides .side:nth-child(1) .categories {\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(1) .categories .cards {\n  display: flex;\n  gap: 30px;\n  max-width: 800px;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card {\n  background-color: white;\n  padding: 12px 23px;\n  border: 1px solid #e5e5e5;\n  border-radius: 15px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  filter: opacity(0.85);\n  transition: 0.5s;\n  cursor: pointer;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card.active {\n  border: 1px solid #704332;\n  background-color: rgba(249, 217, 205, 0.1803921569);\n  font-weight: 600;\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(1) .categories .cards .card:hover {\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .icon {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .icon img {\n  width: 100%;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .title {\n  color: #704332;\n}\n.menu .sides .side:nth-child(1) .products {\n  display: flex;\n  margin-top: 4%;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n.menu .sides .side:nth-child(1) .products .product {\n  max-width: 390px;\n  background-color: white;\n  padding: 15px;\n  border-radius: 7px;\n  box-shadow: 3px 2px 13px 1px #f3f3f3;\n  transition: 0.5s;\n}\n.menu .sides .side:nth-child(1) .products .product:hover .add {\n  visibility: visible;\n}\n.menu .sides .side:nth-child(1) .products .product .info {\n  display: flex;\n  gap: 15px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .image {\n  width: 100%;\n  max-width: 120px;\n  height: 140px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .image img {\n  width: 100%;\n  height: 100%;\n  border-radius: 15px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .title {\n  font-size: 19px;\n  display: block;\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .desc {\n  color: #6e6e6e;\n  font-weight: 300;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .price {\n  display: block;\n  font-weight: bold;\n  font-size: 20px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .price .currency {\n  font-size: 13px;\n  position: relative;\n  bottom: 6px;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes {\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes h3 {\n  font-weight: 500;\n  font-size: 19px;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards {\n  display: flex;\n  gap: 25px;\n  margin-top: 1%;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards .size {\n  font-weight: 700;\n  font-size: 17px;\n  width: 35px;\n  height: 35px;\n  background: rgba(249, 217, 205, 0.28);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards .size.active {\n  border: 1px solid #704332;\n}\n.menu .sides .side:nth-child(1) .products .product .add {\n  background-color: #704332;\n  padding: 13px;\n  width: 100%;\n  color: white;\n  border-radius: 10px;\n  margin-top: 5%;\n  visibility: hidden;\n}\n.menu .sides .side:nth-child(2) {\n  background-color: white;\n  padding: 20px;\n  max-width: 600px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .account {\n  display: flex;\n  gap: 15px;\n  align-items: center;\n  justify-content: space-between;\n}\n.menu .sides .side:nth-child(2) .account .avatar {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(2) .account .avatar img {\n  border-radius: 15px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .account .job-title {\n  display: block;\n  color: #4c4c4c;\n  font-size: 13px;\n}\n.menu .sides .side:nth-child(2) .account .fullname {\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(2) .account .notification {\n  font-size: 18px;\n  color: #2b2b2b;\n}\n.menu .sides .side:nth-child(2) .bills {\n  margin-top: 30px;\n}\n.menu .sides .side:nth-child(2) .bills h2 {\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(2) .bills .cards {\n  display: flex;\n  flex-direction: column;\n  margin-top: 20px;\n  gap: 20px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card {\n  display: flex;\n  gap: 10px;\n  align-items: center;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .image {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .image img {\n  border-radius: 15px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .title {\n  font-weight: 600;\n  color: #141414;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity {\n  display: flex;\n  justify-content: space-between;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .number {\n  font-weight: 500;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .price {\n  color: #818181;\n  font-size: 15px;\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 30px;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal .title {\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal .price {\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .tax {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .tax .title {\n  color: #4c4c4c;\n}\n.menu .sides .side:nth-child(2) .bills .tax .price {\n  color: #4c4c4c;\n}\n.menu .sides .side:nth-child(2) .bills .total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-top: 2px dashed rgb(209, 209, 209);\n  padding-top: 5%;\n  margin-top: 2%;\n}\n.menu .sides .side:nth-child(2) .bills .total .title {\n  font-weight: 600;\n  font-size: 17px;\n}\n.menu .sides .side:nth-child(2) .bills .total .price {\n  font-weight: 600;\n  font-size: 17px;\n}\n.menu .sides .side:nth-child(2) .payment {\n  margin-top: 30px;\n}\n.menu .sides .side:nth-child(2) .payment .cards {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card {\n  text-align: center;\n  filter: opacity(0.6);\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  padding: 10px 14px;\n  cursor: pointer;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card .icon {\n  height: 36px;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card.active {\n  border: 1px solid #704332;\n  border-radius: 15px;\n  background: #704332;\n  color: white;\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(2) .payment .cards .card.active .icon {\n  filter: brightness(0) invert(1);\n}\n.menu .sides .side:nth-child(2) .print-bill {\n  background-color: #704332;\n  width: 100%;\n  padding: 13px;\n  color: white;\n  border-radius: 7px;\n  font-weight: 500;\n  margin-top: 30px;\n}\n\n.sidebar {\n  background: white;\n  padding: 1% 2%;\n  display: flex;\n  flex-direction: column;\n  box-shadow: -11px 16px 20px 8px rgb(241, 241, 241);\n  max-width: 135px;\n  height: 100%;\n  min-height: 100vh;\n  position: fixed;\n  z-index: 99;\n  left: 0;\n  top: 0;\n  bottom: 0;\n}\n@media screen and (max-width: 768px) {\n  .sidebar {\n    display: none;\n  }\n}\n.sidebar .brand {\n  width: 100%;\n}\n.sidebar .brand img {\n  width: 100%;\n}\n.sidebar .items {\n  text-align: center;\n  margin-top: 30px;\n}\n.sidebar .items ul {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.sidebar .items ul li {\n  color: #797979;\n  padding: 13px 18px;\n}\n.sidebar .items ul li a {\n  display: block;\n}\n.sidebar .items ul li a.active {\n  background-color: #704332;\n  width: 100%;\n  border-radius: 15px;\n  color: white;\n  padding: 13px 18px;\n}\n.sidebar .items ul li a.active img {\n  filter: brightness(0) invert(1);\n}\n.sidebar .items ul li .title {\n  font-size: 14px;\n}\n.sidebar .items ul li .icon img {\n  width: 33px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-weight: 100;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-weight: 200;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n  font-weight: 500;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  font-weight: 600;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  font-weight: 700;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  font-weight: 800;\n}\n@font-face {\n  font-family: \"Poppins\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  font-weight: 900;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-weight: 200;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n  font-weight: 500;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  font-weight: 600;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  font-weight: 700;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  font-weight: 800;\n}\n@font-face {\n  font-family: \"Cairo\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  font-weight: 900;\n}\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  box-sizing: border-box;\n  background-color: #f9f8fb;\n  overflow: auto;\n}\n\n.app-en {\n  direction: ltr;\n  text-align: left;\n  font-family: \"Poppins\", sans-serif;\n  min-height: 100vh;\n}\n\n.app-ar {\n  direction: rtl;\n  text-align: right;\n  font-family: \"Cairo\", sans-serif;\n  min-height: 100vh;\n}\n\n.btn {\n  background-color: #7e74f1;\n  padding: 10px;\n  width: 120px;\n  border-radius: 3px;\n  border: none;\n  outline: none;\n  color: white;\n  cursor: pointer;\n  transition: 0.4s;\n  margin: 3%;\n  display: block;\n}\n.btn:focus {\n  background-color: #675af8;\n}\n\na {\n  text-decoration: none;\n  color: inherit;\n}\n\nul {\n  list-style: none;\n}\n\n.login {\n  min-height: 100vh;\n}\n.login .sides {\n  display: flex;\n  height: 100%;\n  min-height: 100vh;\n}\n.login .sides .side {\n  flex-grow: 1;\n  width: 100%;\n}\n.login .sides .side:nth-child(1) {\n  text-align: center;\n  background: #3154aa;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n@media screen and (max-width: 768px) {\n  .login .sides .side:nth-child(1) {\n    display: none;\n  }\n}\n.login .sides .side:nth-child(1) .image {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n}\n.login .sides .side:nth-child(1) .text {\n  color: white;\n  max-width: 250px;\n}\n.login .sides .side:nth-child(1) .text h4 {\n  font-size: 25px;\n  font-weight: 400;\n  text-transform: capitalize;\n}\n.login .sides .side:nth-child(1) .text p {\n  line-height: 1.6em;\n  font-size: 15px;\n  font-weight: 300;\n}\n@media screen and (max-width: 768) {\n  .login .sides .side:nth-child(1) {\n    display: none;\n  }\n}\n.login .sides .side:nth-child(2) {\n  padding: 40px;\n}\n.login .sides .side:nth-child(2) .header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 10%;\n}\n.login .sides .side:nth-child(2) .header .brand {\n  max-width: 100px;\n}\n.login .sides .side:nth-child(2) .header .brand img {\n  width: 100%;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher {\n  font-weight: bold;\n  font-size: 15px;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher .link {\n  color: #727272;\n}\n.login .sides .side:nth-child(2) .header .lang-switcher .active {\n  color: black !important;\n}\n.login .sides .side:nth-child(2) h4 {\n  text-align: center;\n}\n.login .sides .side:nth-child(2) .form {\n  max-width: 400px;\n  margin: 5% auto;\n}\n.login .sides .side:nth-child(2) .form h2 {\n  text-align: center;\n  font-weight: bold;\n}\n.login .sides .side:nth-child(2) .form p {\n  text-align: center;\n  color: #b0b3c4;\n}\n.login .sides .side:nth-child(2) .form form {\n  text-align: inherit;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.login .sides .side:nth-child(2) .form form .form-group .input-label {\n  display: inline-block;\n  background: white;\n  position: relative;\n  top: 13px;\n  left: 15px;\n  right: 15px;\n  color: rgb(75, 75, 75);\n}\n.login .sides .side:nth-child(2) .form form .form-group #email-input,\n.login .sides .side:nth-child(2) .form form .form-group #password-input {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid rgb(224, 224, 224);\n  border-radius: 4px;\n  outline: none;\n  transition: 0.4s;\n}\n.login .sides .side:nth-child(2) .form form .form-group:focus-within #email-input,\n.login .sides .side:nth-child(2) .form form .form-group:focus-within #password-input {\n  border: 1px solid #3154aa;\n}\n.login .sides .side:nth-child(2) .form form .form-group:focus-within .input-label {\n  color: #3154aa;\n}\n.login .sides .side:nth-child(2) .form form .login-btn {\n  background-color: #3154aa;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n  color: white;\n  font-weight: 500;\n  transition: 0.5s;\n}\n.login .sides .side:nth-child(2) .form form .login-btn:focus {\n  background-color: #4065c4;\n}\n\n.dashboard {\n  display: flex;\n  min-height: 100vh;\n}\n\n.menu {\n  display: flex;\n}\n.menu .sides {\n  margin-left: 155px;\n  display: grid;\n  grid-auto-columns: 2fr 1fr;\n  grid-auto-flow: column;\n  width: 100%;\n  gap: 20px;\n}\n@media screen and (max-width: 768px) {\n  .menu .sides {\n    margin-left: 20px;\n  }\n}\n.menu .sides .side:nth-child(1) {\n  width: 800px;\n  max-width: 100%;\n  margin-top: 3%;\n}\n.menu .sides .side:nth-child(1) .heading {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.menu .sides .side:nth-child(1) .heading .search form {\n  display: flex;\n  width: 350px;\n}\n.menu .sides .side:nth-child(1) .heading .search form .search-box {\n  padding: 10px;\n  background: white;\n  width: 100%;\n  outline: none;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(1) .heading .search form button {\n  position: relative;\n  right: 30px;\n  color: #4c4c4c;\n  font-size: 19px;\n}\n.menu .sides .side:nth-child(1) .categories {\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(1) .categories .cards {\n  display: flex;\n  gap: 30px;\n  max-width: 800px;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card {\n  background-color: white;\n  padding: 12px 23px;\n  border: 1px solid #e5e5e5;\n  border-radius: 15px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  filter: opacity(0.85);\n  transition: 0.5s;\n  cursor: pointer;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card.active {\n  border: 1px solid #3154aa;\n  background-color: rgba(49, 83, 170, 0.1725490196);\n  font-weight: 600;\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(1) .categories .cards .card:hover {\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .icon {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .icon img {\n  width: 100%;\n}\n.menu .sides .side:nth-child(1) .categories .cards .card .title {\n  color: #3154aa;\n}\n.menu .sides .side:nth-child(1) .products {\n  display: flex;\n  margin-top: 4%;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n.menu .sides .side:nth-child(1) .products .product {\n  max-width: 390px;\n  background-color: white;\n  padding: 15px;\n  border-radius: 7px;\n  box-shadow: 3px 2px 13px 1px #f3f3f3;\n  transition: 0.5s;\n}\n.menu .sides .side:nth-child(1) .products .product:hover .add {\n  visibility: visible;\n}\n.menu .sides .side:nth-child(1) .products .product .info {\n  display: flex;\n  gap: 15px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .image {\n  width: 100%;\n  max-width: 120px;\n  height: 140px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .image img {\n  width: 100%;\n  height: 100%;\n  border-radius: 15px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .title {\n  font-size: 19px;\n  display: block;\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .desc {\n  color: #6e6e6e;\n  font-weight: 300;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .price {\n  display: block;\n  font-weight: bold;\n  font-size: 20px;\n}\n.menu .sides .side:nth-child(1) .products .product .info .details .price .currency {\n  font-size: 13px;\n  position: relative;\n  bottom: 6px;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes {\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes h3 {\n  font-weight: 500;\n  font-size: 19px;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards {\n  display: flex;\n  gap: 25px;\n  margin-top: 1%;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards .size {\n  font-weight: 700;\n  font-size: 17px;\n  width: 35px;\n  height: 35px;\n  background: rgba(249, 217, 205, 0.28);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.menu .sides .side:nth-child(1) .products .product .sizes .cards .size.active {\n  border: 1px solid #3154aa;\n}\n.menu .sides .side:nth-child(1) .products .product .add {\n  background-color: #3154aa;\n  padding: 13px;\n  width: 100%;\n  color: white;\n  border-radius: 10px;\n  margin-top: 5%;\n  visibility: hidden;\n}\n.menu .sides .side:nth-child(2) {\n  background-color: white;\n  padding: 20px;\n  max-width: 600px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .account {\n  display: flex;\n  gap: 15px;\n  align-items: center;\n  justify-content: space-between;\n}\n.menu .sides .side:nth-child(2) .account .avatar {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(2) .account .avatar img {\n  border-radius: 15px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .account .job-title {\n  display: block;\n  color: #4c4c4c;\n  font-size: 13px;\n}\n.menu .sides .side:nth-child(2) .account .fullname {\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(2) .account .notification {\n  font-size: 18px;\n  color: #2b2b2b;\n}\n.menu .sides .side:nth-child(2) .bills {\n  margin-top: 30px;\n}\n.menu .sides .side:nth-child(2) .bills h2 {\n  font-weight: 600;\n}\n.menu .sides .side:nth-child(2) .bills .cards {\n  display: flex;\n  flex-direction: column;\n  margin-top: 20px;\n  gap: 20px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card {\n  display: flex;\n  gap: 10px;\n  align-items: center;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .image {\n  max-width: 50px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .image img {\n  border-radius: 15px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  width: 100%;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .title {\n  font-weight: 600;\n  color: #141414;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity {\n  display: flex;\n  justify-content: space-between;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .number {\n  font-weight: 500;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .cards .card .info .quantity .price {\n  color: #818181;\n  font-size: 15px;\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 30px;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal .title {\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .subtotal .price {\n  font-weight: 500;\n}\n.menu .sides .side:nth-child(2) .bills .tax {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 15px;\n}\n.menu .sides .side:nth-child(2) .bills .tax .title {\n  color: #4c4c4c;\n}\n.menu .sides .side:nth-child(2) .bills .tax .price {\n  color: #4c4c4c;\n}\n.menu .sides .side:nth-child(2) .bills .total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-top: 2px dashed rgb(209, 209, 209);\n  padding-top: 5%;\n  margin-top: 2%;\n}\n.menu .sides .side:nth-child(2) .bills .total .title {\n  font-weight: 600;\n  font-size: 17px;\n}\n.menu .sides .side:nth-child(2) .bills .total .price {\n  font-weight: 600;\n  font-size: 17px;\n}\n.menu .sides .side:nth-child(2) .payment {\n  margin-top: 30px;\n}\n.menu .sides .side:nth-child(2) .payment .cards {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 5%;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card {\n  text-align: center;\n  filter: opacity(0.6);\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  padding: 10px 14px;\n  cursor: pointer;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card .icon {\n  height: 36px;\n}\n.menu .sides .side:nth-child(2) .payment .cards .card.active {\n  border: 1px solid #3154aa;\n  border-radius: 15px;\n  background: #3154aa;\n  color: white;\n  filter: opacity(1);\n}\n.menu .sides .side:nth-child(2) .payment .cards .card.active .icon {\n  filter: brightness(0) invert(1);\n}\n.menu .sides .side:nth-child(2) .print-bill {\n  background-color: #3154aa;\n  width: 100%;\n  padding: 13px;\n  color: white;\n  border-radius: 7px;\n  font-weight: 500;\n  margin-top: 30px;\n}\n\n.history {\n  display: flex;\n  min-height: 100vh;\n}\n.history .side {\n  margin-left: 155px;\n  margin-top: 3%;\n}\n@media screen and (max-width: 768px) {\n  .history .side {\n    margin-left: 20px;\n  }\n}\n.sidebar {\n  background: white;\n  padding: 1% 2%;\n  display: flex;\n  flex-direction: column;\n  box-shadow: -11px 16px 20px 8px rgb(241, 241, 241);\n  max-width: 135px;\n  height: 100%;\n  min-height: 100vh;\n  position: fixed;\n  z-index: 99;\n  left: 0;\n  top: 0;\n  bottom: 0;\n}\n@media screen and (max-width: 768px) {\n  .sidebar {\n    display: none;\n  }\n}\n.sidebar .brand {\n  width: 100%;\n}\n.sidebar .brand img {\n  width: 100%;\n}\n.sidebar .items {\n  text-align: center;\n  margin-top: 30px;\n}\n.sidebar .items ul {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.sidebar .items ul li {\n  color: #797979;\n  padding: 13px 18px;\n}\n.sidebar .items ul li a {\n  display: block;\n}\n.sidebar .items ul li a.active {\n  background-color: #3154aa;\n  width: 100%;\n  border-radius: 15px;\n  color: white;\n  padding: 13px 18px;\n}\n.sidebar .items ul li a.active img {\n  filter: brightness(0) invert(1);\n}\n.sidebar .items ul li .title {\n  font-size: 14px;\n}\n.sidebar .items ul li .icon img {\n  width: 33px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48368,6 +48528,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/pages/History.vue":
+/*!****************************************!*\
+  !*** ./resources/js/pages/History.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _History_vue_vue_type_template_id_11b1931b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./History.vue?vue&type=template&id=11b1931b */ "./resources/js/pages/History.vue?vue&type=template&id=11b1931b");
+/* harmony import */ var _History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./History.vue?vue&type=script&lang=js */ "./resources/js/pages/History.vue?vue&type=script&lang=js");
+/* harmony import */ var C_xampp_htdocs_WiresPOS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_WiresPOS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_History_vue_vue_type_template_id_11b1931b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/pages/History.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Login.vue":
 /*!**************************************!*\
   !*** ./resources/js/pages/Login.vue ***!
@@ -48459,6 +48647,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/History.vue?vue&type=script&lang=js":
+/*!****************************************************************!*\
+  !*** ./resources/js/pages/History.vue?vue&type=script&lang=js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./History.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/pages/Login.vue?vue&type=script&lang=js":
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Login.vue?vue&type=script&lang=js ***!
@@ -48519,6 +48723,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_82704d4a__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_82704d4a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Dashboard.vue?vue&type=template&id=82704d4a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Dashboard.vue?vue&type=template&id=82704d4a");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/History.vue?vue&type=template&id=11b1931b":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/History.vue?vue&type=template&id=11b1931b ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_History_vue_vue_type_template_id_11b1931b__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_History_vue_vue_type_template_id_11b1931b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./History.vue?vue&type=template&id=11b1931b */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/History.vue?vue&type=template&id=11b1931b");
 
 
 /***/ }),

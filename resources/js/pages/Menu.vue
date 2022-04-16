@@ -75,6 +75,14 @@
                                 <div class="details">
                                     <span class="title">
                                         {{ product.title }}
+                                        <button
+                                            class="add"
+                                            @click="addBill(product.id)"
+                                        >
+                                            <img
+                                                src="/icons/icons8-plus-math.svg"
+                                            />
+                                        </button>
                                     </span>
                                     <span class="desc">
                                         {{ product.desc }}
@@ -99,9 +107,6 @@
                                     </button>
                                 </div>
                             </div>
-                            <button class="add" @click="addBill(product.id)">
-                                Add to Billing
-                            </button>
                         </div>
                     </div>
                 </div>
