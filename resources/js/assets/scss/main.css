@@ -489,8 +489,8 @@ input[type="submit"] {
 .menu .sides .side:nth-child(1) .products {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 4%;
   gap: 20px;
 }
