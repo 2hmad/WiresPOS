@@ -2,12 +2,16 @@
     display: flex;
     min-height: 100vh;
     .side {
-        margin-left: 155px;
+        margin-left: 175px;
         width: 100%;
         @media screen and (max-width: 768px) {
             margin-left: 20px;
         }
         margin-top: 3%;
+        h3 {
+            font-size: 25px;
+            font-weight: 600;
+        }
         .row {
             display: flex;
             gap: 50px;

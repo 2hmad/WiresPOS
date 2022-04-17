@@ -1,20 +1,22 @@
 .menu {
     display: flex;
     .sides {
-        margin-left: 155px;
+        margin-left: 175px;
         display: grid;
         grid-auto-columns: 2fr 1fr;
         grid-auto-flow: column;
         width: 100%;
         gap: 20px;
+        min-height: 100vh;
         @media screen and (max-width: 768px) {
             margin-left: 20px;
         }
         .side {
             &:nth-child(1) {
-                width: 800px;
+                width: 100%;
                 max-width: 100%;
                 margin-top: 3%;
+                height: 100%;
                 .heading {
                     display: flex;
                     align-items: center;
@@ -30,6 +32,7 @@
                                 width: 100%;
                                 outline: none;
                                 font-size: 15px;
+                                border: none;
                             }
                             button {
                                 position: relative;
@@ -83,17 +86,21 @@
                     }
                 }
                 .products {
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
                     margin-top: 4%;
-                    flex-wrap: wrap;
                     gap: 20px;
+                    @media screen and (max-width: 768px) {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
                     .product {
-                        max-width: 390px;
                         background-color: white;
                         padding: 15px;
                         border-radius: 7px;
                         box-shadow: 3px 2px 13px 1px #f3f3f3;
                         transition: 0.5s;
+                        flex: 100%;
                         &:hover {
                             .add {
                                 visibility: visible;
@@ -189,8 +196,10 @@
             &:nth-child(2) {
                 background-color: white;
                 padding: 20px;
-                max-width: 600px;
-                width: 100%;
+                max-width: 320px;
+                width: 320px;
+                margin-left: auto;
+                height: 100%;
                 .account {
                     display: flex;
                     gap: 15px;

@@ -110,7 +110,6 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #f9f8fb;
-  overflow: auto;
 }
 
 .app-en {
@@ -153,6 +152,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .login {
@@ -355,13 +361,14 @@ ul {
 }
 
 .menu .sides {
-  margin-left: 155px;
+  margin-left: 175px;
   display: -ms-grid;
   display: grid;
   grid-auto-columns: 2fr 1fr;
   grid-auto-flow: column;
   width: 100%;
   gap: 20px;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -371,9 +378,10 @@ ul {
 }
 
 .menu .sides .side:nth-child(1) {
-  width: 800px;
+  width: 100%;
   max-width: 100%;
   margin-top: 3%;
+  height: 100%;
 }
 
 .menu .sides .side:nth-child(1) .heading {
@@ -403,6 +411,7 @@ ul {
   width: 100%;
   outline: none;
   font-size: 15px;
+  border: none;
 }
 
 .menu .sides .side:nth-child(1) .heading .search form button {
@@ -477,17 +486,25 @@ ul {
 }
 
 .menu .sides .side:nth-child(1) .products {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   margin-top: 4%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .menu .sides .side:nth-child(1) .products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .menu .sides .side:nth-child(1) .products .product {
-  max-width: 390px;
   background-color: white;
   padding: 15px;
   border-radius: 7px;
@@ -495,6 +512,9 @@ ul {
           box-shadow: 3px 2px 13px 1px #f3f3f3;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
 }
 
 .menu .sides .side:nth-child(1) .products .product:hover .add {
@@ -629,8 +649,10 @@ ul {
 .menu .sides .side:nth-child(2) {
   background-color: white;
   padding: 20px;
-  max-width: 600px;
-  width: 100%;
+  max-width: 320px;
+  width: 320px;
+  margin-left: auto;
+  height: 100%;
 }
 
 .menu .sides .side:nth-child(2) .account {
@@ -881,7 +903,7 @@ ul {
 }
 
 .history .side {
-  margin-left: 155px;
+  margin-left: 175px;
   width: 100%;
   margin-top: 3%;
 }
@@ -890,6 +912,11 @@ ul {
   .history .side {
     margin-left: 20px;
   }
+}
+
+.history .side h3 {
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .history .side .row {
@@ -993,6 +1020,51 @@ ul {
   width: 15px;
 }
 
+.setting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+}
+
+.setting .side {
+  margin-left: 175px;
+  width: 100%;
+  margin-top: 3%;
+}
+
+@media screen and (max-width: 768px) {
+  .setting .side {
+    margin-left: 20px;
+  }
+}
+
+.setting .side h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.setting .side ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 1%;
+  margin-top: 2%;
+}
+
+.setting .side ul li {
+  font-weight: 400;
+  color: #222222;
+}
+
+.setting .side ul li a.active {
+  color: #3154aa;
+  font-weight: 600;
+}
+
 .sidebar {
   background: white;
   padding: 1% 2%;
@@ -1005,11 +1077,12 @@ ul {
           flex-direction: column;
   -webkit-box-shadow: -11px 16px 20px 8px #f1f1f1;
           box-shadow: -11px 16px 20px 8px #f1f1f1;
-  max-width: 135px;
+  max-width: 90px;
+  width: 90px;
   height: 100%;
   min-height: 100vh;
   position: fixed;
-  z-index: 99;
+  z-index: 9;
   left: 0;
   top: 0;
   bottom: 0;
@@ -1050,6 +1123,9 @@ ul {
 .sidebar .items ul li {
   color: #797979;
   padding: 13px 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .sidebar .items ul li a {
