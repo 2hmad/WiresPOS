@@ -4,54 +4,49 @@
             <Sidebar />
             <div class="side">
                 <h3>Settings</h3>
-                <ul class="links">
-                    <li>
-                        <router-link to="/setting" class-active="active" exact>
-                            My Details
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/password" class-active="active" exact>
-                            Password
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link
-                            to="/notifications"
-                            class-active="active"
-                            exact
-                        >
-                            Notifications
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link
-                            to="/permissions"
-                            class-active="active"
-                            exact
-                        >
-                            Permissions
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link
-                            to="/system-settings"
-                            class-active="active"
-                            exact
-                        >
-                            System settings
-                        </router-link>
-                    </li>
-                </ul>
+                <SettingMenu />
+                <form method="POST">
+                    <div class="pic-change">
+                        <label for="change">
+                            <img
+                                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
+                            />
+                        </label>
+                        <input type="file" id="change" />
+                    </div>
+                    <div class="input-group">
+                        <label for="fullname">Full name</label>
+                        <input
+                            type="text"
+                            placeholder="Full name"
+                            id="fullname"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            placeholder="Email Address"
+                            id="email"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" placeholder="Phone" id="phone" />
+                    </div>
+                    <input type="submit" class="save" value="Save Changes" />
+                </form>
             </div>
         </div>
     </div>
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
+import SettingMenu from "../components/SettingMenu.vue";
 export default {
     components: {
         Sidebar,
+        SettingMenu,
     },
     data() {
         return {};

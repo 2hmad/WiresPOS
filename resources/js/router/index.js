@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard.vue";
 import Menu from "../pages/Menu.vue";
 import History from "../pages/History.vue";
 import Setting from "../pages/Setting.vue";
+import Password from "../pages/Password.vue";
 
 const routes = [
     {
@@ -25,6 +26,10 @@ const routes = [
     {
         path: "/setting",
         component: Setting,
+    },
+    {
+        path: "/password",
+        component: Password,
     },
 ];
 
