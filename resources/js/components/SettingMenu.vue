@@ -11,6 +11,11 @@
             </router-link>
         </li>
         <li>
+            <router-link to="/branches" class-active="active" exact>
+                Branches
+            </router-link>
+        </li>
+        <li>
             <router-link to="/permissions" class-active="active" exact>
                 Permissions
             </router-link>
