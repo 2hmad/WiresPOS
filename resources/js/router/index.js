@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard.vue";
 import Menu from "../pages/Menu.vue";
 import History from "../pages/History.vue";
 import Products from "../pages/Products.vue";
+import AddProduct from "../pages/AddProduct.vue";
 import Setting from "../pages/Setting.vue";
 import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
@@ -30,6 +31,10 @@ const routes = [
     {
         path: "/products",
         component: Products,
+    },
+    {
+        path: "/add-product",
+        component: AddProduct,
     },
     {
         path: "/setting",

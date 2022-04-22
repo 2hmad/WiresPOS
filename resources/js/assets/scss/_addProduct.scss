@@ -1,4 +1,4 @@
-.setting {
+.addProduct {
     display: flex;
     min-height: 100vh;
     .side {
@@ -34,7 +34,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 550px;
+            max-width: 600px;
             // margin: 3% auto;
             .pic-change {
                 display: flex;
@@ -61,12 +61,33 @@
                 select,
                 textarea {
                     padding: 10px;
-                    width: 250px;
+                    width: 300px;
+                    max-width: 300px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                     outline: none;
                     transition: 0.5s;
                     &:focus {
+                        border: 1px solid #3154aa;
+                    }
+                }
+            }
+            .cards {
+                display: flex;
+                gap: 25px;
+                margin-top: 1%;
+                .size {
+                    font-weight: 700;
+                    font-size: 17px;
+                    width: 35px;
+                    height: 35px;
+                    background: #3153aa25;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #3154aa;
+                    &.active {
                         border: 1px solid #3154aa;
                     }
                 }

@@ -7,15 +7,19 @@
                 <SettingMenu />
                 <form method="POST">
                     <div class="input-group">
-                        <label for="fullname">Language</label>
-                        <select>
+                        <label for="tax">Tax rate (%)</label>
+                        <input type="number" id="tax" />
+                    </div>
+                    <div class="input-group">
+                        <label for="language">Language</label>
+                        <select id="language">
                             <option>English</option>
                             <option>Arabic</option>
                         </select>
                     </div>
                     <div class="input-group">
-                        <label for="email">Currency</label>
-                        <select>
+                        <label for="currency">Currency</label>
+                        <select id="currency">
                             <option>US Dollar</option>
                             <option>Egyptian Pound</option>
                         </select>

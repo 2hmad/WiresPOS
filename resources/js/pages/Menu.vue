@@ -124,14 +124,15 @@
                                 <span class="fullname"> Ahmed Mohamed </span>
                             </div>
                         </div>
-                        <div class="notification">
-                            <v-badge dot color="red">
+                        <router-link to="/notifications">
+                            <div class="notification">
+                                <div class="badge"></div>
                                 <img
                                     src="icons/icons8-notification.svg"
                                     style="max-width: 27px"
                                 />
-                            </v-badge>
-                        </div>
+                            </div>
+                        </router-link>
                     </div>
                     <div class="bills">
                         <h2>Bills</h2>
@@ -168,15 +169,15 @@
                         >
                             <div class="subtotal">
                                 <span class="title">Subtotal</span>
-                                <span class="price">$18.31</span>
+                                <span class="price">$0</span>
                             </div>
                             <div class="tax">
                                 <span class="title">Tax (14%)</span>
-                                <span class="price">$2</span>
+                                <span class="price">$0</span>
                             </div>
                             <div class="total">
                                 <span class="title">Total</span>
-                                <span class="price">$20.31</span>
+                                <span class="price">$0</span>
                             </div>
                         </div>
                     </div>
@@ -257,7 +258,7 @@ export default {
                     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                     image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
                     price: "3.95",
-                    cat: 1,
+                    cat: 2,
                 },
                 {
                     id: 2,
