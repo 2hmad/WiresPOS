@@ -40,7 +40,7 @@
                                 Duis nostrud consectetur est eiusmod aliquip
                                 minim ea ut qui in mollit excepteur consequat.
                             </p>
-                            <form method="POST">
+                            <form @submit.prevent="login">
                                 <div class="form-group">
                                     <label
                                         class="input-label"
@@ -52,7 +52,7 @@
                                         type="email"
                                         name="email"
                                         id="email-input"
-                                        autocomplete="off"
+                                        v-model="form.email"
                                         required
                                     />
                                 </div>
@@ -68,6 +68,7 @@
                                         type="password"
                                         name="password"
                                         id="password-input"
+                                        v-model="form.password"
                                         required
                                     />
                                 </div>
@@ -92,20 +93,41 @@
     </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+import LanguageSwitcher from "../store/language";
 export default {
     components: {},
     data() {
-        return {};
+        return {
+            form: {
+                email: "",
+                password: "",
+            },
+        };
     },
+    // mounted: {},
     methods: {
+        ...mapActions(["LogIn"]),
+        async login() {
+            const User = new FormData();
+            User.append("email", this.form.email);
+            User.append("password", this.form.password);
+            try {
+                await this.LogIn(User);
+                this.$router.push("/");
+                this.showError = false;
+            } catch (error) {
+                this.showError = true;
+            }
+        },
+
         setLanguage(item) {
-            console.log(item);
             if (item == "en") {
                 this.$i18n.locale = "en";
-                this.$store.commit("setAppLanguage", "en");
+                LanguageSwitcher.commit("setAppLanguage", "en");
             } else if (item == "ar") {
                 this.$i18n.locale = "ar";
-                this.$store.commit("setAppLanguage", "ar");
+                LanguageSwitcher.commit("setAppLanguage", "ar");
             }
         },
     },

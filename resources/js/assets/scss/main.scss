@@ -3,10 +3,10 @@ $primary: #7e74f1;
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html,
 body {
-    box-sizing: border-box;
     background-color: #f9f8fb;
 }
 .app-en {
