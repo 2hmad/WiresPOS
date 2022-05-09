@@ -139,22 +139,26 @@
                         <div class="cards">
                             <div
                                 class="card"
-                                v-for="(bill, index) in filterBills"
-                                :key="index"
+                                v-for="bill in filterBills"
+                                :key="bill.id"
                             >
                                 <div class="image">
                                     <img
                                         src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
                                     />
                                 </div>
-                                <div class="info">
+                                <div
+                                    class="info"
+                                    v-for="billInfo of bill"
+                                    :key="billInfo.id"
+                                >
                                     <span class="title">
-                                        {{ bill.title }}
+                                        {{ billInfo.title }}
                                     </span>
                                     <div class="quantity">
                                         <span class="number">1</span>
                                         <span class="price">
-                                            ${{ bill.price }}
+                                            ${{ billInfo.price }}
                                         </span>
                                     </div>
                                 </div>
@@ -169,15 +173,25 @@
                         >
                             <div class="subtotal">
                                 <span class="title">Subtotal</span>
-                                <span class="price">$0</span>
+                                <span class="price"
+                                    >${{ parseInt(subTotal) }}</span
+                                >
                             </div>
                             <div class="tax">
                                 <span class="title">Tax (14%)</span>
-                                <span class="price">$0</span>
+                                <span class="price"
+                                    >${{
+                                        parseInt(subTotal + subTotal * 0.14)
+                                    }}</span
+                                >
                             </div>
                             <div class="total">
                                 <span class="title">Total</span>
-                                <span class="price">$0</span>
+                                <span class="price"
+                                    >${{
+                                        parseInt(subTotal + subTotal * 0.14)
+                                    }}</span
+                                >
                             </div>
                         </div>
                     </div>
@@ -239,6 +253,7 @@ export default {
         return {
             method: null,
             selectedCat: null,
+            subTotal: null,
             items: [
                 {
                     id: 1,
@@ -257,7 +272,7 @@ export default {
                     title: "Caramel Frappaccino",
                     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                     image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-                    price: "3.95",
+                    price: 3.95,
                     cat: 2,
                 },
                 {
@@ -265,7 +280,7 @@ export default {
                     title: "Caramel",
                     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                     image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-                    price: "4.95",
+                    price: 4.95,
                     cat: 2,
                 },
             ],
@@ -310,6 +325,10 @@ export default {
             this.bill = id;
             this.filterBills.push(
                 this.products.filter((p) => p.id === this.bill)
+            );
+            this.subTotal = this.filterBills.reduce(
+                (accumulator, current) => accumulator + current[0].price,
+                0
             );
         },
     },
