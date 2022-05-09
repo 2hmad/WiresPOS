@@ -3,5 +3,6 @@
     "email": "Email Address",
     "password": "Password",
     "recovery-password": "Recovery Password",
-    "login": "Login"
+    "login": "Login",
+    "email-or-password-incorrect": "Email or Password is incorrect"
 }

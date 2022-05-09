@@ -24,14 +24,14 @@
     }
     .items {
         text-align: center;
-        margin-top: 30px;
+        margin-top: 20px;
         ul {
             display: flex;
             flex-direction: column;
             align-items: center;
             li {
                 color: #797979;
-                padding: 13px 18px;
+                padding: 10px 18px;
                 display: flex;
                 a {
                     display: block;
@@ -40,18 +40,18 @@
                         width: 100%;
                         border-radius: 15px;
                         color: white;
-                        padding: 13px 18px;
+                        padding: 10px 15px;
                         img {
                             filter: brightness(0) invert(1);
                         }
                     }
                 }
                 .title {
-                    font-size: 14px;
+                    font-size: 13px;
                 }
                 .icon {
                     img {
-                        width: 33px;
+                        width: 30px;
                     }
                 }
             }

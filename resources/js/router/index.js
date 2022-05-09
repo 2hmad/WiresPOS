@@ -10,7 +10,7 @@ import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
 import SystemSettings from "../pages/SystemSettings.vue";
 import Branches from "../pages/Branches.vue";
-import store from "../store/auth";
+import store from "../store";
 const routes = [
     {
         path: "/login",

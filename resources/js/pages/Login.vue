@@ -93,10 +93,11 @@
     </div>
 </template>
 <script>
-import { mapActions } from "vuex";
-import LanguageSwitcher from "../store/language";
+import { mapActions, mapGetters } from "vuex";
+import store from "../store/";
 export default {
     components: {},
+
     data() {
         return {
             form: {
@@ -105,7 +106,6 @@ export default {
             },
         };
     },
-    // mounted: {},
     methods: {
         ...mapActions(["LogIn"]),
         async login() {
@@ -115,19 +115,18 @@ export default {
             try {
                 await this.LogIn(User);
                 this.$router.push("/");
-                this.showError = false;
             } catch (error) {
-                this.showError = true;
+                console.log(error);
             }
         },
 
         setLanguage(item) {
             if (item == "en") {
                 this.$i18n.locale = "en";
-                LanguageSwitcher.commit("setAppLanguage", "en");
+                store.commit("setAppLanguage", "en");
             } else if (item == "ar") {
                 this.$i18n.locale = "ar";
-                LanguageSwitcher.commit("setAppLanguage", "ar");
+                store.commit("setAppLanguage", "ar");
             }
         },
     },
