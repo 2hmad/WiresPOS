@@ -67,6 +67,7 @@
                             class="product"
                             v-for="product in filterProducts"
                             :key="product.id"
+                            @click="addBill(product.id)"
                         >
                             <div class="info">
                                 <div class="image">
@@ -75,14 +76,6 @@
                                 <div class="details">
                                     <span class="title">
                                         {{ product.title }}
-                                        <button
-                                            class="add"
-                                            @click="addBill(product.id)"
-                                        >
-                                            <img
-                                                src="/icons/icons8-plus-math.svg"
-                                            />
-                                        </button>
                                     </span>
                                     <span class="desc">
                                         {{ product.desc }}
@@ -93,7 +86,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="sizes">
+                            <!-- <div class="sizes">
                                 <h3>Size</h3>
                                 <div class="cards">
                                     <button class="size" @click="activeSize">
@@ -106,7 +99,7 @@
                                         L
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -154,11 +147,31 @@
                                 >
                                     <span class="title">
                                         {{ billInfo.title }}
+                                        <button
+                                            @click="deleteBill(billInfo.id)"
+                                        >
+                                            <img
+                                                src="/icons/icons8-remove.svg"
+                                                style="max-width: 20px"
+                                            />
+                                        </button>
                                     </span>
                                     <div class="quantity">
-                                        <span class="number">1</span>
+                                        <span class="number">
+                                            <input
+                                                type="number"
+                                                value="1"
+                                                min="1"
+                                                style="
+                                                    border: none;
+                                                    padding: 3px;
+                                                    max-width: auto;
+                                                    outline: none;
+                                                "
+                                            />
+                                        </span>
                                         <span class="price">
-                                            ${{ billInfo.price }}
+                                            ${{ billInfo.price * 1 }}
                                         </span>
                                     </div>
                                 </div>
@@ -253,7 +266,7 @@ export default {
         return {
             method: null,
             selectedCat: null,
-            subTotal: null,
+            subTotal: 0,
             items: [
                 {
                     id: 1,
@@ -330,6 +343,14 @@ export default {
                 (accumulator, current) => accumulator + current[0].price,
                 0
             );
+        },
+        deleteBill(billId) {
+            this.filterBills.map((item, index) => {
+                if (item[0].id === billId) {
+                    this.subTotal = this.subTotal - item[0].price;
+                    this.filterBills.splice(index, 1);
+                }
+            });
         },
     },
 };

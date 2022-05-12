@@ -46,21 +46,32 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/logout" class-active="active" exact>
+                    <a href="#" @click="logout">
                         <div class="icon">
                             <img src="icons/icons8-logout.svg" />
                         </div>
                         <div class="title">Logout</div>
-                    </router-link>
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
     data() {
         return {};
+    },
+    methods: {
+        ...mapActions(["LogOut"]),
+        async logout() {
+            try {
+                await this.LogOut();
+            } catch (error) {
+                console.log(error);
+            }
+        },
     },
 };
 </script>

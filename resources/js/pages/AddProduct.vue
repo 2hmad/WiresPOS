@@ -22,39 +22,23 @@
                         <input
                             type="number"
                             step="0.1"
+                            min="1"
                             placeholder="Price"
                             id="price"
                         />
                     </div>
                     <div class="input-group">
-                        <label>Sizes</label>
-                        <div class="cards">
-                            <button
-                                type="button"
-                                class="size"
-                                @click="activeSize"
-                            >
-                                S
-                            </button>
-                            <button
-                                type="button"
-                                class="size"
-                                @click="activeSize"
-                            >
-                                M
-                            </button>
-                            <button
-                                type="button"
-                                class="size"
-                                @click="activeSize"
-                            >
-                                L
-                            </button>
-                        </div>
-                    </div>
-                    <div class="input-group">
                         <label for="cat">Category</label>
                         <select id="cat"></select>
+                    </div>
+                    <div class="input-group">
+                        <label for="code">Code</label>
+                        <input
+                            type="text"
+                            id="code"
+                            placeholder="Code"
+                            v-model="form.code"
+                        />
                     </div>
                     <div class="input-group">
                         <label for="thumbnail">Thumbnail</label>
@@ -75,7 +59,19 @@ export default {
         SettingMenu,
     },
     data() {
-        return {};
+        return {
+            form: {
+                productName: "",
+                productDetails: "",
+                productPrice: null,
+                category: "",
+                code: "",
+                thumbnail: null,
+            },
+        };
+    },
+    mounted() {
+        this.form.code = new Date().getTime();
     },
     methods: {
         activeSize(event) {

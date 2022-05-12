@@ -20,6 +20,7 @@
                             type="text"
                             placeholder="Full name"
                             id="fullname"
+                            v-model="form.fullName"
                         />
                     </div>
                     <div class="input-group">
@@ -28,11 +29,17 @@
                             type="email"
                             placeholder="Email Address"
                             id="email"
+                            v-model="form.email"
                         />
                     </div>
                     <div class="input-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" placeholder="Phone" id="phone" />
+                        <input
+                            type="tel"
+                            placeholder="Phone"
+                            id="phone"
+                            v-model="form.phone"
+                        />
                     </div>
                     <input type="submit" class="save" value="Save Changes" />
                 </form>
@@ -43,13 +50,26 @@
 <script>
 import Sidebar from "../components/Sidebar.vue";
 import SettingMenu from "../components/SettingMenu.vue";
+import store from "../store/";
 export default {
     components: {
         Sidebar,
         SettingMenu,
     },
     data() {
-        return {};
+        return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            form: {
+                fullName: "",
+                email: "",
+                phone: "",
+            },
+        };
+    },
+    mounted() {
+        this.form.fullName = this.user.full_name;
+        this.form.email = this.user.email;
+        this.form.phone = this.user.phone;
     },
 };
 </script>
