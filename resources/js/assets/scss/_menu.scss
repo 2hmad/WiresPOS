@@ -13,8 +13,7 @@
         }
         .side {
             &:nth-child(1) {
-                width: 100%;
-                max-width: 100%;
+                flex: 2 0;
                 margin-top: 3%;
                 height: 100%;
                 .heading {
@@ -201,8 +200,7 @@
             &:nth-child(2) {
                 background-color: white;
                 padding: 20px;
-                max-width: 320px;
-                width: 320px;
+                flex: 1 0;
                 margin-left: auto;
                 height: 100%;
                 .account {

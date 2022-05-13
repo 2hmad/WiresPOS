@@ -306,11 +306,11 @@ export default {
             },
             breakpoints: {
                 700: {
-                    itemsToShow: 3.5,
+                    itemsToShow: 4,
                     snapAlign: "start",
                 },
                 1024: {
-                    itemsToShow: 7,
+                    itemsToShow: 6,
                     snapAlign: "start",
                 },
             },
