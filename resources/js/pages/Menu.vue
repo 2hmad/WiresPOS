@@ -43,10 +43,12 @@
                                             }"
                                         >
                                             <div class="icon">
-                                                <img :src="item.icon" alt="" />
+                                                <img
+                                                    :src="`/storage/cats/${item.icon}`"
+                                                />
                                             </div>
                                             <div class="title">
-                                                {{ item.title }}
+                                                {{ item.category_name }}
                                             </div>
                                         </div>
                                     </button>
@@ -58,7 +60,7 @@
                         {{
                             selectedCat
                                 ? items.find((item) => item.id === selectedCat)
-                                      .title + " Menu"
+                                      .category_name + " Menu"
                                 : ""
                         }}
                     </h2>
@@ -267,36 +269,8 @@ export default {
             method: null,
             selectedCat: null,
             subTotal: 0,
-            items: [
-                {
-                    id: 1,
-                    title: "All",
-                    icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png",
-                },
-                {
-                    id: 2,
-                    title: "Coffee",
-                    icon: "https://cdn-icons-png.flaticon.com/512/924/924514.png",
-                },
-            ],
-            products: [
-                {
-                    id: 1,
-                    title: "Caramel Frappaccino",
-                    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-                    price: 3.95,
-                    cat: 2,
-                },
-                {
-                    id: 2,
-                    title: "Caramel",
-                    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-                    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-                    price: 4.95,
-                    cat: 2,
-                },
-            ],
+            items: [],
+            products: [],
             filterProducts: [],
             bill: null,
             filterBills: [],
@@ -316,6 +290,16 @@ export default {
             },
         };
     },
+    mounted() {
+        axios
+            .get("/api/categories")
+            .then((result) => (this.items = result.data))
+            .catch((err) => console.log(err));
+        axios
+            .get("/api/products")
+            .then((result) => (this.products = result.data))
+            .catch((err) => console.log(err));
+    },
     methods: {
         payment(id) {
             this.method = id;
@@ -327,7 +311,7 @@ export default {
                 this.filterProducts = this.products;
             } else {
                 this.filterProducts = this.products.filter(
-                    (p) => p.cat === this.selectedCat
+                    (p) => parseInt(p.category) === this.selectedCat
                 );
             }
         },

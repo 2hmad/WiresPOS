@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post("/auth", [AuthController::class, 'checkUser']);
+Route::get('categories', [CategoriesController::class, 'get']);
+Route::get('products', [ProductsController::class, 'get']);
+Route::post('add-product', [ProductsController::class, 'insert']);
