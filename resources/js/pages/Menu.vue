@@ -73,14 +73,16 @@
                         >
                             <div class="info">
                                 <div class="image">
-                                    <img :src="product.image" />
+                                    <img
+                                        :src="`/storage/products/${product.image}`"
+                                    />
                                 </div>
                                 <div class="details">
                                     <span class="title">
-                                        {{ product.title }}
+                                        {{ product.product_name }}
                                     </span>
                                     <span class="desc">
-                                        {{ product.desc }}
+                                        {{ product.product_details }}
                                     </span>
                                     <span class="price">
                                         <span class="currency">EGP</span>
@@ -148,7 +150,7 @@
                                     :key="billInfo.id"
                                 >
                                     <span class="title">
-                                        {{ billInfo.title }}
+                                        {{ billInfo.product_name }}
                                         <button
                                             @click="deleteBill(billInfo.id)"
                                         >
