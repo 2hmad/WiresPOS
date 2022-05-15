@@ -132,7 +132,7 @@
                         </router-link>
                     </div>
                     <div class="bills">
-                        <h2>Bills</h2>
+                        <h3>Bills</h3>
                         <div class="cards">
                             <div
                                 class="card"
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="payment">
-                        <h2>Payment Method</h2>
+                        <h3>Payment Method</h3>
                         <div class="cards">
                             <div
                                 class="card"

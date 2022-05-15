@@ -87,6 +87,7 @@ export default {
                 productPrice: null,
                 category: null,
                 code: "",
+                store: JSON.parse(localStorage.getItem("wiresPOSUser")).store,
                 thumbnail: null,
             },
         };
@@ -119,6 +120,7 @@ export default {
                 productPrice: this.form.productPrice,
                 category: this.form.category,
                 code: this.form.code,
+                store: this.form.store,
             });
             data.append("data", details);
             const config = {

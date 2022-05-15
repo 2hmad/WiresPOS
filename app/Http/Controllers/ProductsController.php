@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductsController extends Controller
 {
@@ -19,13 +20,14 @@ class ProductsController extends Controller
         if ($validate) {
             $reqDecode = json_decode($request->data, true);
             $file_name = $reqDecode['productName'] . '.' . $request->thumbnail->getClientOriginalExtension();
-            $file_path = $request->file('thumbnail')->storeAs('cats', $file_name, 'public');
+            $file_path = $request->file('thumbnail')->storeAs('store-' . $reqDecode['store'] . "/products", $file_name, 'public');
             Products::updateOrCreate([
                 'product_name' => $reqDecode['productName'],
                 'product_details' => $reqDecode['productDetails'],
                 'price' => $reqDecode['productPrice'],
                 'category' => $reqDecode['category'],
                 'code' => $reqDecode['code'],
+                'store_id' => $reqDecode['store'],
                 'image' => $file_name
             ]);
         }

@@ -14,6 +14,7 @@ class User extends Model
         "email",
         "password",
         "phone",
+        'store',
         "branch",
         "role",
         "pic",

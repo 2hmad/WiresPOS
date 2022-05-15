@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->text('password');
             $table->text('phone');
+            $table->text('store');
             $table->text('branch');
             $table->text('role');
             $table->text('pic');
