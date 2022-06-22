@@ -9,6 +9,7 @@ import Setting from "../pages/Setting.vue";
 import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
 import SystemSettings from "../pages/SystemSettings.vue";
+import CompanyInfo from "../pages/CompanyInfo.vue";
 import Branches from "../pages/Branches.vue";
 import store from "../store";
 const routes = [
@@ -71,6 +72,13 @@ const routes = [
     {
         path: "/branches",
         component: Branches,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/company-info",
+        component: CompanyInfo,
         meta: {
             requiresAuth: true,
         },

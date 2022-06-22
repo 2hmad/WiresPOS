@@ -31,7 +31,7 @@ class SystemSettingsController extends Controller
                 ]);
             }
         } else {
-            return response()->json(['alert' => 'permission denied']);
+            return response()->json(['alert' => 'permission denied'], 404);
         }
     }
 }

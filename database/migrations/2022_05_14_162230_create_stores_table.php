@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->text('store_name');
-            $table->text('phone');
-            $table->text('address');
+            $table->text('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->text('logo')->nullable();
         });
     }
 

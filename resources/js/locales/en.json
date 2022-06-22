@@ -71,5 +71,15 @@
     "language": "Language",
     "usd": "US Dollar",
     "egp": "Egyptian Pound",
-    "system-settings-updated": "System settings updated"
+    "system-settings-updated": "System settings updated",
+    "branch-added": "Branch has been added",
+    "branch-exist": "The branch has already been added",
+    "user-added-successfully": "User has been added successfully",
+    "user-added-before": "The user has already been added",
+    "user-deleted-successfully": "User has been deleted successfully",
+    "users": "Users",
+    "company-info": "Company",
+    "company-name": "Company's main name",
+    "company-address": "Company's main address",
+    "company-phone": "Company's main phone"
 }

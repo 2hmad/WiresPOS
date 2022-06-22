@@ -3,8 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SystemSettingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,11 +31,20 @@ Route::get('categories', [CategoriesController::class, 'get']);
 Route::get('products', [ProductsController::class, 'get']);
 Route::group(['middleware' => "userToken"], function () {
     Route::post('add-product', [ProductsController::class, 'insert']);
+
     Route::post('update-profile', [ProfileController::class, 'update']);
     Route::post('update-password', [ProfileController::class, 'updatePassword']);
+
     Route::post('get-branches', [BranchesController::class, 'get']);
     Route::post('add-branch', [BranchesController::class, 'add']);
     Route::post('delete-branch', [BranchesController::class, 'delete']);
+
     Route::post('get-settings', [SystemSettingsController::class, 'get']);
     Route::post('update-settings', [SystemSettingsController::class, 'update']);
+
+    Route::post('add-user', [PermissionsController::class, 'add_user']);
+    Route::post('get-users', [PermissionsController::class, 'get_users']);
+    Route::post('delete-user', [PermissionsController::class, 'delete_user']);
+
+    Route::post('get-store', [StoreController::class, 'get']);
 });

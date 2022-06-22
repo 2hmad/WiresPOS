@@ -71,5 +71,15 @@
     "language": "اللغة",
     "usd": "دولار امريكي",
     "egp": "جنيه مصري",
-    "system-settings-updated": "تم تحديث اعدادات النظام"
+    "system-settings-updated": "تم تحديث اعدادات النظام",
+    "branch-added": "تم اضافة الفرع",
+    "branch-exist": "تم اضافة الفرع من قبل",
+    "user-added-successfully": "تم اضافة المستخدم بنجاح",
+    "user-added-before": "المستخدم مُسجل من قبل",
+    "user-deleted-successfully": "تم حذف المستخدم بنجاح",
+    "users": "المستخدمين",
+    "company-info": "بيانات المؤسسة",
+    "company-name": "اسم المؤسسة الام",
+    "company-address": "عنوان المؤسسة الام",
+    "company-phone": "رقم موبايل المؤسسة الام"
 }

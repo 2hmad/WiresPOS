@@ -10,7 +10,12 @@
                 {{ $t("password") }}
             </router-link>
         </li>
-        <li>
+        <li v-if="user.role == 'admin'">
+            <router-link to="/company-info" class-active="active" exact>
+                {{ $t("company-info") }}
+            </router-link>
+        </li>
+        <li v-if="user.role == 'admin'">
             <router-link to="/branches" class-active="active" exact>
                 {{ $t("branches") }}
             </router-link>

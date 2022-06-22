@@ -11,7 +11,8 @@ class Stores extends Model
     protected $fillable = [
         'store_name',
         'phone',
-        'address'
+        'address',
+        'logo'
     ];
     protected $hidden = [];
 }

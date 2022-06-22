@@ -44,6 +44,7 @@
                     max-width: 90px;
                     height: 90px;
                     border-radius: 50%;
+                    object-fit: cover;
                 }
                 input {
                     display: none;
@@ -81,6 +82,24 @@
                 justify-content: center;
                 gap: 5px;
                 border: 1px solid #3154aa;
+            }
+        }
+    }
+    .users {
+        display: flex;
+        flex-direction: column;
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 7px 10px;
+            .delete {
+                img {
+                    max-width: 25px;
+                }
             }
         }
     }

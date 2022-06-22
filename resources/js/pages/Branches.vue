@@ -28,7 +28,6 @@
                         <label for="branchTel">{{ $t("branch-phone") }}</label>
                         <input
                             type="tel"
-                            placeholder="Branch phone"
                             id="branchTel"
                             v-model="form.branch_phone"
                         />

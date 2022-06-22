@@ -18,11 +18,11 @@ return new class extends Migration
             $table->text('full_name');
             $table->string('email');
             $table->text('password');
-            $table->text('phone');
+            $table->text('phone')->nullable();
             $table->text('store');
             $table->text('branch');
             $table->text('role');
-            $table->text('pic');
+            $table->text('pic')->nullable();
             $table->text('token');
         });
     }
