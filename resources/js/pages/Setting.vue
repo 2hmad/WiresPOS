@@ -3,7 +3,7 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>Settings</h3>
+                <h3>{{ $t("settings") }}</h3>
                 <SettingMenu />
                 <form @submit.prevent="updateProfile">
                     <div class="pic-change">
@@ -17,7 +17,7 @@
                         <input type="file" id="change" @change="uploadPic" />
                     </div>
                     <div class="input-group">
-                        <label for="fullname">Full name</label>
+                        <label for="fullname">{{ $t("full-name") }}</label>
                         <input
                             type="text"
                             placeholder="Full name"
@@ -26,7 +26,7 @@
                         />
                     </div>
                     <div class="input-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">{{ $t("email") }}</label>
                         <input
                             type="email"
                             placeholder="Email Address"
@@ -35,7 +35,7 @@
                         />
                     </div>
                     <div class="input-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone">{{ $t("phone") }}</label>
                         <input
                             type="tel"
                             placeholder="Phone"
@@ -43,7 +43,11 @@
                             v-model="form.phone"
                         />
                     </div>
-                    <input type="submit" class="save" value="Save Changes" />
+                    <input
+                        type="submit"
+                        class="save"
+                        :value="$t('save-changes')"
+                    />
                 </form>
             </div>
         </div>

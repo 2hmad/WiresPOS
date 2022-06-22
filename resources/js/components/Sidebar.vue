@@ -10,7 +10,7 @@
                         <div class="icon">
                             <img src="icons/icons8-home.svg" />
                         </div>
-                        <div class="title">Home</div>
+                        <div class="title">{{ $t("home") }}</div>
                     </router-link>
                 </li>
                 <li>
@@ -18,7 +18,7 @@
                         <div class="icon">
                             <img src="icons/icons8-cooking-pot.svg" />
                         </div>
-                        <div class="title">Menu</div>
+                        <div class="title">{{ $t("menu") }}</div>
                     </router-link>
                 </li>
                 <li>
@@ -26,7 +26,7 @@
                         <div class="icon">
                             <img src="icons/icons8-clock.svg" />
                         </div>
-                        <div class="title">History</div>
+                        <div class="title">{{ $t("history") }}</div>
                     </router-link>
                 </li>
                 <li>
@@ -34,7 +34,7 @@
                         <div class="icon">
                             <img src="icons/icons8-product.svg" />
                         </div>
-                        <div class="title">Products</div>
+                        <div class="title">{{ $t("products") }}</div>
                     </router-link>
                 </li>
                 <li>
@@ -42,7 +42,7 @@
                         <div class="icon">
                             <img src="icons/icons8-settings.svg" />
                         </div>
-                        <div class="title">Setting</div>
+                        <div class="title">{{ $t("settings") }}</div>
                     </router-link>
                 </li>
                 <li>
@@ -50,7 +50,7 @@
                         <div class="icon">
                             <img src="icons/icons8-logout.svg" />
                         </div>
-                        <div class="title">Logout</div>
+                        <div class="title">{{ $t("logout") }}</div>
                     </a>
                 </li>
             </ul>

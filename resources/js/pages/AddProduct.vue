@@ -3,40 +3,42 @@
         <div class="addProduct">
             <Sidebar />
             <div class="side">
-                <h3>Add Product</h3>
+                <h3>{{ $t("new-product") }}</h3>
                 <form method="POST" @submit.prevent="addProduct">
                     <div class="input-group">
-                        <label for="productname">Product name</label>
+                        <label for="productname">
+                            {{ $t("product-name") }}
+                        </label>
                         <input
                             type="text"
-                            placeholder="Product name"
+                            :placeholder="$t('product-name')"
                             id="productname"
                             v-model="form.productName"
                         />
                     </div>
                     <div class="input-group">
-                        <label for="details">Product Details</label>
+                        <label for="details">{{ $t("product-details") }}</label>
                         <textarea
-                            placeholder="Details"
+                            :placeholder="$t('product-details')"
                             id="details"
                             rows="7"
                             v-model="form.productDetails"
                         />
                     </div>
                     <div class="input-group">
-                        <label for="price">Price</label>
+                        <label for="price">{{ $t("price") }}</label>
                         <input
                             type="number"
                             step="0.1"
                             min="1"
-                            placeholder="Price"
+                            :placeholder="$t('price')"
                             id="price"
                             v-model="form.productPrice"
                             autocomplete="off"
                         />
                     </div>
                     <div class="input-group">
-                        <label for="cat">Category</label>
+                        <label for="cat">{{ $t("category") }}</label>
                         <select id="cat" v-model="form.category">
                             <option
                                 v-for="cat in cats"
@@ -48,7 +50,7 @@
                         </select>
                     </div>
                     <div class="input-group">
-                        <label for="code">Code</label>
+                        <label for="code">{{ $t("code") }}</label>
                         <input
                             type="text"
                             id="code"
@@ -57,15 +59,20 @@
                         />
                     </div>
                     <div class="input-group">
-                        <label for="thumbnail">Image</label>
+                        <label for="thumbnail">{{ $t("image") }}</label>
                         <input
                             type="file"
                             id="thumbnail"
                             @change="onFileChange"
                         />
                     </div>
-                    <input type="submit" class="save" value="Save Changes" />
+                    <input
+                        type="submit"
+                        class="save"
+                        :value="$t('save-changes')"
+                    />
                 </form>
+                <br />
             </div>
         </div>
     </div>

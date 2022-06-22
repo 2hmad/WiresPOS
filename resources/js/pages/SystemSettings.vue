@@ -3,28 +3,38 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>Settings</h3>
+                <h3>{{ $t("settings") }}</h3>
                 <SettingMenu />
                 <form method="POST">
-                    <div class="input-group">
-                        <label for="tax">Tax rate (%)</label>
-                        <input type="number" id="tax" />
+                    <div class="input-group" v-if="user.role == 'admin'">
+                        <label for="tax">{{ $t("tax") }} (%)</label>
+                        <input type="number" id="tax" v-model="form.tax" />
                     </div>
                     <div class="input-group">
-                        <label for="language">Language</label>
-                        <select id="language">
-                            <option>English</option>
-                            <option>Arabic</option>
+                        <label for="language">{{ $t("language") }}</label>
+                        <select
+                            id="language"
+                            v-model="lang"
+                            @change="setLanguage(lang)"
+                        >
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
                         </select>
                     </div>
-                    <div class="input-group">
-                        <label for="currency">Currency</label>
-                        <select id="currency">
-                            <option>US Dollar</option>
-                            <option>Egyptian Pound</option>
+                    <div class="input-group" v-if="user.role == 'admin'">
+                        <label for="currency">{{
+                            $t("system-currency")
+                        }}</label>
+                        <select id="currency" v-model="form.currency">
+                            <option value="usd">{{ $t("usd") }}</option>
+                            <option value="egp">{{ $t("egp") }}</option>
                         </select>
                     </div>
-                    <input type="submit" class="save" value="Save Change" />
+                    <input
+                        type="submit"
+                        class="save"
+                        :value="$t('save-changes')"
+                    />
                 </form>
             </div>
         </div>
@@ -33,13 +43,49 @@
 <script>
 import Sidebar from "../components/Sidebar.vue";
 import SettingMenu from "../components/SettingMenu.vue";
+import axios from "axios";
+import store from "../store/";
 export default {
     components: {
         Sidebar,
         SettingMenu,
     },
     data() {
-        return {};
+        return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            lang: "",
+            locale: localStorage.getItem("wiresPOSLang"),
+            form: {
+                tax: null,
+                currency: "",
+            },
+        };
+    },
+    async mounted() {
+        await axios
+            .post(
+                "/api/get-settings",
+                {},
+                { headers: { token: this.user.token } }
+            )
+            .then((result) => {
+                this.form.tax = result.data.tax_rate;
+                this.form.currency = result.data.currency;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    },
+    methods: {
+        setLanguage(item) {
+            if (this.lang == "en") {
+                this.$i18n.locale = "en";
+                store.commit("setAppLanguage", "en");
+            } else if (this.lang == "ar") {
+                this.$i18n.locale = "ar";
+                store.commit("setAppLanguage", "ar");
+            }
+        },
     },
 };
 </script>

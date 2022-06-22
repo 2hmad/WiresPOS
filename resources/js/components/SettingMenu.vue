@@ -2,33 +2,37 @@
     <ul class="links">
         <li>
             <router-link to="/setting" class-active="active" exact>
-                My Details
+                {{ $t("my-details") }}
             </router-link>
         </li>
         <li>
             <router-link to="/password" class-active="active" exact>
-                Password
+                {{ $t("password") }}
             </router-link>
         </li>
         <li>
             <router-link to="/branches" class-active="active" exact>
-                Branches
+                {{ $t("branches") }}
             </router-link>
         </li>
-        <li>
+        <li v-if="user.role == 'admin'">
             <router-link to="/permissions" class-active="active" exact>
-                Permissions
+                {{ $t("permissions") }}
             </router-link>
         </li>
         <li>
             <router-link to="/system-settings" class-active="active" exact>
-                System settings
+                {{ $t("system-settings") }}
             </router-link>
         </li>
     </ul>
 </template>
 <script>
 export default {
-    date() {},
+    data() {
+        return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+        };
+    },
 };
 </script>

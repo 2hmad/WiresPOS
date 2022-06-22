@@ -23,14 +23,14 @@
                 <div class="invoices">
                     <div class="heading">
                         <div style="width: 100%">
-                            <h3>Products</h3>
-                            <p>List of all of your products</p>
+                            <h3>{{ $t("products") }}</h3>
+                            <p>{{ $t("list-of-all-products") }}</p>
                         </div>
                         <div>
                             <router-link to="/add-product">
                                 <button class="add">
                                     <img src="/icons/icons8-plus-math.svg" />
-                                    New Product
+                                    {{ $t("new-product") }}
                                 </button>
                             </router-link>
                         </div>
@@ -48,12 +48,12 @@
                         :search-options="{
                             enabled: true,
                         }"
-                        style="margin-top: 3%"
+                        style="margin-top: 3%; direction: ltr"
                     >
                         <template #table-row="props">
                             <span v-if="props.column.field == 'option'">
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <button>{{ $t("edit") }}</button>
+                                <button>{{ $t("delete") }}</button>
                             </span>
                             <span v-else>
                                 {{ props.formattedRow[props.column.field] }}
@@ -79,34 +79,34 @@ export default {
         return {
             columns: [
                 {
-                    label: "id",
+                    label: this.$t("option"),
                     field: "id",
                     hidden: true,
                 },
                 {
-                    label: "Product",
+                    label: this.$t("product"),
                     field: "product_name",
                 },
                 {
-                    label: "Price",
+                    label: this.$t("price"),
                     field: "price",
                 },
                 {
-                    label: "Category",
+                    label: this.$t("category"),
                     field: "category.category_name",
                     sortable: false,
                 },
                 {
-                    label: "Code",
+                    label: this.$t("code"),
                     field: "code",
                 },
                 {
-                    label: "Store",
+                    label: this.$t("store"),
                     field: "store.store_name",
                     sortable: false,
                 },
                 {
-                    label: "Option",
+                    label: this.$t("option"),
                     field: "option",
                     sortable: false,
                 },

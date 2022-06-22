@@ -5,6 +5,7 @@ use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SystemSettingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,8 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('update-profile', [ProfileController::class, 'update']);
     Route::post('update-password', [ProfileController::class, 'updatePassword']);
+    Route::post('get-branches', [BranchesController::class, 'get']);
     Route::post('add-branch', [BranchesController::class, 'add']);
+    Route::post('delete-branch', [BranchesController::class, 'delete']);
+    Route::post('get-settings', [SystemSettingsController::class, 'get']);
 });

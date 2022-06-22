@@ -12,13 +12,43 @@ body {
 .app-en {
     direction: ltr;
     text-align: left;
-    font-family: "Poppins", sans-serif;
+    * {
+        font-family: "Poppins", sans-serif;
+    }
+
     min-height: 100vh;
 }
 .app-ar {
     text-align: right;
-    font-family: "Cairo", sans-serif;
+    direction: rtl;
     min-height: 100vh;
+    * {
+        font-family: "Cairo", sans-serif !important;
+    }
+    .sidebar {
+        right: 0;
+        left: auto;
+        box-shadow: 4px 15px 20px 8px rgb(241, 241, 241);
+    }
+    .side {
+        margin-right: 175px;
+        margin-left: auto !important;
+        padding-left: 1%;
+        padding-right: auto !important;
+    }
+    .menu-sides {
+        margin-left: auto !important;
+        margin-right: 175px;
+        .menu-side:nth-child(1) {
+            .heading {
+                .search {
+                    button {
+                        right: -35px !important;
+                    }
+                }
+            }
+        }
+    }
 }
 .btn {
     background-color: $primary;
@@ -55,5 +85,6 @@ input[type="submit"] {
 @import "menu";
 @import "history";
 @import "setting";
+@import "branches";
 @import "addProduct";
 @import "components/sidebar";

@@ -1,6 +1,6 @@
 .menu {
     display: flex;
-    .sides {
+    .menu-sides {
         margin-left: 175px;
         display: grid;
         grid-auto-columns: 2fr 1fr;
@@ -11,7 +11,7 @@
         @media screen and (max-width: 768px) {
             margin-left: 20px;
         }
-        .side {
+        .menu-side {
             &:nth-child(1) {
                 flex: 2 0;
                 margin-top: 3%;
@@ -212,9 +212,12 @@
                     justify-content: space-between;
                     .avatar {
                         max-width: 50px;
+                        height: 50px;
                         img {
                             border-radius: 15px;
                             width: 100%;
+                            height: 100%;
+                            object-fit: cover;
                         }
                     }
                     .job-title {

@@ -2,17 +2,17 @@
     <div :class="`app-${$i18n.locale}`">
         <div class="menu">
             <Sidebar />
-            <div class="sides">
-                <div class="side">
+            <div class="menu-sides">
+                <div class="menu-side">
                     <div class="heading">
                         <div class="title">
-                            <h2>Choose Category</h2>
+                            <h2>{{ $t("choose-category") }}</h2>
                         </div>
                         <div class="search">
                             <form>
                                 <input
                                     type="text"
-                                    placeholder="Search menu..."
+                                    :placeholder="$t('search-menu') + '...'"
                                     class="search-box"
                                 />
                                 <button
@@ -108,17 +108,32 @@
                     </div>
                 </div>
                 <!-- Menu -->
-                <div class="side">
+                <div class="menu-side">
                     <div class="account">
                         <div style="display: flex; gap: 10px">
                             <div class="avatar">
                                 <img
-                                    src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
+                                    :src="`/storage/users/${user.pic}`"
+                                    v-if="user.pic !== ''"
                                 />
+                                <img :src="`/images/default.jpg`" v-else />
                             </div>
                             <div class="name">
-                                <span class="job-title"> I'm a Cashier </span>
-                                <span class="fullname"> Ahmed Mohamed </span>
+                                <span
+                                    class="job-title"
+                                    v-if="user.role == 'employee'"
+                                >
+                                    {{ $t("im-a-cashier") }}
+                                </span>
+                                <span
+                                    class="job-title"
+                                    v-else-if="user.role == 'admin'"
+                                >
+                                    {{ $t("im-a-manager") }}
+                                </span>
+                                <span class="fullname">
+                                    {{ user.full_name }}
+                                </span>
                             </div>
                         </div>
                         <router-link to="/notifications">
@@ -132,7 +147,7 @@
                         </router-link>
                     </div>
                     <div class="bills">
-                        <h3>Bills</h3>
+                        <h3>{{ $t("bills") }}</h3>
                         <div class="cards">
                             <div
                                 class="card"
@@ -189,31 +204,27 @@
                             "
                         >
                             <div class="subtotal">
-                                <span class="title">Subtotal</span>
-                                <span class="price"
-                                    >${{ parseInt(subTotal) }}</span
-                                >
+                                <span class="title">{{ $t("subtotal") }}</span>
+                                <span class="price">
+                                    ${{ parseInt(subTotal) }}
+                                </span>
                             </div>
                             <div class="tax">
-                                <span class="title">Tax (14%)</span>
-                                <span class="price"
-                                    >${{
-                                        parseInt(subTotal + subTotal * 0.14)
-                                    }}</span
-                                >
+                                <span class="title">{{ $t("tax") }} (14%)</span>
+                                <span class="price">
+                                    ${{ parseInt(subTotal + subTotal * 0.14) }}
+                                </span>
                             </div>
                             <div class="total">
-                                <span class="title">Total</span>
-                                <span class="price"
-                                    >${{
-                                        parseInt(subTotal + subTotal * 0.14)
-                                    }}</span
-                                >
+                                <span class="title">{{ $t("total") }}</span>
+                                <span class="price">
+                                    ${{ parseInt(subTotal + subTotal * 0.14) }}
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="payment">
-                        <h3>Payment Method</h3>
+                        <h3>{{ $t("payment-method") }}</h3>
                         <div class="cards">
                             <div
                                 class="card"
@@ -223,7 +234,7 @@
                                 <div class="icon">
                                     <img src="icons/icons8-money.svg" />
                                 </div>
-                                <div class="title">Cash</div>
+                                <div class="title">{{ $t("cash") }}</div>
                             </div>
                             <div
                                 class="card"
@@ -233,7 +244,7 @@
                                 <div class="icon">
                                     <img src="icons/icons8-debit-card.svg" />
                                 </div>
-                                <div class="title">Credit Card</div>
+                                <div class="title">{{ $t("credit-card") }}</div>
                             </div>
                             <div
                                 class="card"
@@ -245,11 +256,11 @@
                                         src="icons/icons8-business-card-scanner.svg"
                                     />
                                 </div>
-                                <div class="title">E-Wallet</div>
+                                <div class="title">{{ $t("e-wallet") }}</div>
                             </div>
                         </div>
                     </div>
-                    <button class="print-bill">Print Bill</button>
+                    <button class="print-bill">{{ $t("print-bill") }}</button>
                 </div>
             </div>
         </div>
@@ -268,6 +279,7 @@ export default {
     },
     data() {
         return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             method: null,
             selectedCat: null,
             subTotal: 0,
@@ -341,7 +353,9 @@ export default {
     },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+.app-ar {
+}
 .carousel {
     max-width: 750px;
     @media screen and (min-width: 1024px) {

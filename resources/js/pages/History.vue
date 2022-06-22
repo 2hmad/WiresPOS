@@ -23,14 +23,16 @@
                 <div class="invoices">
                     <div class="heading">
                         <div style="width: 100%">
-                            <h3>Invoices</h3>
-                            <p>List of all of your recent transactions.</p>
+                            <h3>{{ $t("invoices") }}</h3>
+                            <p>
+                                {{ $t("list-of-all-your-recent-transcations") }}
+                            </p>
                         </div>
                         <div>
                             <router-link to="/menu">
                                 <button class="add">
                                     <img src="/icons/icons8-plus-math.svg" />
-                                    New Invoice
+                                    {{ $t("new-invoice") }}
                                 </button>
                             </router-link>
                         </div>

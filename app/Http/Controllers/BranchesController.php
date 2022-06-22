@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BranchesController extends Controller
 {
+    public function get(Request $request)
+    {
+        $user = User::where('token', $request->header('token'))->first();
+        return Branches::where('store_id', $user->store)->get();
+    }
     public function add(Request $request)
     {
         $check = Branches::where('name', $request->branch_name)->first();
@@ -22,5 +27,9 @@ class BranchesController extends Controller
         } else {
             return response()->json(['alert' => 'Branch added before'], 404);
         }
+    }
+    public function delete(Request $request)
+    {
+        return Branches::where('id', $request->id)->delete();
     }
 }

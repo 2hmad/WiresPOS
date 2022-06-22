@@ -3,37 +3,44 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>Settings</h3>
+                <h3>{{ $t("settings") }}</h3>
                 <SettingMenu />
                 <form method="POST" @submit.prevent="changePassword">
                     <div class="input-group">
-                        <label for="oldPassword">Old Password</label>
+                        <label for="oldPassword">
+                            {{ $t("old-password") }}
+                        </label>
                         <input
                             type="password"
-                            placeholder="Old Password"
                             id="oldPassword"
                             v-model="form.old_password"
                         />
                     </div>
                     <div class="input-group">
-                        <label for="newPassword">New Password</label>
+                        <label for="newPassword">
+                            {{ $t("new-password") }}
+                        </label>
                         <input
                             type="password"
-                            placeholder="New Password"
                             id="newPassword"
                             v-model="form.new_password"
                         />
                     </div>
                     <div class="input-group">
-                        <label for="ConfPassword">Confirm New Password</label>
+                        <label for="ConfPassword">
+                            {{ $t("confirm-new-password") }}
+                        </label>
                         <input
                             type="password"
-                            placeholder="Confirm New Password"
                             id="ConfPassword"
                             v-model="confirm_new_password"
                         />
                     </div>
-                    <input type="submit" class="save" value="Change Password" />
+                    <input
+                        type="submit"
+                        class="save"
+                        :value="$t('save-changes')"
+                    />
                 </form>
             </div>
         </div>
