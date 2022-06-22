@@ -35,4 +35,5 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('add-branch', [BranchesController::class, 'add']);
     Route::post('delete-branch', [BranchesController::class, 'delete']);
     Route::post('get-settings', [SystemSettingsController::class, 'get']);
+    Route::post('update-settings', [SystemSettingsController::class, 'update']);
 });

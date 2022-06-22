@@ -5,10 +5,16 @@
             <div class="side">
                 <h3>{{ $t("settings") }}</h3>
                 <SettingMenu />
-                <form method="POST">
+                <form method="POST" @submit.prevent="updateSystem">
                     <div class="input-group" v-if="user.role == 'admin'">
                         <label for="tax">{{ $t("tax") }} (%)</label>
-                        <input type="number" id="tax" v-model="form.tax" />
+                        <input
+                            type="number"
+                            id="tax"
+                            step="0.001"
+                            v-model="form.tax"
+                            required
+                        />
                     </div>
                     <div class="input-group">
                         <label for="language">{{ $t("language") }}</label>
@@ -34,6 +40,7 @@
                         type="submit"
                         class="save"
                         :value="$t('save-changes')"
+                        v-if="user.role == 'admin'"
                     />
                 </form>
             </div>
@@ -85,6 +92,19 @@ export default {
                 this.$i18n.locale = "ar";
                 store.commit("setAppLanguage", "ar");
             }
+        },
+        updateSystem() {
+            axios
+                .post("/api/update-settings", this.form, {
+                    headers: { token: this.user.token },
+                })
+                .then((result) => {
+                    alert(this.$t("system-settings-updated")),
+                        location.reload();
+                })
+                .catch((err) => {
+                    alert(this.$t("something-went-wrong"));
+                });
         },
     },
 };

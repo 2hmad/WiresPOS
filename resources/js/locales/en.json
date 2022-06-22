@@ -70,5 +70,6 @@
     "system-currency": "System Currency",
     "language": "Language",
     "usd": "US Dollar",
-    "egp": "Egyptian Pound"
+    "egp": "Egyptian Pound",
+    "system-settings-updated": "System settings updated"
 }

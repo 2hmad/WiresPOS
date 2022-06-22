@@ -70,5 +70,6 @@
     "system-currency": "عملة النظام",
     "language": "اللغة",
     "usd": "دولار امريكي",
-    "egp": "جنيه مصري"
+    "egp": "جنيه مصري",
+    "system-settings-updated": "تم تحديث اعدادات النظام"
 }
