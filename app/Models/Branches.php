@@ -15,4 +15,5 @@ class Branches extends Model
         'store_id'
     ];
     protected $hidden = [];
+    public $timestamps = false;
 }

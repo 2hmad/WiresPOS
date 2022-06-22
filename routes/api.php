@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -29,4 +30,5 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('update-profile', [ProfileController::class, 'update']);
     Route::post('update-password', [ProfileController::class, 'updatePassword']);
+    Route::post('add-branch', [BranchesController::class, 'add']);
 });

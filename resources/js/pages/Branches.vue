@@ -5,13 +5,14 @@
             <div class="side">
                 <h3>Settings</h3>
                 <SettingMenu />
-                <form method="POST">
+                <form method="POST" @submit.prevent="addBranch">
                     <div class="input-group">
                         <label for="branchName">Branch name</label>
                         <input
                             type="text"
                             placeholder="Branch name"
                             id="branchName"
+                            v-model="form.branch_name"
                         />
                     </div>
                     <div class="input-group">
@@ -20,6 +21,7 @@
                             type="text"
                             placeholder="Branch address"
                             id="branchAddress"
+                            v-model="form.branch_address"
                         />
                     </div>
                     <div class="input-group">
@@ -28,9 +30,10 @@
                             type="tel"
                             placeholder="Branch phone"
                             id="branchTel"
+                            v-model="form.branch_phone"
                         />
                     </div>
-                    <input type="submit" class="save" value="Add User" />
+                    <input type="submit" class="save" value="Add Branch" />
                 </form>
             </div>
         </div>
@@ -39,13 +42,37 @@
 <script>
 import Sidebar from "../components/Sidebar.vue";
 import SettingMenu from "../components/SettingMenu.vue";
+import axios from "axios";
 export default {
     components: {
         Sidebar,
         SettingMenu,
     },
     data() {
-        return {};
+        return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            form: {
+                branch_name: "",
+                branch_address: "",
+                branch_phone: "",
+            },
+        };
+    },
+    methods: {
+        addBranch() {
+            axios
+                .post("/api/add-branch", this.form, {
+                    headers: {
+                        token: this.user.token,
+                    },
+                })
+                .then((succ) => {
+                    alert(this.$t("branch-added")), location.reload();
+                })
+                .catch((err) => {
+                    alert(this.$t("branch-exist"));
+                });
+        },
     },
 };
 </script>
