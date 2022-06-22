@@ -91,8 +91,8 @@ export default {
                 const data = new FormData();
                 data.append("pic", this.form.pic, this.form.pic.name);
                 const details = JSON.stringify({
-                    full_name: this.form.fullName,
-                    email: this.form.email,
+                    name: this.form.name,
+                    address: this.form.address,
                     phone: this.form.phone,
                 });
                 data.append("data", details);
