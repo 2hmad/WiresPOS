@@ -4,5 +4,9 @@
     "password": "كلمة المرور",
     "recovery-password": "استعادة كلمة المرور",
     "login": "تسجيل الدخول",
-    "email-or-password-incorrect": "الايميل او كلمة المرور غير صحيحة"
+    "email-or-password-incorrect": "الايميل او كلمة المرور غير صحيحة",
+    "profile-updated": "تم تحديث الملف الشخصي",
+    "password-changed": "تم تحديث كلمة المرور بنجاح",
+    "old-password-incorrect": "كلمة المرور القديمة غير صحيحة",
+    "password-and-confirm-not-match": "كلمة المرور والتأكيد غير متطابقين"
 }

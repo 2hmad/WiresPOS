@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
     public function get()
     {
-        return Products::get();
+        return Products::with(['store', 'category'])->get();
     }
     public function insert(Request $request)
     {

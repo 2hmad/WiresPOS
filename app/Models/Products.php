@@ -19,4 +19,13 @@ class Products extends Model
     ];
     protected $hidden = [];
     public $timestamps = false;
+
+    public function store()
+    {
+        return $this->hasOne(Stores::class, 'id', 'store_id');
+    }
+    public function category()
+    {
+        return $this->hasOne(Categories::class, 'id', 'category');
+    }
 }

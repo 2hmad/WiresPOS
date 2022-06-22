@@ -18,7 +18,7 @@ const actions = {
                     document.location.reload();
                 }
             })
-            .catch((err) => alert("email-or-password-incorrect"));
+            .catch((err) => alert("email or password incorrect"));
     },
     async LogOut({ commit }) {
         const user = null;

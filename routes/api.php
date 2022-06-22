@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/auth", [AuthController::class, 'checkUser']);
 Route::get('categories', [CategoriesController::class, 'get']);
 Route::get('products', [ProductsController::class, 'get']);
-Route::post('add-product', [ProductsController::class, 'insert']);
+Route::group(['middleware' => "userToken"], function () {
+    Route::post('add-product', [ProductsController::class, 'insert']);
+    Route::post('update-profile', [ProfileController::class, 'update']);
+    Route::post('update-password', [ProfileController::class, 'updatePassword']);
+});

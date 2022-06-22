@@ -1,7 +1,7 @@
 <template>
     <nav class="sidebar">
         <div class="brand">
-            <img src="https://digitwires.com/WiresPOS.svg" />
+            <img src="/images/WiresPOS.svg" />
         </div>
         <div class="items">
             <ul>

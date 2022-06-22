@@ -5,14 +5,16 @@
             <div class="side">
                 <h3>Settings</h3>
                 <SettingMenu />
-                <form method="POST">
+                <form @submit.prevent="updateProfile">
                     <div class="pic-change">
                         <label for="change">
                             <img
-                                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
+                                :src="`/storage/users/${user.pic}`"
+                                v-if="user.pic !== ''"
                             />
+                            <img :src="`/images/default.jpg`" v-else />
                         </label>
-                        <input type="file" id="change" />
+                        <input type="file" id="change" @change="uploadPic" />
                     </div>
                     <div class="input-group">
                         <label for="fullname">Full name</label>
@@ -50,7 +52,8 @@
 <script>
 import Sidebar from "../components/Sidebar.vue";
 import SettingMenu from "../components/SettingMenu.vue";
-import store from "../store/";
+import axios from "axios";
+import { mapActions } from "vuex";
 export default {
     components: {
         Sidebar,
@@ -63,6 +66,7 @@ export default {
                 fullName: "",
                 email: "",
                 phone: "",
+                pic: null,
             },
         };
     },
@@ -70,6 +74,59 @@ export default {
         this.form.fullName = this.user.full_name;
         this.form.email = this.user.email;
         this.form.phone = this.user.phone;
+    },
+    methods: {
+        ...mapActions(["LogOut"]),
+        uploadPic(e) {
+            this.form.pic = e.target.files[0];
+        },
+        updateProfile() {
+            if (this.form.pic !== null) {
+                const data = new FormData();
+                data.append("pic", this.form.pic, this.form.pic.name);
+                const details = JSON.stringify({
+                    full_name: this.form.fullName,
+                    email: this.form.email,
+                    phone: this.form.phone,
+                });
+                data.append("data", details);
+                const config = {
+                    headers: {
+                        "content-type": "multipart/form-data",
+                        token: this.user.token,
+                    },
+                };
+                axios
+                    .post("/api/update-profile", data, config)
+                    .then((result) => {
+                        alert(this.$t("profile-updated")), this.logout();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            } else {
+                axios
+                    .post("/api/update-profile", this.form, {
+                        headers: {
+                            token: this.user.token,
+                        },
+                    })
+                    .then((result) => {
+                        alert(this.$t("profile-updated")), this.logout();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+        },
+        async logout() {
+            try {
+                await this.LogOut();
+                location.reload();
+            } catch (error) {
+                console.log(error);
+            }
+        },
     },
 };
 </script>

@@ -4,5 +4,9 @@
     "password": "Password",
     "recovery-password": "Recovery Password",
     "login": "Login",
-    "email-or-password-incorrect": "Email or Password is incorrect"
+    "email-or-password-incorrect": "Email or Password is incorrect",
+    "profile-updated": "Profile Updated",
+    "password-changed": "Password has been changed Successfully",
+    "old-password-incorrect": "Old password is not correct",
+    "password-and-confirm-not-match": "Password and Confirmation do not match"
 }

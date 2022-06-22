@@ -50,9 +50,10 @@
                         }"
                         style="margin-top: 3%"
                     >
-                        <template slot="table-row" slot-scope="props">
+                        <template #table-row="props">
                             <span v-if="props.column.field == 'option'">
-                                {{ props.row.name }}
+                                <button>Edit</button>
+                                <button>Delete</button>
                             </span>
                             <span v-else>
                                 {{ props.formattedRow[props.column.field] }}
@@ -68,6 +69,7 @@
 import Sidebar from "../components/Sidebar.vue";
 import { VueGoodTable } from "vue-good-table-next";
 import "vue-good-table-next/dist/vue-good-table-next.css";
+import axios from "axios";
 export default {
     components: {
         Sidebar,
@@ -77,25 +79,30 @@ export default {
         return {
             columns: [
                 {
+                    label: "id",
+                    field: "id",
+                    hidden: true,
+                },
+                {
                     label: "Product",
-                    field: "name",
+                    field: "product_name",
                 },
                 {
                     label: "Price",
-                    field: "age",
+                    field: "price",
                 },
                 {
                     label: "Category",
-                    field: "age",
+                    field: "category.category_name",
                     sortable: false,
                 },
                 {
                     label: "Code",
-                    field: "Code",
+                    field: "code",
                 },
                 {
                     label: "Store",
-                    field: "Code",
+                    field: "store.store_name",
                     sortable: false,
                 },
                 {
@@ -104,45 +111,14 @@ export default {
                     sortable: false,
                 },
             ],
-            rows: [
-                { id: 1, name: "John", age: 20, createdAt: "", score: 0.03343 },
-                {
-                    id: 2,
-                    name: "Jane",
-                    age: 24,
-                    createdAt: "2011-10-31",
-                    score: 0.03343,
-                },
-                {
-                    id: 3,
-                    name: "Susan",
-                    age: 16,
-                    createdAt: "2011-10-30",
-                    score: 0.03343,
-                },
-                {
-                    id: 4,
-                    name: "Chris",
-                    age: 55,
-                    createdAt: "2011-10-11",
-                    score: 0.03343,
-                },
-                {
-                    id: 5,
-                    name: "Dan",
-                    age: 40,
-                    createdAt: "2011-10-21",
-                    score: 0.03343,
-                },
-                {
-                    id: 6,
-                    name: "John",
-                    age: 20,
-                    createdAt: "2011-10-31",
-                    score: 0.03343,
-                },
-            ],
+            rows: [],
         };
+    },
+    mounted() {
+        axios
+            .get("/api/products")
+            .then((res) => (this.rows = res.data))
+            .catch((err) => console.log(err));
     },
 };
 </script>

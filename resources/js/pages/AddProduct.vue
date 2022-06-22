@@ -80,6 +80,7 @@ export default {
     },
     data() {
         return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             cats: [],
             form: {
                 productName: "",
@@ -126,6 +127,7 @@ export default {
             const config = {
                 headers: {
                     "content-type": "multipart/form-data",
+                    token: this.user.token,
                 },
             };
             axios
