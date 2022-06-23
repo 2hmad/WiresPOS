@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('price');
             $table->unsignedInteger('category');
             $table->text('code');
+            $table->unsignedInteger('quantity')->nullable();
             $table->unsignedInteger('store_id');
             $table->text('image');
         });

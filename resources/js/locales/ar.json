@@ -37,7 +37,9 @@
     "list-of-all-your-recent-transcations": "قائمة بجميع معاملاتك الأخيرة",
     "new-invoice": "فاتورة جديدة",
     "list-of-all-products": "قائمة بجميع المنتجات",
+    "list-of-all-categories": "قائمة بجميع الاصناف",
     "new-product": "منتج جديد",
+    "new-category": "صنف جديد",
     "option": "خيارات",
     "store": "المتجر",
     "code": "الكود",
@@ -81,5 +83,11 @@
     "company-info": "بيانات المؤسسة",
     "company-name": "اسم المؤسسة الام",
     "company-address": "عنوان المؤسسة الام",
-    "company-phone": "رقم موبايل المؤسسة الام"
+    "company-phone": "رقم موبايل المؤسسة الام",
+    "store-updated": "تم تحديث بيانات المؤسسة",
+    "categories": "الاصناف",
+    "category-name": "اسم التصنيف",
+    "operation-successful": "تمت العملية بنجاح",
+    "added-before": "لقد قمت باضافته مسبقاً",
+    "browse": "تصفح"
 }

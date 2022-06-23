@@ -15,4 +15,5 @@ class Stores extends Model
         'logo'
     ];
     protected $hidden = [];
+    public $timestamps = false;
 }

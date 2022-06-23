@@ -28,9 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post("/auth", [AuthController::class, 'checkUser']);
 Route::get('categories', [CategoriesController::class, 'get']);
+Route::get('get-products/{category_id}', [CategoriesController::class, 'getProducts']);
 Route::get('products', [ProductsController::class, 'get']);
 Route::group(['middleware' => "userToken"], function () {
     Route::post('add-product', [ProductsController::class, 'insert']);
+    Route::post('add-category', [ProductsController::class, 'add_category']);
 
     Route::post('update-profile', [ProfileController::class, 'update']);
     Route::post('update-password', [ProfileController::class, 'updatePassword']);
@@ -47,4 +49,5 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('delete-user', [PermissionsController::class, 'delete_user']);
 
     Route::post('get-store', [StoreController::class, 'get']);
+    Route::post('update-store', [StoreController::class, 'update']);
 });

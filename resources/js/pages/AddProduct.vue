@@ -38,18 +38,6 @@
                         />
                     </div>
                     <div class="input-group">
-                        <label for="cat">{{ $t("category") }}</label>
-                        <select id="cat" v-model="form.category">
-                            <option
-                                v-for="cat in cats"
-                                :key="cat.id"
-                                :value="cat.id"
-                            >
-                                {{ cat.category_name }}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="input-group">
                         <label for="code">{{ $t("code") }}</label>
                         <input
                             type="text"
@@ -93,7 +81,7 @@ export default {
                 productName: "",
                 productDetails: "",
                 productPrice: null,
-                category: null,
+                category: this.$route.params.cat_id,
                 code: "",
                 store: JSON.parse(localStorage.getItem("wiresPOSUser")).store,
                 thumbnail: null,

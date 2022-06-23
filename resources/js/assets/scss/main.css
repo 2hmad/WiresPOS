@@ -146,6 +146,12 @@ body {
   padding-right: auto !important;
 }
 
+@media screen and (max-width: 768px) {
+  .app-ar .side {
+    margin-right: 0;
+  }
+}
+
 .app-ar .menu-sides {
   margin-left: auto !important;
   margin-right: 175px;
@@ -189,6 +195,41 @@ input[type="submit"] {
   outline: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.action-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.action-btns .show-action,
+.action-btns .delete-action,
+.action-btns .edit-action {
+  background: #3154aa;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  gap: 5px;
+}
+
+.action-btns .show-action img,
+.action-btns .delete-action img,
+.action-btns .edit-action img {
+  max-width: 20px;
 }
 
 .login {
@@ -618,6 +659,7 @@ input[type="submit"] {
   font-size: 13px;
   position: relative;
   bottom: 6px;
+  text-transform: uppercase;
 }
 
 .menu .menu-sides .menu-side:nth-child(1) .products .product .sizes {
@@ -802,11 +844,11 @@ input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 2px;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 5px;
   width: 100%;
 }
 
@@ -941,6 +983,15 @@ input[type="submit"] {
   gap: 5px;
   padding: 10px 14px;
   cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .menu .menu-sides .menu-side:nth-child(2) .payment .cards .card .icon {

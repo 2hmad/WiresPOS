@@ -23,16 +23,14 @@
                 <div class="invoices">
                     <div class="heading">
                         <div style="width: 100%">
-                            <h3>{{ $t("products") }}</h3>
-                            <p>{{ $t("list-of-all-products") }}</p>
+                            <h3>{{ $t("categories") }}</h3>
+                            <p>{{ $t("list-of-all-categories") }}</p>
                         </div>
                         <div>
-                            <router-link
-                                :to="`/add-product/${this.$route.params.cat_id}`"
-                            >
+                            <router-link to="/add-category">
                                 <button class="add">
                                     <img src="/icons/icons8-plus-math.svg" />
-                                    {{ $t("new-product") }}
+                                    {{ $t("new-category") }}
                                 </button>
                             </router-link>
                         </div>
@@ -55,6 +53,14 @@
                         <template #table-row="props">
                             <span v-if="props.column.field == 'option'">
                                 <div class="action-btns">
+                                    <a :href="`/products/${props.row.id}`">
+                                        <button class="show-action">
+                                            <img
+                                                src="/icons/icons8-surprise.svg"
+                                            />
+                                            {{ $t("browse") }}
+                                        </button>
+                                    </a>
                                     <button class="edit-action">
                                         <img src="/icons/icons8-edit.svg" />
                                         {{ $t("edit") }}
@@ -64,6 +70,27 @@
                                         {{ $t("delete") }}
                                     </button>
                                 </div>
+                            </span>
+                            <span
+                                v-else-if="
+                                    props.column.field == 'category_name'
+                                "
+                                style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 5px;
+                                "
+                            >
+                                <img
+                                    :src="`/storage/categories/${props.row.icon}`"
+                                    style="
+                                        max-width: 40px;
+                                        height: 40px;
+                                        border-radius: 50%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                {{ props.row.category_name }}
                             </span>
                             <span v-else>
                                 {{ props.formattedRow[props.column.field] }}
@@ -94,21 +121,14 @@ export default {
                     hidden: true,
                 },
                 {
-                    label: this.$t("product"),
-                    field: "product_name",
-                },
-                {
-                    label: this.$t("price"),
-                    field: "price",
+                    label: this.$t("image"),
+                    field: "icon",
+                    hidden: true,
                 },
                 {
                     label: this.$t("category"),
-                    field: "category.category_name",
-                    sortable: false,
-                },
-                {
-                    label: this.$t("code"),
-                    field: "code",
+                    field: "category_name",
+                    width: "50%",
                 },
                 {
                     label: this.$t("option"),
@@ -119,11 +139,19 @@ export default {
             rows: [],
         };
     },
-    mounted() {
-        axios
-            .get(`/api/get-products/${this.$route.params.cat_id}`)
-            .then((res) => (this.rows = res.data))
+    async mounted() {
+        await axios
+            .get("/api/categories")
+            .then((result) => {
+                this.rows = result.data;
+            })
             .catch((err) => console.log(err));
     },
+    // mounted() {
+    //     axios
+    //         .get("/api/products")
+    //         .then((res) => (this.rows = res.data))
+    //         .catch((err) => console.log(err));
+    // },
 };
 </script>

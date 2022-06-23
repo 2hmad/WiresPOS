@@ -17,4 +17,48 @@ class StoreController extends Controller
             return response()->json(['alert' => 'permission denied'], 404);
         }
     }
+    public function update(Request $request)
+    {
+        if ($request->pic !== null) {
+            $validated = $request->validate([
+                'pic' => 'mimes:jpg,png,jpeg,svg'
+            ]);
+            if ($validated) {
+                $reqDecode = json_decode($request->data, true);
+                $file_name = 'store-' . $reqDecode['id'] . '.' . $request->pic->getClientOriginalExtension();
+                $file_path = $request->file('pic')->storeAs('stores', $file_name, 'public');
+                $check_store = Stores::where('id', $reqDecode['id'])->first();
+                if ($check_store !== null) {
+                    Stores::where('id', $reqDecode['id'])->update([
+                        'store_name' => $reqDecode['name'],
+                        'address' => $reqDecode['address'],
+                        'phone' => $reqDecode['phone'],
+                        'logo' => $file_name
+                    ]);
+                } else {
+                    Stores::create([
+                        'store_name' => $reqDecode['name'],
+                        'address' => $reqDecode['address'],
+                        'phone' => $reqDecode['phone'],
+                        'logo' => $file_name
+                    ]);
+                }
+            }
+        } else {
+            $check_store = Stores::where('id', $request->id)->first();
+            if ($check_store !== null) {
+                Stores::where('id', $request->id)->update([
+                    'store_name' => $request->name,
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                ]);
+            } else {
+                Stores::create([
+                    'store_name' => $request->name,
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                ]);
+            }
+        }
+    }
 }

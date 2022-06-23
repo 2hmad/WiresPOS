@@ -4,7 +4,9 @@ import Dashboard from "../pages/Dashboard.vue";
 import Menu from "../pages/Menu.vue";
 import History from "../pages/History.vue";
 import Products from "../pages/Products.vue";
+import Categories from "../pages/Categories.vue";
 import AddProduct from "../pages/AddProduct.vue";
+import AddCategory from "../pages/AddCategory.vue";
 import Setting from "../pages/Setting.vue";
 import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
@@ -42,15 +44,29 @@ const routes = [
         },
     },
     {
-        path: "/products",
+        path: "/products/:cat_id",
         component: Products,
         meta: {
             requiresAuth: true,
         },
     },
     {
-        path: "/add-product",
+        path: "/add-product/:cat_id",
         component: AddProduct,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/categories",
+        component: Categories,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/add-category",
+        component: AddCategory,
         meta: {
             requiresAuth: true,
         },

@@ -37,7 +37,9 @@
     "list-of-all-your-recent-transcations": "List of all of your recent transactions",
     "new-invoice": "New Invoice",
     "list-of-all-products": "List of all products",
+    "list-of-all-categories": "List of all categories",
     "new-product": "New Product",
+    "new-category": "New Category",
     "option": "Option",
     "store": "Store",
     "code": "Code",
@@ -81,5 +83,11 @@
     "company-info": "Company",
     "company-name": "Company's main name",
     "company-address": "Company's main address",
-    "company-phone": "Company's main phone"
+    "company-phone": "Company's main phone",
+    "store-updated": "Store has been updated successfully",
+    "categories": "Categories",
+    "category-name": "Category name",
+    "operation-successful": "The operation was successful",
+    "added-before": "Added Before",
+    "browse": "Browse"
 }

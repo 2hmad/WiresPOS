@@ -44,7 +44,7 @@
                                         >
                                             <div class="icon">
                                                 <img
-                                                    :src="`/storage/cats/${item.icon}`"
+                                                    :src="`/storage/categories/${item.icon}`"
                                                 />
                                             </div>
                                             <div class="title">
@@ -60,7 +60,9 @@
                         {{
                             selectedCat
                                 ? items.find((item) => item.id === selectedCat)
-                                      .category_name + " Menu"
+                                      .category_name +
+                                  " " +
+                                  $t("menu")
                                 : ""
                         }}
                     </h2>
@@ -74,7 +76,7 @@
                             <div class="info">
                                 <div class="image">
                                     <img
-                                        :src="`/storage/products/${product.image}`"
+                                        :src="`/storage/store-${product.store_id}/products/${product.image}`"
                                     />
                                 </div>
                                 <div class="details">
@@ -85,7 +87,9 @@
                                         {{ product.product_details }}
                                     </span>
                                     <span class="price">
-                                        <span class="currency">EGP</span>
+                                        <span class="currency">
+                                            {{ systemSettings.currency }}
+                                        </span>
                                         {{ product.price }}
                                     </span>
                                 </div>
@@ -152,46 +156,63 @@
                             <div
                                 class="card"
                                 v-for="bill in filterBills"
-                                :key="bill.id"
+                                :key="bill"
                             >
-                                <div class="image">
-                                    <img
-                                        src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1649426020~exp=1649426620~hmac=59e916bf81f9ca2cb088c705860504d5bd225d98aae8e957936477c1cf2bba67&w=740"
-                                    />
-                                </div>
                                 <div
                                     class="info"
                                     v-for="billInfo of bill"
-                                    :key="billInfo.id"
+                                    :key="billInfo"
                                 >
-                                    <span class="title">
-                                        {{ billInfo.product_name }}
-                                        <button
-                                            @click="deleteBill(billInfo.id)"
-                                        >
-                                            <img
-                                                src="/icons/icons8-remove.svg"
-                                                style="max-width: 20px"
-                                            />
-                                        </button>
-                                    </span>
-                                    <div class="quantity">
-                                        <span class="number">
-                                            <input
-                                                type="number"
-                                                value="1"
-                                                min="1"
-                                                style="
-                                                    border: none;
-                                                    padding: 3px;
-                                                    max-width: auto;
-                                                    outline: none;
-                                                "
-                                            />
+                                    <div class="image">
+                                        <img
+                                            :src="`/storage/store-${billInfo.store_id}/products/${billInfo.image}`"
+                                        />
+                                    </div>
+                                    <div style="width: 100%">
+                                        <span class="title">
+                                            {{ billInfo.product_name }}
+                                            <button
+                                                @click="deleteBill(billInfo.id)"
+                                            >
+                                                <img
+                                                    src="/icons/icons8-remove.svg"
+                                                    style="max-width: 20px"
+                                                />
+                                            </button>
                                         </span>
-                                        <span class="price">
-                                            ${{ billInfo.price * 1 }}
-                                        </span>
+                                        <div class="quantity">
+                                            <span class="number">
+                                                <input
+                                                    type="number"
+                                                    min="1"
+                                                    v-model="billInfo.quantity"
+                                                    @input="upload"
+                                                    style="
+                                                        border: none;
+                                                        padding: 3px;
+                                                        max-width: auto;
+                                                        outline: none;
+                                                    "
+                                                />
+                                            </span>
+                                            <span class="price">
+                                                {{
+                                                    billInfo.quantity !== null
+                                                        ? billInfo.price *
+                                                          billInfo.quantity
+                                                        : billInfo.price
+                                                }}
+                                                <span
+                                                    style="
+                                                        text-transform: uppercase;
+                                                    "
+                                                >
+                                                    {{
+                                                        systemSettings.currency
+                                                    }}
+                                                </span>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -206,19 +227,44 @@
                             <div class="subtotal">
                                 <span class="title">{{ $t("subtotal") }}</span>
                                 <span class="price">
-                                    ${{ parseInt(subTotal) }}
+                                    {{ parseInt(subTotal) }}
+                                    <span style="text-transform: uppercase">
+                                        {{ systemSettings.currency }}
+                                    </span>
                                 </span>
                             </div>
                             <div class="tax">
-                                <span class="title">{{ $t("tax") }} (14%)</span>
+                                <span class="title">
+                                    {{ $t("tax") }}
+                                    ({{ systemSettings.tax_rate }}%)
+                                </span>
                                 <span class="price">
-                                    ${{ parseInt(subTotal + subTotal * 0.14) }}
+                                    {{
+                                        parseInt(
+                                            (subTotal *
+                                                systemSettings.tax_rate) /
+                                                100
+                                        )
+                                    }}
+                                    <span style="text-transform: uppercase">
+                                        {{ systemSettings.currency }}
+                                    </span>
                                 </span>
                             </div>
                             <div class="total">
                                 <span class="title">{{ $t("total") }}</span>
                                 <span class="price">
-                                    ${{ parseInt(subTotal + subTotal * 0.14) }}
+                                    {{
+                                        parseInt(
+                                            subTotal +
+                                                (subTotal *
+                                                    systemSettings.tax_rate) /
+                                                    100
+                                        )
+                                    }}
+                                    <span style="text-transform: uppercase">
+                                        {{ systemSettings.currency }}
+                                    </span>
                                 </span>
                             </div>
                         </div>
@@ -270,6 +316,7 @@
 import Sidebar from "../components/Sidebar.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
+import axios from "axios";
 export default {
     name: "menu",
     components: {
@@ -282,12 +329,13 @@ export default {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             method: null,
             selectedCat: null,
-            subTotal: 0,
+            // subTotal: 0,
             items: [],
             products: [],
             filterProducts: [],
             bill: null,
             filterBills: [],
+            systemSettings: [],
             settings: {
                 itemsToShow: 1,
                 snapAlign: "start",
@@ -304,15 +352,32 @@ export default {
             },
         };
     },
-    mounted() {
-        axios
+    async mounted() {
+        await axios
             .get("/api/categories")
             .then((result) => (this.items = result.data))
             .catch((err) => console.log(err));
-        axios
+        await axios
             .get("/api/products")
             .then((result) => (this.products = result.data))
             .catch((err) => console.log(err));
+        await axios
+            .post(
+                "/api/get-settings",
+                {},
+                { headers: { token: this.user.token } }
+            )
+            .then((result) => (this.systemSettings = result.data))
+            .catch((err) => console.log(err));
+    },
+    computed: {
+        subTotal() {
+            return this.filterBills.reduce(
+                (accumulator, current) =>
+                    accumulator + current[0].price * current[0].quantity,
+                0
+            );
+        },
     },
     methods: {
         payment(id) {
@@ -325,7 +390,7 @@ export default {
                 this.filterProducts = this.products;
             } else {
                 this.filterProducts = this.products.filter(
-                    (p) => parseInt(p.category) === this.selectedCat
+                    (p) => parseInt(p.category.id) === this.selectedCat
                 );
             }
         },
@@ -337,10 +402,10 @@ export default {
             this.filterBills.push(
                 this.products.filter((p) => p.id === this.bill)
             );
-            this.subTotal = this.filterBills.reduce(
-                (accumulator, current) => accumulator + current[0].price,
-                0
-            );
+            // this.subTotal = this.filterBills.reduce(
+            //     (accumulator, current) => accumulator + current[0].price,
+            //     0
+            // );
         },
         deleteBill(billId) {
             this.filterBills.map((item, index) => {

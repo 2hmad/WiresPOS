@@ -132,3 +132,8 @@ export default {
     },
 };
 </script>
+<style scoped>
+.app-ar .side {
+    margin-right: 0 !important;
+}
+</style>

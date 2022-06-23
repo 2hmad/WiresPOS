@@ -12,4 +12,5 @@ class Categories extends Model
         'category_name',
         'icon'
     ];
+    public $timestamps = false;
 }

@@ -14,6 +14,7 @@ class Products extends Model
         'price',
         'category',
         'code',
+        'quantity',
         'store_id',
         'image'
     ];

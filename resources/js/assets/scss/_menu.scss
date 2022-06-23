@@ -149,6 +149,7 @@
                                         font-size: 13px;
                                         position: relative;
                                         bottom: 6px;
+                                        text-transform: uppercase;
                                     }
                                 }
                             }
@@ -272,8 +273,8 @@
                             }
                             .info {
                                 display: flex;
-                                flex-direction: column;
-                                gap: 2px;
+                                flex-direction: row;
+                                gap: 5px;
                                 width: 100%;
                                 .title {
                                     font-weight: 600;
@@ -355,6 +356,9 @@
                             gap: 5px;
                             padding: 10px 14px;
                             cursor: pointer;
+                            flex: 1;
+                            align-items: center;
+                            justify-content: center;
                             .icon {
                                 height: 36px;
                             }

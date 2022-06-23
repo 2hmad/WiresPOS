@@ -17,7 +17,12 @@
                                 v-else
                             />
                         </label>
-                        <input type="file" id="change" @change="uploadPic" />
+                        <input
+                            type="file"
+                            id="change"
+                            accept="jpg,png,jpeg,svg"
+                            @change="uploadPic"
+                        />
                     </div>
                     <div class="input-group">
                         <label for="fullname">{{ $t("company-name") }}</label>
@@ -25,7 +30,7 @@
                     </div>
                     <div class="input-group">
                         <label for="email">{{ $t("company-address") }}</label>
-                        <input type="email" id="email" v-model="form.address" />
+                        <input type="text" id="email" v-model="form.address" />
                     </div>
                     <div class="input-group">
                         <label for="phone">{{ $t("company-phone") }}</label>
@@ -54,8 +59,9 @@ export default {
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
-            store_logo: null,
+            store_logo: "",
             form: {
+                id: JSON.parse(localStorage.getItem("wiresPOSUser")).store,
                 name: "",
                 address: "",
                 phone: "",
@@ -75,7 +81,7 @@ export default {
                 }
             )
             .then((result) => {
-                (this.form.name = result.data.name),
+                (this.form.name = result.data.store_name),
                     (this.form.address = result.data.address),
                     (this.form.phone = result.data.phone),
                     (this.store_logo = result.data.logo);
@@ -86,11 +92,12 @@ export default {
         uploadPic(e) {
             this.form.pic = e.target.files[0];
         },
-        updateProfile() {
+        updateStore() {
             if (this.form.pic !== null) {
                 const data = new FormData();
                 data.append("pic", this.form.pic, this.form.pic.name);
                 const details = JSON.stringify({
+                    id: this.user.store,
                     name: this.form.name,
                     address: this.form.address,
                     phone: this.form.phone,
@@ -103,22 +110,22 @@ export default {
                     },
                 };
                 axios
-                    .post("/api/update-profile", data, config)
+                    .post("/api/update-store", data, config)
                     .then((result) => {
-                        alert(this.$t("profile-updated")), this.logout();
+                        alert(this.$t("store-updated")), location.reload();
                     })
                     .catch((err) => {
                         console.log(err);
                     });
             } else {
                 axios
-                    .post("/api/update-profile", this.form, {
+                    .post("/api/update-store", this.form, {
                         headers: {
                             token: this.user.token,
                         },
                     })
                     .then((result) => {
-                        alert(this.$t("profile-updated")), this.logout();
+                        alert(this.$t("store-updated")), location.reload();
                     })
                     .catch((err) => {
                         console.log(err);
