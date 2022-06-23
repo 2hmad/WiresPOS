@@ -33,7 +33,7 @@ body {
     .side {
         margin-right: 175px;
         @media screen and (max-width: 768px) {
-            margin-right: 0;
+            margin-right: 0 !important;
         }
         margin-left: auto !important;
         padding-left: 1%;
@@ -42,6 +42,9 @@ body {
     .menu-sides {
         margin-left: auto !important;
         margin-right: 175px;
+        @media screen and (max-width: 768px) {
+            margin-right: 0 !important;
+        }
         .menu-side:nth-child(1) {
             .heading {
                 .search {

@@ -28,7 +28,7 @@ class ProductsController extends Controller
                 'price' => $reqDecode['productPrice'],
                 'category' => $reqDecode['category'],
                 'code' => $reqDecode['code'],
-                'qunatity' => 1,
+                'quantity' => 1,
                 'store_id' => $reqDecode['store'],
                 'image' => $file_name
             ]);

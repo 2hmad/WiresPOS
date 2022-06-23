@@ -181,19 +181,52 @@
                                             </button>
                                         </span>
                                         <div class="quantity">
-                                            <span class="number">
+                                            <span
+                                                class="number"
+                                                style="
+                                                    display: flex;
+                                                    align-items: center;
+                                                "
+                                            >
+                                                <button
+                                                    type="button"
+                                                    style="
+                                                        color: #3154aa;
+                                                        font-size: 22px;
+                                                        font-weight: bold;
+                                                    "
+                                                    @click="
+                                                        billInfo.quantity += 1
+                                                    "
+                                                >
+                                                    +
+                                                </button>
                                                 <input
                                                     type="number"
                                                     min="1"
                                                     v-model="billInfo.quantity"
-                                                    @input="upload"
                                                     style="
                                                         border: none;
                                                         padding: 3px;
-                                                        max-width: auto;
                                                         outline: none;
+                                                        max-width: 60px;
+                                                        text-align: center;
+                                                        -webkit-appearance: none;
                                                     "
+                                                    disabled
                                                 />
+                                                <button
+                                                    style="
+                                                        color: #3154aa;
+                                                        font-size: 22px;
+                                                        font-weight: bold;
+                                                    "
+                                                    @click="
+                                                        billInfo.quantity -= 1
+                                                    "
+                                                >
+                                                    -
+                                                </button>
                                             </span>
                                             <span class="price">
                                                 {{
@@ -427,5 +460,10 @@ export default {
         max-width: 100%;
         width: 100%;
     }
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 </style>
