@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SystemSettingsController;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +31,15 @@ Route::post("/auth", [AuthController::class, 'checkUser']);
 Route::get('categories', [CategoriesController::class, 'get']);
 Route::get('get-products/{category_id}', [CategoriesController::class, 'getProducts']);
 Route::get('products', [ProductsController::class, 'get']);
+Route::get('get-category/{id}', function ($id) {
+    return Categories::where('id', $id)->first();
+});
 Route::group(['middleware' => "userToken"], function () {
     Route::post('add-product', [ProductsController::class, 'insert']);
+    Route::post('delete-product', [ProductsController::class, 'delete']);
     Route::post('add-category', [ProductsController::class, 'add_category']);
+    Route::post('edit-category', [ProductsController::class, 'edit_category']);
+    Route::post('delete-category', [ProductsController::class, 'delete_category']);
 
     Route::post('update-profile', [ProfileController::class, 'update']);
     Route::post('update-password', [ProfileController::class, 'updatePassword']);

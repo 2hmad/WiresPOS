@@ -118,7 +118,7 @@
                             <div class="avatar">
                                 <img
                                     :src="`/storage/users/${user.pic}`"
-                                    v-if="user.pic !== ''"
+                                    v-if="user.pic !== '' && user.pic !== null"
                                 />
                                 <img :src="`/images/default.jpg`" v-else />
                             </div>
@@ -142,7 +142,7 @@
                         </div>
                         <router-link to="/notifications">
                             <div class="notification">
-                                <div class="badge"></div>
+                                <!-- <div class="badge"></div> -->
                                 <img
                                     src="icons/icons8-notification.svg"
                                     style="max-width: 27px"
@@ -465,5 +465,17 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.cards::-webkit-scrollbar {
+    width: 5px;
+}
+.cards::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.cards::-webkit-scrollbar-thumb {
+    background: #888;
+}
+.cards::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 </style>

@@ -10,7 +10,7 @@
                         <label for="change">
                             <img
                                 :src="`/storage/users/${user.pic}`"
-                                v-if="user.pic !== ''"
+                                v-if="user.pic !== '' && user.pic !== null"
                             />
                             <img :src="`/images/default.jpg`" v-else />
                         </label>

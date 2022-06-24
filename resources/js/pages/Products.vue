@@ -26,7 +26,7 @@
                             <h3>{{ $t("products") }}</h3>
                             <p>{{ $t("list-of-all-products") }}</p>
                         </div>
-                        <div>
+                        <div v-if="user.role == 'admin'">
                             <router-link
                                 :to="`/add-product/${this.$route.params.cat_id}`"
                             >
@@ -52,14 +52,16 @@
                         }"
                         style="margin-top: 3%; direction: ltr"
                     >
-                        <template #table-row="props">
+                        <template
+                            #table-row="props"
+                            v-if="user.role == 'admin'"
+                        >
                             <span v-if="props.column.field == 'option'">
                                 <div class="action-btns">
-                                    <button class="edit-action">
-                                        <img src="/icons/icons8-edit.svg" />
-                                        {{ $t("edit") }}
-                                    </button>
-                                    <button class="delete-action">
+                                    <button
+                                        class="delete-action"
+                                        @click="deleteProduct(props.row.id)"
+                                    >
                                         <img src="/icons/icons8-delete.svg" />
                                         {{ $t("delete") }}
                                     </button>
@@ -87,6 +89,7 @@ export default {
     },
     data() {
         return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             columns: [
                 {
                     label: this.$t("option"),
@@ -124,6 +127,20 @@ export default {
             .get(`/api/get-products/${this.$route.params.cat_id}`)
             .then((res) => (this.rows = res.data))
             .catch((err) => console.log(err));
+    },
+    methods: {
+        deleteProduct(id) {
+            axios
+                .post(
+                    "/api/delete-product",
+                    { id: id },
+                    { headers: { token: this.user.token } }
+                )
+                .then((res) => {
+                    alert(this.$t("operation-successful")), location.reload();
+                })
+                .catch((err) => alert(this.$t("something-went-wrong")));
+        },
     },
 };
 </script>

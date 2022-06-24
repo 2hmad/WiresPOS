@@ -27,7 +27,10 @@
                             <p>{{ $t("list-of-all-categories") }}</p>
                         </div>
                         <div>
-                            <router-link to="/add-category">
+                            <router-link
+                                to="/add-category"
+                                v-if="user.role == 'admin'"
+                            >
                                 <button class="add">
                                     <img src="/icons/icons8-plus-math.svg" />
                                     {{ $t("new-category") }}
@@ -61,11 +64,20 @@
                                             {{ $t("browse") }}
                                         </button>
                                     </a>
-                                    <button class="edit-action">
-                                        <img src="/icons/icons8-edit.svg" />
-                                        {{ $t("edit") }}
-                                    </button>
-                                    <button class="delete-action">
+                                    <a :href="`/edit-category/${props.row.id}`">
+                                        <button
+                                            class="edit-action"
+                                            v-if="user.role == 'admin'"
+                                        >
+                                            <img src="/icons/icons8-edit.svg" />
+                                            {{ $t("edit") }}
+                                        </button>
+                                    </a>
+                                    <button
+                                        class="delete-action"
+                                        v-if="user.role == 'admin'"
+                                        @click="deleteCat(props.row.id)"
+                                    >
                                         <img src="/icons/icons8-delete.svg" />
                                         {{ $t("delete") }}
                                     </button>
@@ -114,6 +126,7 @@ export default {
     },
     data() {
         return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             columns: [
                 {
                     label: this.$t("option"),
@@ -147,11 +160,19 @@ export default {
             })
             .catch((err) => console.log(err));
     },
-    // mounted() {
-    //     axios
-    //         .get("/api/products")
-    //         .then((res) => (this.rows = res.data))
-    //         .catch((err) => console.log(err));
-    // },
+    methods: {
+        deleteCat(id) {
+            axios
+                .post(
+                    "/api/delete-category",
+                    { id: id },
+                    { headers: { token: this.user.token } }
+                )
+                .then((res) => {
+                    alert(this.$t("operation-successful")), location.reload();
+                })
+                .catch((err) => alert(this.$t("something-went-wrong")));
+        },
+    },
 };
 </script>

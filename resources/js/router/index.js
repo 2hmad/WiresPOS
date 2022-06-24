@@ -7,6 +7,7 @@ import Products from "../pages/Products.vue";
 import Categories from "../pages/Categories.vue";
 import AddProduct from "../pages/AddProduct.vue";
 import AddCategory from "../pages/AddCategory.vue";
+import EditCategory from "../pages/EditCategory.vue";
 import Setting from "../pages/Setting.vue";
 import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
@@ -67,6 +68,13 @@ const routes = [
     {
         path: "/add-category",
         component: AddCategory,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/edit-category/:id",
+        component: EditCategory,
         meta: {
             requiresAuth: true,
         },
