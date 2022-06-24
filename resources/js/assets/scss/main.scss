@@ -1,4 +1,4 @@
-$primary: #7e74f1;
+$primary: #336699;
 @import "fonts";
 * {
     margin: 0;
@@ -54,6 +54,10 @@ body {
                 }
             }
         }
+        .menu-side:nth-child(2) {
+            margin-right: auto;
+            margin-left: 0 !important;
+        }
     }
 }
 .btn {
@@ -93,7 +97,7 @@ input[type="submit"] {
     .show-action,
     .delete-action,
     .edit-action {
-        background: #3154aa;
+        background: $primary;
         padding: 5px 15px;
         border-radius: 5px;
         display: flex;

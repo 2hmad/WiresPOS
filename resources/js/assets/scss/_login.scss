@@ -9,7 +9,7 @@
             width: 100%;
             &:nth-child(1) {
                 text-align: center;
-                background: #3154aa;
+                background: $primary;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -48,7 +48,7 @@
                     align-items: center;
                     margin-bottom: 10%;
                     .brand {
-                        max-width: 100px;
+                        max-width: 55px;
                         img {
                             width: 100%;
                         }
@@ -106,15 +106,15 @@
                             &:focus-within {
                                 #email-input,
                                 #password-input {
-                                    border: 1px solid #3154aa;
+                                    border: 1px solid $primary;
                                 }
                                 .input-label {
-                                    color: #3154aa;
+                                    color: $primary;
                                 }
                             }
                         }
                         .login-btn {
-                            background-color: #3154aa;
+                            background-color: $primary;
                             width: 100%;
                             padding: 10px;
                             border-radius: 5px;

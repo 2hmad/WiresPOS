@@ -32,9 +32,13 @@
                             <Carousel
                                 :settings="settings"
                                 :breakpoints="breakpoints"
+                                dir="ltr"
                             >
                                 <Slide v-for="item in items" :key="item">
-                                    <button @click="setCat(item.id)">
+                                    <button
+                                        @click="setCat(item.id)"
+                                        style="height: 100%"
+                                    >
                                         <div
                                             class="card"
                                             :class="{
@@ -60,9 +64,7 @@
                         {{
                             selectedCat
                                 ? items.find((item) => item.id === selectedCat)
-                                      .category_name +
-                                  " " +
-                                  $t("menu")
+                                      .category_name + " "
                                 : ""
                         }}
                     </h2>
@@ -186,6 +188,7 @@
                                                 style="
                                                     display: flex;
                                                     align-items: center;
+                                                    background: white;
                                                 "
                                             >
                                                 <button
