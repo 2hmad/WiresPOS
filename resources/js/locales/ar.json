@@ -93,6 +93,7 @@
     "browse": "تصفح",
     "empty": "فارغه",
     "search-results": "نتائج البحث",
-    "total-earnings": "اجمالي الارباح",
-    "month-earnings": "ارباح الشهر"
+    "month-revenue": "ارباح الشهر",
+    "today-revenue": "ارباح اليوم",
+    "month-invoices": "فواتير الشهر"
 }

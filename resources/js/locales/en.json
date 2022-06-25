@@ -93,6 +93,7 @@
     "browse": "Browse",
     "empty": "Empty",
     "search-results": "Search Results",
-    "total-earnings": "Total earnings",
-    "month-earnings": "Earnings of the month"
+    "month-revenue": "Month Revenue",
+    "today-revenue": "Today Revenue",
+    "month-invoices": "Month Invoices"
 }

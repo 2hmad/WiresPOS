@@ -388,7 +388,6 @@ export default {
     },
     data() {
         return {
-            page: 1,
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             method: null,
             selectedCat: null,

@@ -6,6 +6,7 @@ import { createI18n } from "vue-i18n/index";
 import en from "./locales/en";
 import ar from "./locales/ar";
 import store from "./store";
+import VueApexCharts from "vue3-apexcharts";
 // I18n Configurations
 const messages = {
     en,
@@ -18,6 +19,7 @@ const i18n = createI18n({
 
 const app = createApp({});
 
+app.use(VueApexCharts);
 app.use(router);
 app.use(store);
 app.use(i18n);
