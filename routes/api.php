@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SystemSettingsController;
 use App\Models\Categories;
@@ -35,6 +36,8 @@ Route::get('get-category/{id}', function ($id) {
     return Categories::where('id', $id)->first();
 });
 Route::group(['middleware' => "userToken"], function () {
+    Route::post('search', [SearchController::class, 'search']);
+
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('delete-product', [ProductsController::class, 'delete']);
     Route::post('add-category', [ProductsController::class, 'add_category']);

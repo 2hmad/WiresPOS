@@ -6,7 +6,6 @@ import { createI18n } from "vue-i18n/index";
 import en from "./locales/en";
 import ar from "./locales/ar";
 import store from "./store";
-
 // I18n Configurations
 const messages = {
     en,

@@ -9,11 +9,12 @@
                             <h2>{{ $t("choose-category") }}</h2>
                         </div>
                         <div class="search">
-                            <form>
+                            <form @submit.prevent="postSearch">
                                 <input
                                     type="text"
                                     :placeholder="$t('search-menu') + '...'"
                                     class="search-box"
+                                    v-model="search"
                                 />
                                 <button
                                     type="submit"
@@ -27,89 +28,114 @@
                             </form>
                         </div>
                     </div>
-                    <div class="categories">
-                        <div class="cards">
-                            <Carousel
-                                :settings="settings"
-                                :breakpoints="breakpoints"
-                                dir="ltr"
+                    <div v-if="searchRes.length > 0 && search !== ''">
+                        <h2 style="font-weight: 600; margin-top: 3%">
+                            {{ $t("search-results") }} ({{ searchRes.length }})
+                        </h2>
+                        <div class="products">
+                            <div
+                                class="product"
+                                v-for="product in searchRes"
+                                :key="product.id"
+                                @click="addBill(product.id)"
                             >
-                                <Slide v-for="item in items" :key="item">
-                                    <button
-                                        @click="setCat(item.id)"
-                                        style="height: 100%"
-                                    >
-                                        <div
-                                            class="card"
-                                            :class="{
-                                                active:
-                                                    this.selectedCat == item.id,
-                                            }"
-                                        >
-                                            <div class="icon">
-                                                <img
-                                                    :src="`/storage/categories/${item.icon}`"
-                                                />
-                                            </div>
-                                            <div class="title">
-                                                {{ item.category_name }}
-                                            </div>
-                                        </div>
-                                    </button>
-                                </Slide>
-                            </Carousel>
-                        </div>
-                    </div>
-                    <h2 style="font-weight: 600; margin-top: 3%">
-                        {{
-                            selectedCat
-                                ? items.find((item) => item.id === selectedCat)
-                                      .category_name + " "
-                                : ""
-                        }}
-                    </h2>
-                    <div class="products">
-                        <div
-                            class="product"
-                            v-for="product in filterProducts"
-                            :key="product.id"
-                            @click="addBill(product.id)"
-                        >
-                            <div class="info">
-                                <div class="image">
-                                    <img
-                                        :src="`/storage/store-${product.store_id}/products/${product.image}`"
-                                    />
-                                </div>
-                                <div class="details">
-                                    <span class="title">
-                                        {{ product.product_name }}
-                                    </span>
-                                    <span class="desc">
-                                        {{ product.product_details }}
-                                    </span>
-                                    <span class="price">
-                                        <span class="currency">
-                                            {{ systemSettings.currency }}
+                                <div class="info">
+                                    <div class="image">
+                                        <img
+                                            :src="`/storage/store-${product.store_id}/products/${product.image}`"
+                                        />
+                                    </div>
+                                    <div class="details">
+                                        <span class="title">
+                                            {{ product.product_name }}
                                         </span>
-                                        {{ product.price }}
-                                    </span>
+                                        <span class="desc">
+                                            {{ product.product_details }}
+                                        </span>
+                                        <span class="price">
+                                            <span class="currency">
+                                                {{ systemSettings.currency }}
+                                            </span>
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- <div class="sizes">
-                                <h3>Size</h3>
-                                <div class="cards">
-                                    <button class="size" @click="activeSize">
-                                        S
-                                    </button>
-                                    <button class="size" @click="activeSize">
-                                        M
-                                    </button>
-                                    <button class="size" @click="activeSize">
-                                        L
-                                    </button>
+                        </div>
+                    </div>
+                    <div v-if="search === ''">
+                        <div class="categories">
+                            <div class="cards">
+                                <Carousel
+                                    :settings="settings"
+                                    :breakpoints="breakpoints"
+                                    dir="ltr"
+                                >
+                                    <Slide v-for="item in items" :key="item">
+                                        <button
+                                            @click="setCat(item.id)"
+                                            style="height: 100%"
+                                        >
+                                            <div
+                                                class="card"
+                                                :class="{
+                                                    active:
+                                                        this.selectedCat ==
+                                                        item.id,
+                                                }"
+                                            >
+                                                <div class="icon">
+                                                    <img
+                                                        :src="`/storage/categories/${item.icon}`"
+                                                    />
+                                                </div>
+                                                <div class="title">
+                                                    {{ item.category_name }}
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Slide>
+                                </Carousel>
+                            </div>
+                        </div>
+                        <h2 style="font-weight: 600; margin-top: 3%">
+                            {{
+                                selectedCat
+                                    ? items.find(
+                                          (item) => item.id === selectedCat
+                                      ).category_name + " "
+                                    : ""
+                            }}
+                        </h2>
+                        <div class="products">
+                            <div
+                                class="product"
+                                v-for="product in filterProducts"
+                                :key="product.id"
+                                @click="addBill(product.id)"
+                            >
+                                <div class="info">
+                                    <div class="image">
+                                        <img
+                                            :src="`/storage/store-${product.store_id}/products/${product.image}`"
+                                        />
+                                    </div>
+                                    <div class="details">
+                                        <span class="title">
+                                            {{ product.product_name }}
+                                        </span>
+                                        <span class="desc">
+                                            {{ product.product_details }}
+                                        </span>
+                                        <span class="price">
+                                            <span class="currency">
+                                                {{ systemSettings.currency }}
+                                            </span>
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +214,6 @@
                                                 style="
                                                     display: flex;
                                                     align-items: center;
-                                                    background: white;
                                                 "
                                             >
                                                 <button
@@ -215,6 +240,7 @@
                                                         max-width: 60px;
                                                         text-align: center;
                                                         -webkit-appearance: none;
+                                                        background: white;
                                                     "
                                                     disabled
                                                 />
@@ -362,10 +388,12 @@ export default {
     },
     data() {
         return {
+            page: 1,
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             method: null,
             selectedCat: null,
-            // subTotal: 0,
+            search: "",
+            searchRes: [],
             items: [],
             products: [],
             filterProducts: [],
@@ -450,6 +478,26 @@ export default {
                     this.filterBills.splice(index, 1);
                 }
             });
+        },
+        postSearch() {
+            axios
+                .post(
+                    "/api/search",
+                    {
+                        keyword: this.search,
+                    },
+                    {
+                        headers: {
+                            token: this.user.token,
+                        },
+                    }
+                )
+                .then((res) => {
+                    this.searchRes = res.data;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         },
     },
 };

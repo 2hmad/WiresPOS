@@ -90,5 +90,9 @@
     "category-name": "Category name",
     "operation-successful": "The operation was successful",
     "added-before": "Added Before",
-    "browse": "Browse"
+    "browse": "Browse",
+    "empty": "Empty",
+    "search-results": "Search Results",
+    "total-earnings": "Total earnings",
+    "month-earnings": "Earnings of the month"
 }

@@ -90,5 +90,9 @@
     "category-name": "اسم التصنيف",
     "operation-successful": "تمت العملية بنجاح",
     "added-before": "لقد قمت باضافته مسبقاً",
-    "browse": "تصفح"
+    "browse": "تصفح",
+    "empty": "فارغه",
+    "search-results": "نتائج البحث",
+    "total-earnings": "اجمالي الارباح",
+    "month-earnings": "ارباح الشهر"
 }

@@ -436,6 +436,36 @@ input[type="submit"] {
   min-height: 100vh;
 }
 
+.dashboard .side {
+  width: 100%;
+}
+
+.dashboard .side .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5%;
+  gap: 15px;
+}
+
+.dashboard .side .cards .card {
+  padding: 10px 20px;
+  width: 100%;
+  -webkit-box-shadow: 0px 3px 7px 0px #ebebeb;
+          box-shadow: 0px 3px 7px 0px #ebebeb;
+}
+
+.dashboard .side .cards .card .heading {
+  font-size: 18px;
+}
+
+.dashboard .side .cards .card .count {
+  font-size: 17px;
+}
+
 .menu {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -2,6 +2,22 @@
     <div :class="`app-${$i18n.locale}`">
         <div class="dashboard">
             <Sidebar />
+            <div class="side">
+                <div class="cards">
+                    <div class="card">
+                        <h4 class="heading">{{ $t("total-earnings") }}</h4>
+                        <span class="count">0</span>
+                    </div>
+                    <div class="card">
+                        <h4 class="heading">{{ $t("month-earnings") }}</h4>
+                        <span class="count">0</span>
+                    </div>
+                    <div class="card">
+                        <h4 class="heading">{{ $t("invoices") }}</h4>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -14,17 +30,6 @@ export default {
     data() {
         return {};
     },
-    methods: {
-        setLanguage(item) {
-            console.log(item);
-            if (item == "en") {
-                this.$i18n.locale = "en";
-                this.$store.commit("setAppLanguage", "en");
-            } else if (item == "ar") {
-                this.$i18n.locale = "ar";
-                this.$store.commit("setAppLanguage", "ar");
-            }
-        },
-    },
+    methods: {},
 };
 </script>
