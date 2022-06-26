@@ -1,105 +1,3 @@
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Thin.ttf");
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-ExtraLight.ttf");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Light.ttf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Regular.ttf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Medium.ttf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-SemiBold.ttf");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Bold.ttf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-ExtraBold.ttf");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Black.ttf");
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-ExtraLight.ttf");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-Light.ttf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-Regular.ttf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-Medium.ttf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-SemiBold.ttf");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-Bold.ttf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-ExtraBold.ttf");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: "Cairo";
-  src: url("../fonts/Cairo-Black.ttf");
-  font-weight: 900;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -456,14 +354,47 @@ input[type="submit"] {
   width: 100%;
   -webkit-box-shadow: 0px 3px 7px 0px #ebebeb;
           box-shadow: 0px 3px 7px 0px #ebebeb;
+  border-radius: 25px;
+  background: rgba(49, 83, 170, 0.172549);
+  color: #336699;
+  border: 1px solid #336699;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.dashboard .side .cards .card .line {
+  background-color: #336699;
+  height: 3px;
+  width: 75px;
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0.8;
+}
+
+.dashboard .side .cards .card:hover {
+  background-color: #336699;
+  color: white;
+}
+
+.dashboard .side .cards .card:hover .line {
+  background-color: white;
 }
 
 .dashboard .side .cards .card .heading {
   font-size: 18px;
+  font-weight: 600;
 }
 
 .dashboard .side .cards .card .count {
-  font-size: 17px;
+  font-size: 19px;
+  margin-top: 3%;
+  display: block;
+  font-weight: 700;
+}
+
+.dashboard .side .cards .card .count .currency {
+  text-transform: uppercase;
 }
 
 .menu {
