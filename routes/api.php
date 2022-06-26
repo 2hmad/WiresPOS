@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,8 @@ Route::get('get-category/{id}', function ($id) {
 });
 Route::group(['middleware' => "userToken"], function () {
     Route::post('search', [SearchController::class, 'search']);
+
+    Route::post('create-invoice', [InvoicesController::class, 'create']);
 
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('delete-product', [ProductsController::class, 'delete']);

@@ -313,6 +313,24 @@
                                     </span>
                                 </span>
                             </div>
+                            <div class="tax">
+                                <span class="title">
+                                    {{ $t("service") }}
+                                    ({{ systemSettings.service_rate }}%)
+                                </span>
+                                <span class="price">
+                                    {{
+                                        parseInt(
+                                            (subTotal *
+                                                systemSettings.service_rate) /
+                                                100
+                                        )
+                                    }}
+                                    <span style="text-transform: uppercase">
+                                        {{ systemSettings.currency }}
+                                    </span>
+                                </span>
+                            </div>
                             <div class="total">
                                 <span class="title">{{ $t("total") }}</span>
                                 <span class="price">
@@ -320,7 +338,9 @@
                                         parseInt(
                                             subTotal +
                                                 (subTotal *
-                                                    systemSettings.tax_rate) /
+                                                    systemSettings.tax_rate +
+                                                    subTotal *
+                                                        systemSettings.service_rate) /
                                                     100
                                         )
                                     }}
@@ -368,7 +388,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="print-bill">{{ $t("print-bill") }}</button>
+                    <button class="print-bill" @click.prevent="createInvoice">
+                        {{ $t("print-bill") }}
+                    </button>
                 </div>
             </div>
         </div>
@@ -469,6 +491,17 @@ export default {
             //     (accumulator, current) => accumulator + current[0].price,
             //     0
             // );
+        },
+        createInvoice() {
+            axios.post(
+                "/api/create-invoice",
+                {
+                    items: JSON.stringify(this.filterBills),
+                    subtotal: this.subTotal,
+                    payment: this.method,
+                },
+                { headers: { token: this.user.token } }
+            );
         },
         deleteBill(billId) {
             this.filterBills.map((item, index) => {

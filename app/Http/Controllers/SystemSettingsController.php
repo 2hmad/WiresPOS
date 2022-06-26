@@ -22,11 +22,13 @@ class SystemSettingsController extends Controller
                 SystemSettings::create([
                     'store_id' => $user->store,
                     'tax_rate' => $request->tax,
+                    'service_rate' => $request->service,
                     "currency" => $request->currency
                 ]);
             } else {
                 SystemSettings::where('store_id', $user->store)->update([
                     'tax_rate' => $request->tax,
+                    'service_rate' => $request->service,
                     "currency" => $request->currency
                 ]);
             }

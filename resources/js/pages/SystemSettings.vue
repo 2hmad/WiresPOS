@@ -16,6 +16,16 @@
                             required
                         />
                     </div>
+                    <div class="input-group" v-if="user.role == 'admin'">
+                        <label for="tax">{{ $t("service") }} (%)</label>
+                        <input
+                            type="number"
+                            id="tax"
+                            step="0.001"
+                            v-model="form.service"
+                            required
+                        />
+                    </div>
                     <div class="input-group">
                         <label for="language">{{ $t("language") }}</label>
                         <select
@@ -64,6 +74,7 @@ export default {
             locale: localStorage.getItem("wiresPOSLang"),
             form: {
                 tax: null,
+                service: null,
                 currency: "",
             },
         };
@@ -77,6 +88,7 @@ export default {
             )
             .then((result) => {
                 this.form.tax = result.data.tax_rate;
+                this.form.service = result.data.service_rate;
                 this.form.currency = result.data.currency;
             })
             .catch((err) => {

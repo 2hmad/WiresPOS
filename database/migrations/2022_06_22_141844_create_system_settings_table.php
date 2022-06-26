@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('system_settings', function (Blueprint $table) {
             $table->id();
             $table->text('store_id');
-            $table->text('tax_rate');
+            $table->text('tax_rate')->nullable();
+            $table->text('service_rate')->nullable();
             $table->text('currency');
         });
     }
