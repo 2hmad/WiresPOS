@@ -11,6 +11,7 @@ class Invoices extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'store_id',
         'invoice_id',
         'items',
         'subtotal',
@@ -19,4 +20,9 @@ class Invoices extends Model
     ];
     protected $hidden = [];
     public $timestamps = false;
+
+    public function store()
+    {
+        return $this->hasOne(Stores::class, 'id', 'store_id');
+    }
 }

@@ -493,15 +493,22 @@ export default {
             // );
         },
         createInvoice() {
-            axios.post(
-                "/api/create-invoice",
-                {
-                    items: JSON.stringify(this.filterBills),
-                    subtotal: this.subTotal,
-                    payment: this.method,
-                },
-                { headers: { token: this.user.token } }
-            );
+            axios
+                .post(
+                    "/api/create-invoice",
+                    {
+                        items: JSON.stringify(this.filterBills),
+                        subtotal: this.subTotal,
+                        payment: this.method,
+                    },
+                    { headers: { token: this.user.token } }
+                )
+                .then((result) => {
+                    location.href = `/invoice/${result.data.invoice_id}`;
+                })
+                .catch((err) => {
+                    alert(this.$t("something-went-wrong"));
+                });
         },
         deleteBill(billId) {
             this.filterBills.map((item, index) => {

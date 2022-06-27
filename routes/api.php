@@ -40,6 +40,7 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('search', [SearchController::class, 'search']);
 
     Route::post('create-invoice', [InvoicesController::class, 'create']);
+    Route::post('invoice', [InvoicesController::class, 'get']);
 
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('delete-product', [ProductsController::class, 'delete']);

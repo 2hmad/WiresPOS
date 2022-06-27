@@ -1617,6 +1617,47 @@ input[type="submit"] {
   border: 1px solid #336699;
 }
 
+.ticket {
+  width: 155px;
+  max-width: 155px;
+}
+
+.ticket img {
+  max-width: 120px;
+  margin: 3% auto;
+  display: block;
+}
+
+.ticket .centered {
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5em;
+  font-size: 14px;
+}
+
+.ticket .sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.ticket .sides .side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 80px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0;
+          flex: 1 0;
+}
+
+.ticket .sides .side input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 .sidebar {
   background: white;
   padding: 1% 2%;

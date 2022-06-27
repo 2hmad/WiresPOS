@@ -15,6 +15,7 @@ import SystemSettings from "../pages/SystemSettings.vue";
 import CompanyInfo from "../pages/CompanyInfo.vue";
 import Branches from "../pages/Branches.vue";
 import store from "../store";
+import Invoice from "../pages/Invoice.vue";
 const routes = [
     {
         path: "/login",
@@ -117,6 +118,13 @@ const routes = [
     {
         path: "/system-settings",
         component: SystemSettings,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/invoice/:id",
+        component: Invoice,
         meta: {
             requiresAuth: true,
         },
