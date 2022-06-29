@@ -9,25 +9,103 @@
         @media screen and (max-width: 768px) {
             margin-left: 20px;
         }
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .info {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                justify-content: center;
+                .logo {
+                    width: 100px;
+                    height: 100px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+                .information {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    .name {
+                        font-weight: bold;
+                        color: $primary;
+                        font-size: 20px;
+                    }
+                    .email,
+                    .phone,
+                    .package {
+                        font-size: 14px;
+                        color: #3e5b78;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        .upgrade {
+                            background-color: #fcc201;
+                            padding: 0px 10px;
+                            border-radius: 5px;
+                            font-weight: bold;
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+            .edit-company-btn {
+                width: 100%;
+                padding: 5px;
+                color: white;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                justify-content: center;
+                background-color: rgba(49, 83, 170, 0.1725490196);
+                color: $primary;
+                font-weight: bold;
+            }
+            .links {
+                display: flex;
+                flex-direction: column;
+                li {
+                    border-bottom: 1px solid #3366992e;
+                    background: white;
+                    box-shadow: 4px 3px 20px 0px #e7e7e796;
+                    padding: 7px 10px;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    width: 100%;
+                    .icon {
+                        background-color: rgba(49, 83, 170, 0.116);
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        color: $primary;
+                    }
+                    .title {
+                        display: flex;
+                        flex-direction: column;
+                        .title {
+                            font-weight: bold;
+                            font-size: 14px;
+                        }
+                        .desc {
+                            font-size: 13px;
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+        }
         h3 {
             font-size: 25px;
             font-weight: 600;
-        }
-        ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            border-bottom: 1px solid rgb(228, 228, 228);
-            padding-bottom: 1%;
-            margin-top: 2%;
-            li {
-                font-weight: 400;
-                color: rgb(34, 34, 34);
-                a.active {
-                    color: $primary;
-                    font-weight: 600;
-                }
-            }
         }
         form {
             margin-top: 3%;

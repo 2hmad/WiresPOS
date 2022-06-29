@@ -3,8 +3,7 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("settings") }}</h3>
-                <SettingMenu />
+                <h3>{{ $t("company-info") }}</h3>
                 <form @submit.prevent="updateStore">
                     <div class="pic-change">
                         <label for="change">
@@ -29,12 +28,32 @@
                         <input type="text" id="fullname" v-model="form.name" />
                     </div>
                     <div class="input-group">
+                        <label for="email">{{ $t("company-email") }}</label>
+                        <input type="email" id="email" v-model="form.email" />
+                    </div>
+                    <div class="input-group">
                         <label for="email">{{ $t("company-address") }}</label>
                         <input type="text" id="email" v-model="form.address" />
                     </div>
                     <div class="input-group">
                         <label for="phone">{{ $t("company-phone") }}</label>
-                        <input type="tel" id="phone" v-model="form.phone" />
+                        <vue-tel-input
+                            v-model="form.phone"
+                            mode="international"
+                        ></vue-tel-input>
+                    </div>
+                    <div class="input-group">
+                        <label for="website">{{ $t("company-website") }}</label>
+                        <input type="url" id="website" v-model="form.website" />
+                    </div>
+                    <div class="input-group">
+                        <label for="lagally">
+                            {{ $t("legally-registered") }}
+                        </label>
+                        <select id="lagally" v-model="form.legally">
+                            <option value="yes">{{ $t("yes") }}</option>
+                            <option value="no">{{ $t("no") }}</option>
+                        </select>
                     </div>
                     <input
                         type="submit"
@@ -51,20 +70,29 @@ import Sidebar from "../components/Sidebar.vue";
 import SettingMenu from "../components/SettingMenu.vue";
 import axios from "axios";
 import { mapActions } from "vuex";
+import { VueTelInput } from "vue-tel-input";
+import "vue-tel-input/dist/vue-tel-input.css";
 export default {
     components: {
         Sidebar,
         SettingMenu,
+        VueTelInput,
     },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             store_logo: "",
+            globalOptions: {
+                showDialCodeInList: false,
+            },
             form: {
                 id: JSON.parse(localStorage.getItem("wiresPOSUser")).store,
                 name: "",
+                email: "",
                 address: "",
                 phone: "",
+                website: "",
+                legally: "",
                 pic: null,
             },
         };
@@ -82,8 +110,11 @@ export default {
             )
             .then((result) => {
                 (this.form.name = result.data.store_name),
+                    (this.form.email = result.data.email),
                     (this.form.address = result.data.address),
                     (this.form.phone = result.data.phone),
+                    (this.form.website = result.data.website),
+                    (this.form.legally = result.data.legally),
                     (this.store_logo = result.data.logo);
             })
             .catch((err) => console.log(err));

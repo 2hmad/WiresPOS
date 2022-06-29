@@ -8,7 +8,8 @@ import Categories from "../pages/Categories.vue";
 import AddProduct from "../pages/AddProduct.vue";
 import AddCategory from "../pages/AddCategory.vue";
 import EditCategory from "../pages/EditCategory.vue";
-import Setting from "../pages/Setting.vue";
+import Settings from "../pages/Settings.vue";
+import PersonalInfo from "../pages/PersonalInfo.vue";
 import Password from "../pages/Password.vue";
 import Permissions from "../pages/Permissions.vue";
 import SystemSettings from "../pages/SystemSettings.vue";
@@ -81,8 +82,15 @@ const routes = [
         },
     },
     {
-        path: "/setting",
-        component: Setting,
+        path: "/settings",
+        component: Settings,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/personal-info",
+        component: PersonalInfo,
         meta: {
             requiresAuth: true,
         },

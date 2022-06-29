@@ -4,7 +4,7 @@
             <Sidebar />
             <div class="side">
                 <h3>{{ $t("settings") }}</h3>
-                <SettingMenu />
+
                 <form @submit.prevent="updateProfile">
                     <div class="pic-change">
                         <label for="change">

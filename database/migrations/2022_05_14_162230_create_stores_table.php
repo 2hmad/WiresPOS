@@ -16,9 +16,13 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->text('store_name');
-            $table->text('phone')->nullable();
+            $table->text('email')->nullable();
             $table->text('address')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('website')->nullable();
+            $table->text('legally')->nullable();
             $table->text('logo')->nullable();
+            $table->text('plan')->nullable();
         });
     }
 

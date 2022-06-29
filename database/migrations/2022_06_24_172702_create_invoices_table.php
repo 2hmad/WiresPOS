@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedInteger('invoice_id');
             $table->longText('items');
             $table->text('subtotal');
+            $table->text('discount')->nullable();
+            $table->text('discount_type')->nullable();
             $table->text('payment');
             $table->timestamp('created_at');
         });

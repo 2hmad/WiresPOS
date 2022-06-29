@@ -335,7 +335,9 @@ input[type="submit"] {
 }
 
 .dashboard .side {
+  margin-left: 175px;
   width: 100%;
+  padding-right: 1%;
 }
 
 .dashboard .side .cards {
@@ -1147,29 +1149,161 @@ input[type="submit"] {
   }
 }
 
-.setting .side h3 {
-  font-size: 25px;
-  font-weight: 600;
-}
-
-.setting .side ul {
-  list-style: none;
+.setting .side .container {
+  max-width: 550px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 25px;
-  border-bottom: 1px solid #e4e4e4;
-  padding-bottom: 1%;
-  margin-top: 2%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
 }
 
-.setting .side ul li {
-  font-weight: 400;
-  color: #222222;
+.setting .side .container .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.setting .side ul li a.active {
+.setting .side .container .info .logo {
+  width: 100px;
+  height: 100px;
+}
+
+.setting .side .container .info .logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.setting .side .container .info .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3px;
+}
+
+.setting .side .container .info .information .name {
+  font-weight: bold;
   color: #336699;
+  font-size: 20px;
+}
+
+.setting .side .container .info .information .email,
+.setting .side .container .info .information .phone,
+.setting .side .container .info .information .package {
+  font-size: 14px;
+  color: #3e5b78;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.setting .side .container .info .information .email .upgrade,
+.setting .side .container .info .information .phone .upgrade,
+.setting .side .container .info .information .package .upgrade {
+  background-color: #fcc201;
+  padding: 0px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.setting .side .container .edit-company-btn {
+  width: 100%;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(49, 83, 170, 0.172549);
+  color: #336699;
+  font-weight: bold;
+}
+
+.setting .side .container .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.setting .side .container .links li {
+  border-bottom: 1px solid #3366992e;
+  background: white;
+  -webkit-box-shadow: 4px 3px 20px 0px #e7e7e796;
+          box-shadow: 4px 3px 20px 0px #e7e7e796;
+  padding: 7px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.setting .side .container .links li .icon {
+  background-color: rgba(49, 83, 170, 0.116);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #336699;
+}
+
+.setting .side .container .links li .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.setting .side .container .links li .title .title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.setting .side .container .links li .title .desc {
+  font-size: 13px;
+  color: #336699;
+}
+
+.setting .side h3 {
+  font-size: 25px;
   font-weight: 600;
 }
 

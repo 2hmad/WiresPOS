@@ -10,9 +10,13 @@ class Stores extends Model
     use HasFactory;
     protected $fillable = [
         'store_name',
-        'phone',
+        'email',
         'address',
-        'logo'
+        'phone',
+        'website',
+        'legally',
+        'logo',
+        'plan',
     ];
     protected $hidden = [];
     public $timestamps = false;

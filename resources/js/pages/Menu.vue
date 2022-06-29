@@ -592,6 +592,8 @@ export default {
                     {
                         items: JSON.stringify(this.filterBills),
                         subtotal: this.subTotal,
+                        discount: this.discount,
+                        discount_type: this.discountType,
                         payment: this.method,
                     },
                     { headers: { token: this.user.token } }

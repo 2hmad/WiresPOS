@@ -23,6 +23,8 @@ class InvoicesController extends Controller
                 'invoice_id' => time(),
                 'items' => $request->items,
                 'subtotal' => $request->subtotal,
+                'discount' => $request->discount,
+                'discount_type' => $request->discount_type,
                 'payment' => $request->payment,
                 'created_at' => date('Y-m-d H:i:s')
             ]);

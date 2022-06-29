@@ -7,6 +7,20 @@ import en from "./locales/en";
 import ar from "./locales/ar";
 import store from "./store";
 import VueApexCharts from "vue3-apexcharts";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+    faPhone,
+    faEnvelope,
+    faBox,
+    faPen,
+    faKey,
+    faStore,
+    faUserPlus,
+    faGears,
+    faCrown,
+} from "@fortawesome/free-solid-svg-icons";
+
 // I18n Configurations
 const messages = {
     en,
@@ -17,10 +31,23 @@ const i18n = createI18n({
     messages,
 });
 
+library.add(
+    faPhone,
+    faEnvelope,
+    faBox,
+    faPen,
+    faKey,
+    faStore,
+    faUserPlus,
+    faGears,
+    faCrown
+);
+
 const app = createApp({});
 
 app.use(VueApexCharts);
 app.use(router);
 app.use(store);
 app.use(i18n);
+app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");

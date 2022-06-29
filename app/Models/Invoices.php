@@ -15,6 +15,8 @@ class Invoices extends Model
         'invoice_id',
         'items',
         'subtotal',
+        'discount',
+        'discount_type',
         'payment',
         'created_at',
     ];

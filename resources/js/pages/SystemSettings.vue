@@ -4,7 +4,7 @@
             <Sidebar />
             <div class="side">
                 <h3>{{ $t("settings") }}</h3>
-                <SettingMenu />
+
                 <form method="POST" @submit.prevent="updateSystem">
                     <div class="input-group" v-if="user.role == 'admin'">
                         <label for="tax">{{ $t("tax") }} (%)</label>
@@ -44,6 +44,11 @@
                         <select id="currency" v-model="form.currency">
                             <option value="usd">{{ $t("usd") }}</option>
                             <option value="egp">{{ $t("egp") }}</option>
+                            <option value="eur">{{ $t("eur") }}</option>
+                            <option value="sar">{{ $t("sar") }}</option>
+                            <option value="qar">{{ $t("qar") }}</option>
+                            <option value="kwd">{{ $t("kwd") }}</option>
+                            <option value="aed">{{ $t("aed") }}</option>
                         </select>
                     </div>
                     <input

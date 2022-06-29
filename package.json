@@ -17,6 +17,9 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@fortawesome/vue-fontawesome": "^3.0.0-5",
         "@vue/compiler-sfc": "^3.2.32",
         "apexcharts": "^3.35.3",
         "gridjs-vue": "github:sujit-baniya/gridjs-vue3",
@@ -26,6 +29,7 @@
         "vue-good-table-next": "^0.1.0",
         "vue-i18n": "^9.1.9",
         "vue-router": "^4.0.13",
+        "vue-tel-input": "^6.0.0-beta.7",
         "vue3-apexcharts": "^1.4.1",
         "vue3-carousel": "^0.1.38",
         "vuex": "^4.0.2",

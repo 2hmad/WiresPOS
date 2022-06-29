@@ -31,16 +31,23 @@ class StoreController extends Controller
                 if ($check_store !== null) {
                     Stores::where('id', $reqDecode['id'])->update([
                         'store_name' => $reqDecode['name'],
+                        'email' => $reqDecode['email'],
                         'address' => $reqDecode['address'],
                         'phone' => $reqDecode['phone'],
+                        'website' => $reqDecode['website'],
+                        'legally' => $reqDecode['legally'],
                         'logo' => $file_name
                     ]);
                 } else {
                     Stores::create([
                         'store_name' => $reqDecode['name'],
+                        'email' => $reqDecode['email'],
                         'address' => $reqDecode['address'],
                         'phone' => $reqDecode['phone'],
-                        'logo' => $file_name
+                        'website' => $reqDecode['website'],
+                        'legally' => $reqDecode['legally'],
+                        'logo' => $file_name,
+                        'plan' => 'free'
                     ]);
                 }
             }
@@ -49,14 +56,21 @@ class StoreController extends Controller
             if ($check_store !== null) {
                 Stores::where('id', $request->id)->update([
                     'store_name' => $request->name,
+                    'email' => $request->email,
                     'address' => $request->address,
                     'phone' => $request->phone,
+                    'website' => $request->website,
+                    'legally' => $request->legally,
                 ]);
             } else {
                 Stores::create([
                     'store_name' => $request->name,
+                    'email' => $request->email,
                     'address' => $request->address,
                     'phone' => $request->phone,
+                    'website' => $request->website,
+                    'legally' => $request->legally,
+                    'plan' => 'free'
                 ]);
             }
         }

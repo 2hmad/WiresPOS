@@ -4,7 +4,7 @@
             <Sidebar />
             <div class="side">
                 <h3>{{ $t("settings") }}</h3>
-                <SettingMenu />
+
                 <form method="POST" @submit.prevent="addUser">
                     <div class="input-group">
                         <label for="fullname">{{ $t("full-name") }}</label>
