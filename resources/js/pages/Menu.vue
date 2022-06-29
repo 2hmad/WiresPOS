@@ -332,18 +332,101 @@
                                 </span>
                             </div>
                             <div class="total">
-                                <span class="title">{{ $t("total") }}</span>
+                                <span class="title">
+                                    {{ $t("discount") }}
+                                    <span
+                                        v-if="discountType == 'percent'"
+                                        style="
+                                            text-transform: uppercase;
+                                            font-size: 14px;
+                                        "
+                                    >
+                                        ({{ discount + "%" }})
+                                    </span>
+                                    <span
+                                        v-else-if="discountType == 'currency'"
+                                        style="
+                                            text-transform: uppercase;
+                                            font-size: 14px;
+                                        "
+                                    >
+                                        ({{
+                                            discount +
+                                            " " +
+                                            systemSettings.currency
+                                        }})
+                                    </span>
+                                </span>
                                 <span class="price">
+                                    <button
+                                        type="button"
+                                        style="
+                                            display: flex;
+                                            background: #336699;
+                                            padding: 6px 6px;
+                                            border-radius: 50%;
+                                        "
+                                        @click="showModal"
+                                    >
+                                        <img
+                                            src="/icons/icons8-plus-math.svg"
+                                            style="max-width: 15px"
+                                        />
+                                    </button>
+                                    <Modal
+                                        v-show="isModalVisible"
+                                        @close="closeModal"
+                                    >
+                                        <template v-slot:header>
+                                            {{ $t("apply-discount") }}
+                                        </template>
+
+                                        <template v-slot:body>
+                                            <input
+                                                type="number"
+                                                class="amount"
+                                                step="0.001"
+                                                v-model="discount"
+                                            />
+                                            <select v-model="discountType">
+                                                <option value="percent">
+                                                    %
+                                                </option>
+                                                <option
+                                                    value="currency"
+                                                    style="
+                                                        text-transform: uppercase;
+                                                    "
+                                                >
+                                                    {{
+                                                        systemSettings.currency
+                                                    }}
+                                                </option>
+                                            </select>
+                                        </template>
+                                    </Modal>
+                                </span>
+                            </div>
+                            <div class="total">
+                                <span class="title">{{ $t("total") }}</span>
+                                <span
+                                    class="price"
+                                    v-if="discountType == 'percent'"
+                                >
                                     {{
                                         parseInt(
-                                            subTotal +
-                                                (subTotal *
-                                                    systemSettings.tax_rate +
-                                                    subTotal *
-                                                        systemSettings.service_rate) /
-                                                    100
+                                            total - (total * discount) / 100
                                         )
                                     }}
+                                    <span style="text-transform: uppercase">
+                                        {{ systemSettings.currency }}
+                                    </span>
+                                </span>
+                                <span
+                                    class="price"
+                                    v-else-if="discountType == 'currency'"
+                                >
+                                    {{ parseInt(total - discount) }}
                                     <span style="text-transform: uppercase">
                                         {{ systemSettings.currency }}
                                     </span>
@@ -401,21 +484,26 @@ import Sidebar from "../components/Sidebar.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
 import axios from "axios";
+import Modal from "../components/Modal.vue";
 export default {
     name: "menu",
     components: {
         Sidebar,
         Carousel,
         Slide,
+        Modal,
     },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            isModalVisible: false,
             method: null,
             selectedCat: null,
             search: "",
             searchRes: [],
             items: [],
+            discount: 0,
+            discountType: "percent",
             products: [],
             filterProducts: [],
             bill: null,
@@ -463,11 +551,25 @@ export default {
                 0
             );
         },
+        total() {
+            return (
+                this.subTotal +
+                (this.subTotal * this.systemSettings.tax_rate +
+                    this.subTotal * this.systemSettings.service_rate) /
+                    100
+            );
+        },
     },
     methods: {
         payment(id) {
             this.method = id;
             console.log(this.payment);
+        },
+        showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
         },
         setCat(id) {
             this.selectedCat = id;
@@ -542,8 +644,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.app-ar {
-}
 .carousel {
     max-width: 750px;
     @media screen and (min-width: 1024px) {

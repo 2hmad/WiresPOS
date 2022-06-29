@@ -96,5 +96,7 @@
     "month-revenue": "ارباح الشهر",
     "today-revenue": "ارباح اليوم",
     "month-invoices": "فواتير الشهر",
-    "service": "خدمة"
+    "service": "خدمة",
+    "discount": "خصم",
+    "apply-discount": "تطبيق خصم"
 }

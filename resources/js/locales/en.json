@@ -96,5 +96,7 @@
     "month-revenue": "Month Revenue",
     "today-revenue": "Today Revenue",
     "month-invoices": "Month Invoices",
-    "service": "Service"
+    "service": "Service",
+    "discount": "Discount",
+    "apply-discount": "Apply Discount"
 }
