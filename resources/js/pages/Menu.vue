@@ -168,15 +168,6 @@
                                 </span>
                             </div>
                         </div>
-                        <router-link to="/notifications">
-                            <div class="notification">
-                                <!-- <div class="badge"></div> -->
-                                <img
-                                    src="icons/icons8-notification.svg"
-                                    style="max-width: 27px"
-                                />
-                            </div>
-                        </router-link>
                     </div>
                     <div class="bills">
                         <h3>{{ $t("bills") }}</h3>
