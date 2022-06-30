@@ -21,7 +21,7 @@ class ProfileController extends Controller
                 User::where('token', $request->header('token'))->update([
                     'full_name' => $reqDecode['full_name'],
                     'email' => $reqDecode['email'],
-                    'phone' => $reqDecode['phone'],
+                    'phone' => str_replace(' ', '', $reqDecode['phone']),
                     'pic' => $file_name
                 ]);
             }
@@ -29,7 +29,7 @@ class ProfileController extends Controller
             User::where('token', $request->header('token'))->update([
                 'full_name' => $request->fullName,
                 'email' => $request->email,
-                'phone' => $request->phone,
+                'phone' => str_replace(' ', '', $request->phone),
             ]);
         }
     }

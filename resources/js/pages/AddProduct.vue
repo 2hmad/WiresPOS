@@ -67,11 +67,10 @@
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import SettingMenu from "../components/SettingMenu.vue";
+
 export default {
     components: {
         Sidebar,
-        SettingMenu,
     },
     data() {
         return {

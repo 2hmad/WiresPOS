@@ -71,13 +71,12 @@
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import SettingMenu from "../components/SettingMenu.vue";
+
 import axios from "axios";
 import store from "../store/";
 export default {
     components: {
         Sidebar,
-        SettingMenu,
     },
     data() {
         return {

@@ -46,12 +46,11 @@
                         </div>
                         <div class="input-group">
                             <label for="phone">{{ $t("phone") }}</label>
-                            <input
-                                type="tel"
-                                placeholder="Phone"
-                                id="phone"
+                            <vue-tel-input
                                 v-model="form.phone"
-                            />
+                                :inputOptions="telInputOptions"
+                                id="phone"
+                            ></vue-tel-input>
                         </div>
                         <input
                             type="submit"
@@ -66,17 +65,22 @@
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import SettingMenu from "../components/SettingMenu.vue";
+
 import axios from "axios";
 import { mapActions } from "vuex";
+import { VueTelInput } from "vue-tel-input";
+import "vue-tel-input/dist/vue-tel-input.css";
 export default {
     components: {
         Sidebar,
-        SettingMenu,
+        VueTelInput,
     },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            telInputOptions: {
+                placeholder: this.$t("phone"),
+            },
             form: {
                 fullName: "",
                 email: "",

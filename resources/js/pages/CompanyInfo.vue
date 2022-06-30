@@ -65,6 +65,7 @@
                             <vue-tel-input
                                 v-model="form.phone"
                                 mode="international"
+                                :inputOptions="telInputOptions"
                             ></vue-tel-input>
                         </div>
                         <div class="input-group">
@@ -99,7 +100,7 @@
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import SettingMenu from "../components/SettingMenu.vue";
+
 import axios from "axios";
 import { mapActions } from "vuex";
 import { VueTelInput } from "vue-tel-input";
@@ -107,15 +108,14 @@ import "vue-tel-input/dist/vue-tel-input.css";
 export default {
     components: {
         Sidebar,
-        SettingMenu,
         VueTelInput,
     },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             store_logo: "",
-            globalOptions: {
-                showDialCodeInList: false,
+            telInputOptions: {
+                placeholder: this.$t("phone"),
             },
             form: {
                 id: JSON.parse(localStorage.getItem("wiresPOSUser")).store,

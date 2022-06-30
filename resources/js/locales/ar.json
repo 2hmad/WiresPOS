@@ -118,5 +118,14 @@
     "no": "لا",
     "upgrade": "ترقية",
     "change-password": "تغيير كلمة المرور",
-    "invoice-number": "رقم الفاتورة"
+    "invoice-number": "رقم الفاتورة",
+    "sign-in-now-to-your-account": "سجل دخولك الان الي حسابك وابدأ في تسجيل مبيعاتك انت وفريق عملك",
+    "dont-have-an-account": "ليس لديك حساب؟",
+    "register-now": "سجل الان",
+    "important-tools-to-help-you-sell": "أدوات هامه تساعدك على البيع وتحصيل دفعاتك",
+    "get-your-money-anytime-anywhere": "حصل أموالك في أي وقت ومن أي مكان",
+    "sign-in-now": "سجل دخولك الان",
+    "register": "تسجيل حساب",
+    "successfully-registered": "تم التسجيل بنجاح",
+    "email-or-phone-already-taken": "البريد الالكتروني / رقم الهاتف مستخدم مسبقاً"
 }

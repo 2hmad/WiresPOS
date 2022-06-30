@@ -1,129 +1,108 @@
 .login {
     min-height: 100vh;
     .sides {
-        display: flex;
         height: 100%;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
         .side {
-            flex-grow: 1;
             width: 100%;
-            &:nth-child(1) {
-                text-align: center;
-                background: $primary;
+            .header {
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                flex-direction: column;
-                @media screen and (max-width: 768px) {
-                    display: none;
-                }
-                .image {
-                    width: 400px;
-                    height: 400px;
-                    max-width: 100%;
-                }
-                .text {
-                    color: white;
-                    max-width: 250px;
-                    h4 {
-                        font-size: 25px;
-                        font-weight: 400;
-                        text-transform: capitalize;
-                    }
-                    p {
-                        line-height: 1.6em;
-                        font-size: 15px;
-                        font-weight: 300;
+                max-width: 450px;
+                margin: 0 auto;
+                padding: 5px;
+                justify-content: space-between;
+                .brand {
+                    max-width: 60px;
+                    display: block;
+                    img {
+                        width: 100%;
                     }
                 }
-                @media screen and (max-width: 768) {
-                    display: none;
+                .lang-switcher {
+                    font-weight: bold;
+                    font-size: 15px;
+                    .link {
+                        color: #727272;
+                    }
+                    .active {
+                        color: black !important;
+                    }
                 }
             }
-            &:nth-child(2) {
-                padding: 40px;
-                .header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 10%;
-                    .brand {
-                        max-width: 55px;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                    .lang-switcher {
-                        font-weight: bold;
-                        font-size: 15px;
-                        .link {
-                            color: #727272;
-                        }
-                        .active {
-                            color: black !important;
-                        }
-                    }
-                }
-                h4 {
+            h4 {
+                text-align: center;
+            }
+            .form {
+                max-width: 450px;
+                margin: 0 auto;
+                background-color: white;
+                box-shadow: 0 6px 20px 0 rgb(18 45 46 / 10%);
+                padding: 25px;
+                border-radius: 5px;
+                h2 {
                     text-align: center;
+                    font-weight: bold;
+                    font-size: 20px;
                 }
-                .form {
-                    max-width: 400px;
-                    margin: 5% auto;
-                    h2 {
-                        text-align: center;
-                        font-weight: bold;
-                    }
-                    p {
-                        text-align: center;
-                        color: #b0b3c4;
-                    }
-                    form {
-                        text-align: inherit;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        .form-group {
-                            .input-label {
-                                display: inline-block;
-                                background: white;
-                                position: relative;
-                                top: 13px;
-                                left: 15px;
-                                right: 15px;
-                                // transform: translate(-15px, 0px);
-                                color: rgb(75, 75, 75);
-                            }
+                p {
+                    text-align: center;
+                    color: #5c5f6e;
+                    font-size: 14px;
+                }
+                form {
+                    text-align: inherit;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    .form-group {
+                        .input-label {
+                            display: inline-block;
+                            background: white;
+                            position: relative;
+                            top: 13px;
+                            left: 15px;
+                            right: 15px;
+                            // transform: translate(-15px, 0px);
+                            color: rgb(75, 75, 75);
+                        }
+                        #name-input,
+                        #email-input,
+                        #phone-input,
+                        #password-input {
+                            width: 100%;
+                            padding: 12px;
+                            border: 1px solid rgb(224, 224, 224);
+                            border-radius: 4px;
+                            outline: none;
+                            transition: 0.4s;
+                        }
+                        &:focus-within {
+                            #name-input,
                             #email-input,
+                            #phone-input,
                             #password-input {
-                                width: 100%;
-                                padding: 12px;
-                                border: 1px solid rgb(224, 224, 224);
-                                border-radius: 4px;
-                                outline: none;
-                                transition: 0.4s;
+                                border: 1px solid $primary;
                             }
-                            &:focus-within {
-                                #email-input,
-                                #password-input {
-                                    border: 1px solid $primary;
-                                }
-                                .input-label {
-                                    color: $primary;
-                                }
+                            .input-label {
+                                color: $primary;
                             }
                         }
-                        .login-btn {
-                            background-color: $primary;
-                            width: 100%;
-                            padding: 10px;
-                            border-radius: 5px;
-                            color: white;
-                            font-weight: 500;
-                            transition: 0.5s;
-                            &:focus {
-                                background-color: #4065c4;
-                            }
+                    }
+                    .login-btn {
+                        background-color: $primary;
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 5px;
+                        color: white;
+                        font-weight: 500;
+                        transition: 0.5s;
+                        &:focus {
+                            background-color: #4065c4;
                         }
                     }
                 }

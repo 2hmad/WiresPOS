@@ -10,7 +10,7 @@
                     <div class="container">
                         <div class="header">
                             <div class="brand">
-                                <img src="/images/WiresPOS.svg" />
+                                <img src="/images/WiresPOS.svg" class="logo" />
                             </div>
                             <div class="lang-switcher">
                                 <a @click="setLanguage('en')">
@@ -28,11 +28,26 @@
                             </div>
                         </div>
                         <div class="form">
-                            <h2>{{ $t("sign-in-now") }}</h2>
+                            <h2>
+                                {{ $t("important-tools-to-help-you-sell") }}
+                            </h2>
                             <p>
-                                {{ $t("sign-in-now-to-your-account") }}
+                                {{ $t("get-your-money-anytime-anywhere") }}
                             </p>
-                            <form @submit.prevent="login">
+                            <form @submit.prevent="register" autocomplete="off">
+                                <div class="form-group">
+                                    <label class="input-label" for="name-input">
+                                        {{ $t("full-name") }}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name-input"
+                                        v-model="form.name"
+                                        autocomplete="false"
+                                        required
+                                    />
+                                </div>
                                 <div class="form-group">
                                     <label
                                         class="input-label"
@@ -51,8 +66,22 @@
                                 <div class="form-group">
                                     <label
                                         class="input-label"
+                                        for="phone-input"
+                                    >
+                                        {{ $t("phone") }}
+                                    </label>
+                                    <vue-tel-input
+                                        v-model="form.phone"
+                                        id="phone-input"
+                                        mode="international"
+                                        :inputOptions="telInputOptions"
+                                        required
+                                    ></vue-tel-input>
+                                </div>
+                                <div class="form-group">
+                                    <label
+                                        class="input-label"
                                         for="password-input"
-                                        autocomplete="off"
                                     >
                                         {{ $t("password") }}
                                     </label>
@@ -60,20 +89,15 @@
                                         type="password"
                                         name="password"
                                         id="password-input"
+                                        autocomplete="off"
                                         v-model="form.password"
                                         required
                                     />
                                 </div>
-                                <a
-                                    href="#"
-                                    style="text-align: right; color: #3154aa"
-                                >
-                                    {{ $t("recovery-password") }}
-                                </a>
                                 <input
                                     type="submit"
                                     name="login"
-                                    :value="$t('login')"
+                                    :value="$t('register')"
                                     class="login-btn"
                                 />
                             </form>
@@ -87,13 +111,13 @@
                             >
                                 {{ $t("dont-have-an-account") }}
                                 <router-link
-                                    to="/register"
+                                    to="/"
                                     style="
                                         color: #336699;
                                         text-decoration: underline;
                                     "
                                 >
-                                    {{ $t("register-now") }}
+                                    {{ $t("sign-in-now") }}
                                 </router-link>
                             </span>
                         </div>
@@ -108,31 +132,82 @@
     </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
 import store from "../store/";
+import { VueTelInput } from "vue-tel-input";
+import "vue-tel-input/dist/vue-tel-input.css";
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
-    components: {},
+    components: {
+        VueTelInput,
+    },
 
     data() {
         return {
+            telInputOptions: {
+                placeholder: this.$t("phone"),
+            },
             form: {
+                name: "",
                 email: "",
+                phone: "",
                 password: "",
             },
         };
     },
     methods: {
-        ...mapActions(["LogIn"]),
-        async login() {
-            const User = new FormData();
-            User.append("email", this.form.email);
-            User.append("password", this.form.password);
-            try {
-                await this.LogIn(User);
-                this.$router.push("/");
-            } catch (error) {
-                console.log(error);
-            }
+        register() {
+            axios
+                .post("/api/register", this.form)
+                .then((succ) => {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener(
+                                "mouseenter",
+                                Swal.stopTimer
+                            );
+                            toast.addEventListener(
+                                "mouseleave",
+                                Swal.resumeTimer
+                            );
+                        },
+                    });
+
+                    Toast.fire({
+                        icon: "success",
+                        title: this.$t("successfully-registered"),
+                    });
+                    this.$router.push("/login");
+                })
+                .catch((err) => {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener(
+                                "mouseenter",
+                                Swal.stopTimer
+                            );
+                            toast.addEventListener(
+                                "mouseleave",
+                                Swal.resumeTimer
+                            );
+                        },
+                    });
+
+                    Toast.fire({
+                        icon: "error",
+                        title: this.$t("email-or-phone-already-taken"),
+                    });
+                });
         },
 
         setLanguage(item) {

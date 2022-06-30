@@ -118,5 +118,14 @@
     "no": "No",
     "upgrade": "Upgrade",
     "change-password": "Change Password",
-    "invoice-number": "Invoice number"
+    "invoice-number": "Invoice number",
+    "sign-in-now-to-your-account": "Sign in now to your account and start recording your sales for you and your business team",
+    "dont-have-an-account": "Don't have an account?",
+    "register-now": "Register now",
+    "important-tools-to-help-you-sell": "Important tools to help you sell and collect your payments",
+    "get-your-money-anytime-anywhere": "Get your money anytime, anywhere",
+    "sign-in-now": "Sign in now",
+    "register": "Register",
+    "successfully-registered": "Successfully Registered",
+    "email-or-phone-already-taken": "Email / Phone number already taken"
 }

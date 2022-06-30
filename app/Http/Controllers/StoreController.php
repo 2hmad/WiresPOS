@@ -58,7 +58,7 @@ class StoreController extends Controller
                     'store_name' => $request->name,
                     'email' => $request->email,
                     'address' => $request->address,
-                    'phone' => $request->phone,
+                    'phone' => str_replace(' ', '', $request->phone),
                     'website' => $request->website,
                     'legally' => $request->legally,
                 ]);
@@ -67,7 +67,7 @@ class StoreController extends Controller
                     'store_name' => $request->name,
                     'email' => $request->email,
                     'address' => $request->address,
-                    'phone' => $request->phone,
+                    'phone' => str_replace(' ', '', $request->phone),
                     'website' => $request->website,
                     'legally' => $request->legally,
                     'plan' => 'free'

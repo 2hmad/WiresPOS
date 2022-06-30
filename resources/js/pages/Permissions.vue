@@ -38,7 +38,12 @@
                         </div>
                         <div class="input-group">
                             <label for="phone">{{ $t("phone") }}</label>
-                            <input type="tel" id="phone" v-model="form.phone" />
+                            <vue-tel-input
+                                v-model="form.phone"
+                                mode="international"
+                                :inputOptions="telInputOptions"
+                                id="phone"
+                            ></vue-tel-input>
                         </div>
                         <div class="input-group">
                             <label for="phone">{{ $t("branch") }}</label>
@@ -97,18 +102,22 @@
 </template>
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import SettingMenu from "../components/SettingMenu.vue";
+import { VueTelInput } from "vue-tel-input";
+import "vue-tel-input/dist/vue-tel-input.css";
 import axios from "axios";
 export default {
     components: {
         Sidebar,
-        SettingMenu,
+        VueTelInput,
     },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             branches: [],
             users: [],
+            telInputOptions: {
+                placeholder: this.$t("phone"),
+            },
             form: {
                 full_name: "",
                 email: "",

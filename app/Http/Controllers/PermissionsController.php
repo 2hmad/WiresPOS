@@ -36,7 +36,7 @@ class PermissionsController extends Controller
                     'full_name' => $request->full_name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
-                    'phone' => $request->phone,
+                    'phone' => str_replace(' ', '', $request->phone),
                     'store' => $user->store,
                     'branch' => $request->branch,
                     'role' => $request->role,
