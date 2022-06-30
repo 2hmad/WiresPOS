@@ -3,6 +3,63 @@
         <div class="dashboard">
             <Sidebar />
             <div class="side">
+                <div class="card-steps">
+                    <div class="info">
+                        <img
+                            src="/icons/icons8-celebration.svg"
+                            style="max-width: 60px"
+                        />
+                        <h4>{{ $t("welcome-at-wirespos") }}</h4>
+                        <p>{{ $t("get-your-money-anytime-anywhere") }}</p>
+                    </div>
+                    <div class="steps">
+                        <ul>
+                            <router-link to="/company-info">
+                                <li>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                    />
+                                    <span
+                                        >{{ $t("fill-company-info") }} 🏢</span
+                                    >
+                                </li>
+                            </router-link>
+                            <router-link to="/branches">
+                                <li>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                    />
+                                    <span>
+                                        {{ $t("add-branch-to-your-store") }}
+                                        📜
+                                    </span>
+                                </li>
+                            </router-link>
+                            <router-link to="/branches">
+                                <li>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                    />
+                                    <span>
+                                        {{ $t("adjust-system-settings") }}
+                                        ⚙️​
+                                    </span>
+                                </li>
+                            </router-link>
+                            <router-link to="/upgrade">
+                                <li>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                    />
+                                    <span>
+                                        {{ $t("upgrade-to-premium-plan") }}
+                                        ⚙️​
+                                    </span>
+                                </li>
+                            </router-link>
+                        </ul>
+                    </div>
+                </div>
                 <div class="cards">
                     <div class="card">
                         <h4 class="heading">{{ $t("month-revenue") }}</h4>

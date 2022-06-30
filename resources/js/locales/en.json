@@ -127,5 +127,10 @@
     "sign-in-now": "Sign in now",
     "register": "Register",
     "successfully-registered": "Successfully Registered",
-    "email-or-phone-already-taken": "Email / Phone number already taken"
+    "email-or-phone-already-taken": "Email / Phone number already taken",
+    "welcome-at-wirespos": "Welcome at WiresPOS",
+    "fill-company-info": "Fill in your store information to get the best sales experience",
+    "add-branch-to-your-store": "Add at least one branch to register when selling",
+    "adjust-system-settings": "Adjust system settings to work fine",
+    "upgrade-to-premium-plan": "Upgrade to the premium plan to get more space"
 }

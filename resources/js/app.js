@@ -21,6 +21,7 @@ import {
     faCrown,
     faAngleLeft,
     faEye,
+    faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 // I18n Configurations
@@ -44,7 +45,8 @@ library.add(
     faGears,
     faCrown,
     faAngleLeft,
-    faEye
+    faEye,
+    faCheckCircle
 );
 
 const app = createApp({});
