@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoices;
+use App\Models\Stores;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,19 +23,41 @@ class InvoicesController extends Controller
         $user = User::where('token', $request->header('token'))->first();
         $check = Invoices::where('items', $request->items)->first();
         if ($check == null) {
-            Invoices::create([
-                'user_id' => $user->id,
-                'store_id' => $user->store,
-                'invoice_id' => time(),
-                'items' => $request->items,
-                'subtotal' => $request->subtotal,
-                'discount' => $request->discount,
-                'discount_type' => $request->discount_type,
-                'payment' => $request->payment,
-                'status' => 'paid',
-                'created_at' => date('Y-m-d H:i:s')
-            ]);
-            return Invoices::where('items', $request->items)->with('store')->first();
+            $store = Stores::where('id', $user->store)->first();
+            if ($store->plan == 'free') {
+                $countInvoices = Invoices::where('store_id', $user->store)->whereMonth('created_at', date('m'))->count();
+                if ($countInvoices < 10) {
+                    Invoices::create([
+                        'user_id' => $user->id,
+                        'store_id' => $user->store,
+                        'invoice_id' => time(),
+                        'items' => $request->items,
+                        'subtotal' => $request->subtotal,
+                        'discount' => $request->discount,
+                        'discount_type' => $request->discount_type,
+                        'payment' => $request->payment,
+                        'status' => 'paid',
+                        'created_at' => date('Y-m-d H:i:s')
+                    ]);
+                    return Invoices::where('items', $request->items)->with('store')->first();
+                } else {
+                    return response()->json(['alert' => 'rechead maximum invoices'], 404);
+                }
+            } else {
+                Invoices::create([
+                    'user_id' => $user->id,
+                    'store_id' => $user->store,
+                    'invoice_id' => time(),
+                    'items' => $request->items,
+                    'subtotal' => $request->subtotal,
+                    'discount' => $request->discount,
+                    'discount_type' => $request->discount_type,
+                    'payment' => $request->payment,
+                    'status' => 'paid',
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+                return Invoices::where('items', $request->items)->with('store')->first();
+            }
         } else {
             return response()->json(['alert' => 'added before'], 404);
         }

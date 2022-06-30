@@ -476,6 +476,7 @@ import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
 import axios from "axios";
 import Modal from "../components/Modal.vue";
+import Swal from "sweetalert2";
 export default {
     name: "menu",
     components: {
@@ -602,7 +603,53 @@ export default {
                     location.href = `/invoice/${result.data.invoice_id}`;
                 })
                 .catch((err) => {
-                    alert(this.$t("something-went-wrong"));
+                    if (err.response.data.alert == "rechead maximum invoices") {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener(
+                                    "mouseenter",
+                                    Swal.stopTimer
+                                );
+                                toast.addEventListener(
+                                    "mouseleave",
+                                    Swal.resumeTimer
+                                );
+                            },
+                        });
+
+                        Toast.fire({
+                            icon: "error",
+                            title: this.$t("you-have-reached-invoices-limit"),
+                        });
+                    } else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener(
+                                    "mouseenter",
+                                    Swal.stopTimer
+                                );
+                                toast.addEventListener(
+                                    "mouseleave",
+                                    Swal.resumeTimer
+                                );
+                            },
+                        });
+
+                        Toast.fire({
+                            icon: "error",
+                            title: this.$t("something-went-wrong"),
+                        });
+                    }
                 });
         },
         deleteBill(billId) {

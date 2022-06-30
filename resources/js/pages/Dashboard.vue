@@ -18,10 +18,23 @@
                                 <li>
                                     <font-awesome-icon
                                         :icon="['fas', 'check-circle']"
+                                        v-if="
+                                            company.store_name == null ||
+                                            company.email == null ||
+                                            company.address == null ||
+                                            company.phone == null ||
+                                            company.legally == null ||
+                                            company.logo == null
+                                        "
                                     />
-                                    <span
-                                        >{{ $t("fill-company-info") }} 🏢</span
-                                    >
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                        class="completed"
+                                        v-else
+                                    />
+                                    <span>
+                                        {{ $t("fill-company-info") }} 🏢
+                                    </span>
                                 </li>
                             </router-link>
                             <router-link to="/branches">
@@ -35,10 +48,21 @@
                                     </span>
                                 </li>
                             </router-link>
-                            <router-link to="/branches">
+                            <router-link to="/system-settings">
                                 <li>
                                     <font-awesome-icon
                                         :icon="['fas', 'check-circle']"
+                                        v-if="
+                                            systemSettings.tax_rate == null ||
+                                            systemSettings.service_rate ==
+                                                null ||
+                                            systemSettings.currency == null
+                                        "
+                                    />
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                        class="completed"
+                                        v-else
                                     />
                                     <span>
                                         {{ $t("adjust-system-settings") }}
@@ -50,10 +74,16 @@
                                 <li>
                                     <font-awesome-icon
                                         :icon="['fas', 'check-circle']"
+                                        v-if="company.plan == 'free'"
+                                    />
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                        class="completed"
+                                        v-else
                                     />
                                     <span>
                                         {{ $t("upgrade-to-premium-plan") }}
-                                        ⚙️​
+                                        👑​
                                     </span>
                                 </li>
                             </router-link>
@@ -109,6 +139,7 @@ export default {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             systemSettings: [],
+            company: [],
             monthly_revenue: null,
             day_revenue: null,
             monthly_invoices: null,
@@ -146,6 +177,20 @@ export default {
         };
     },
     async mounted() {
+        await axios
+            .post(
+                "/api/get-store",
+                {},
+                {
+                    headers: {
+                        token: this.user.token,
+                    },
+                }
+            )
+            .then((result) => {
+                this.company = result.data;
+            })
+            .catch((err) => console.log(err));
         await axios
             .post(
                 "/api/get-settings",

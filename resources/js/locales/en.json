@@ -140,5 +140,6 @@
     "view": "View",
     "are-you-sure?": "Are you sure ?",
     "invoice-refunded": "Invoice refunded",
-    "date": "Date"
+    "date": "Date",
+    "you-have-reached-invoices-limit": "You have reached your invoices limit on the free plan this month"
 }
