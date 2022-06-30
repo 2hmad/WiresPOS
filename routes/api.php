@@ -43,6 +43,10 @@ Route::group(['middleware' => "userToken"], function () {
     Route::post('invoice', [InvoicesController::class, 'get']);
     Route::post('invoices', [InvoicesController::class, 'getAll']);
 
+    Route::post('revenue/{range}', [InvoicesController::class, 'revenue']);
+    Route::post('monthly-invoices', [InvoicesController::class, 'monthly_invoices']);
+    Route::post('revenue-statistics', [InvoicesController::class, 'revenue_statistics']);
+
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('delete-product', [ProductsController::class, 'delete']);
     Route::post('add-category', [ProductsController::class, 'add_category']);

@@ -21,6 +21,9 @@ class Invoices extends Model
         'created_at',
     ];
     protected $hidden = [];
+    protected $dates = [
+        'created_at',
+    ];
     public $timestamps = false;
 
     public function store()

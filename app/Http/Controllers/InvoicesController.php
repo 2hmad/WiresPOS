@@ -38,4 +38,30 @@ class InvoicesController extends Controller
             return response()->json(['alert' => 'added before'], 404);
         }
     }
+    public function revenue(Request $request, $range)
+    {
+        if ($range == 'month') {
+            $user = User::where('token', $request->header('token'))->first();
+            $current_month = \Carbon\Carbon::parse(date('Y-m-d'))->format('m');
+            return Invoices::where('user_id', $user->id)->whereMonth('created_at', $current_month)->sum('subtotal');
+        } else if ($range == 'day') {
+            $user = User::where('token', $request->header('token'))->first();
+            $current_day = \Carbon\Carbon::parse(date('Y-m-d'))->format('d');
+            return Invoices::where('user_id', $user->id)->whereDay('created_at', $current_day)->sum('subtotal');
+        }
+    }
+    public function monthly_invoices(Request $request)
+    {
+        $user = User::where('token', $request->header('token'))->first();
+        $current_month = \Carbon\Carbon::parse(date('Y-m-d'))->format('m');
+        return Invoices::where('user_id', $user->id)->whereMonth('created_at', $current_month)->count();
+    }
+    public function revenue_statistics(Request $request)
+    {
+        $user = User::where('token', $request->header('token'))->first();
+        $current_year = \Carbon\Carbon::parse(date('Y-m-d'))->format('Y');
+        return Invoices::where('user_id', $user->id)->whereYear('created_at', $current_year)->get()->groupBy([function ($val) {
+            return $val->created_at->format('M');
+        }]);
+    }
 }
