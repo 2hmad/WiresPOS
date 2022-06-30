@@ -31,6 +31,7 @@ class InvoicesController extends Controller
                 'discount' => $request->discount,
                 'discount_type' => $request->discount_type,
                 'payment' => $request->payment,
+                'status' => 'paid',
                 'created_at' => date('Y-m-d H:i:s')
             ]);
             return Invoices::where('items', $request->items)->with('store')->first();
@@ -63,5 +64,11 @@ class InvoicesController extends Controller
         return Invoices::where('user_id', $user->id)->whereYear('created_at', $current_year)->get()->groupBy([function ($val) {
             return $val->created_at->format('M');
         }]);
+    }
+    public function refund(Request $request)
+    {
+        Invoices::where('id', $request->id)->update([
+            'status' => 'refund'
+        ]);
     }
 }

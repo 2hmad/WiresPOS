@@ -42,6 +42,7 @@ Route::group(['middleware' => "userToken"], function () {
 
     Route::post('create-invoice', [InvoicesController::class, 'create']);
     Route::post('invoice', [InvoicesController::class, 'get']);
+    Route::post('refund-invoice', [InvoicesController::class, 'refund']);
     Route::post('invoices', [InvoicesController::class, 'getAll']);
 
     Route::post('revenue/{range}', [InvoicesController::class, 'revenue']);

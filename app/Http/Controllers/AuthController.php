@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stores;
+use App\Models\SystemSettings;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,6 +35,12 @@ class AuthController extends Controller
                 'plan' => 'free'
             ]);
             $getStore = Stores::where('store_name', $request->email . "'s store")->first();
+            SystemSettings::create([
+                'store_id' => $getStore->id,
+                'tax_rate' => 0,
+                'service_rate' => 0,
+                'currency' => "usd"
+            ]);
             User::create([
                 'full_name' => $request->name,
                 'email' => $request->email,

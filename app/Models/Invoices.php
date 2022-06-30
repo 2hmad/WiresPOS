@@ -18,6 +18,7 @@ class Invoices extends Model
         'discount',
         'discount_type',
         'payment',
+        'status',
         'created_at',
     ];
     protected $hidden = [];

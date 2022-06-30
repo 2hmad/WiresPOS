@@ -22,8 +22,11 @@ import {
     faAngleLeft,
     faEye,
     faCheckCircle,
+    faMoneyBill,
+    faCashRegister,
+    faArrowRightArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-
+const { DateTime } = require("luxon");
 // I18n Configurations
 const messages = {
     en,
@@ -33,7 +36,6 @@ const i18n = createI18n({
     locale: store.getters.getAppLanguage,
     messages,
 });
-
 library.add(
     faPhone,
     faEnvelope,
@@ -46,11 +48,15 @@ library.add(
     faCrown,
     faAngleLeft,
     faEye,
-    faCheckCircle
+    faCheckCircle,
+    faMoneyBill,
+    faCashRegister,
+    faArrowRightArrowLeft
 );
 
 const app = createApp({});
 
+app.config.globalProperties.$luxonDateTime = DateTime;
 app.use(VueApexCharts);
 app.use(router);
 app.use(store);

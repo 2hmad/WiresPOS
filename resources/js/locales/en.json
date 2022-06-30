@@ -132,5 +132,13 @@
     "fill-company-info": "Fill in your store information to get the best sales experience",
     "add-branch-to-your-store": "Add at least one branch to register when selling",
     "adjust-system-settings": "Adjust system settings to work fine",
-    "upgrade-to-premium-plan": "Upgrade to the premium plan to get more space"
+    "upgrade-to-premium-plan": "Upgrade to the premium plan to get more space",
+    "status": "Status",
+    "paid": "Paid",
+    "refund": "Refund",
+    "return": "Refund",
+    "view": "View",
+    "are-you-sure?": "Are you sure ?",
+    "invoice-refunded": "Invoice refunded",
+    "date": "Date"
 }
