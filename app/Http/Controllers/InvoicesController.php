@@ -12,6 +12,11 @@ class InvoicesController extends Controller
     {
         return Invoices::where('invoice_id', $request->id)->first();
     }
+    public function getAll(Request $request)
+    {
+        $user = User::where('token', $request->header('token'))->first();
+        return Invoices::where('user_id', $user->id)->get();
+    }
     public function create(Request $request)
     {
         $user = User::where('token', $request->header('token'))->first();

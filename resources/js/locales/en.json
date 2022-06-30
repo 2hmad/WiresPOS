@@ -117,5 +117,6 @@
     "yes": "Yes",
     "no": "No",
     "upgrade": "Upgrade",
-    "change-password": "Change Password"
+    "change-password": "Change Password",
+    "invoice-number": "Invoice number"
 }

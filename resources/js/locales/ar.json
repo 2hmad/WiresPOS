@@ -117,5 +117,6 @@
     "yes": "نعم",
     "no": "لا",
     "upgrade": "ترقية",
-    "change-password": "تغيير كلمة المرور"
+    "change-password": "تغيير كلمة المرور",
+    "invoice-number": "رقم الفاتورة"
 }

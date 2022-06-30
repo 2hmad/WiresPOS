@@ -41,6 +41,7 @@ Route::group(['middleware' => "userToken"], function () {
 
     Route::post('create-invoice', [InvoicesController::class, 'create']);
     Route::post('invoice', [InvoicesController::class, 'get']);
+    Route::post('invoices', [InvoicesController::class, 'getAll']);
 
     Route::post('add-product', [ProductsController::class, 'insert']);
     Route::post('delete-product', [ProductsController::class, 'delete']);
