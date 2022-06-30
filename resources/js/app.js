@@ -19,6 +19,7 @@ import {
     faUserPlus,
     faGears,
     faCrown,
+    faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 // I18n Configurations
@@ -40,7 +41,8 @@ library.add(
     faStore,
     faUserPlus,
     faGears,
-    faCrown
+    faCrown,
+    faAngleLeft
 );
 
 const app = createApp({});

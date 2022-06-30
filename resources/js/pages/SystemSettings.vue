@@ -3,61 +3,68 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("settings") }}</h3>
-
-                <form method="POST" @submit.prevent="updateSystem">
-                    <div class="input-group" v-if="user.role == 'admin'">
-                        <label for="tax">{{ $t("tax") }} (%)</label>
+                <div class="container" style="gap: 0">
+                    <div class="header">
+                        <h3>{{ $t("system-settings") }}</h3>
+                        <router-link to="/settings">
+                            <font-awesome-icon :icon="['fas', 'angle-left']" />
+                            {{ $t("settings") }}
+                        </router-link>
+                    </div>
+                    <form method="POST" @submit.prevent="updateSystem">
+                        <div class="input-group" v-if="user.role == 'admin'">
+                            <label for="tax">{{ $t("tax") }} (%)</label>
+                            <input
+                                type="number"
+                                id="tax"
+                                step="0.001"
+                                v-model="form.tax"
+                                required
+                            />
+                        </div>
+                        <div class="input-group" v-if="user.role == 'admin'">
+                            <label for="tax">{{ $t("service") }} (%)</label>
+                            <input
+                                type="number"
+                                id="tax"
+                                step="0.001"
+                                v-model="form.service"
+                                required
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="language">{{ $t("language") }}</label>
+                            <select
+                                id="language"
+                                v-model="lang"
+                                @change="setLanguage(lang)"
+                            >
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
+                        <div class="input-group" v-if="user.role == 'admin'">
+                            <label for="currency">{{
+                                $t("system-currency")
+                            }}</label>
+                            <select id="currency" v-model="form.currency">
+                                <option value="usd">{{ $t("usd") }}</option>
+                                <option value="egp">{{ $t("egp") }}</option>
+                                <option value="eur">{{ $t("eur") }}</option>
+                                <option value="sar">{{ $t("sar") }}</option>
+                                <option value="qar">{{ $t("qar") }}</option>
+                                <option value="kwd">{{ $t("kwd") }}</option>
+                                <option value="aed">{{ $t("aed") }}</option>
+                            </select>
+                        </div>
                         <input
-                            type="number"
-                            id="tax"
-                            step="0.001"
-                            v-model="form.tax"
-                            required
+                            type="submit"
+                            class="save"
+                            :value="$t('save-changes')"
+                            v-if="user.role == 'admin'"
                         />
-                    </div>
-                    <div class="input-group" v-if="user.role == 'admin'">
-                        <label for="tax">{{ $t("service") }} (%)</label>
-                        <input
-                            type="number"
-                            id="tax"
-                            step="0.001"
-                            v-model="form.service"
-                            required
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="language">{{ $t("language") }}</label>
-                        <select
-                            id="language"
-                            v-model="lang"
-                            @change="setLanguage(lang)"
-                        >
-                            <option value="en">English</option>
-                            <option value="ar">العربية</option>
-                        </select>
-                    </div>
-                    <div class="input-group" v-if="user.role == 'admin'">
-                        <label for="currency">{{
-                            $t("system-currency")
-                        }}</label>
-                        <select id="currency" v-model="form.currency">
-                            <option value="usd">{{ $t("usd") }}</option>
-                            <option value="egp">{{ $t("egp") }}</option>
-                            <option value="eur">{{ $t("eur") }}</option>
-                            <option value="sar">{{ $t("sar") }}</option>
-                            <option value="qar">{{ $t("qar") }}</option>
-                            <option value="kwd">{{ $t("kwd") }}</option>
-                            <option value="aed">{{ $t("aed") }}</option>
-                        </select>
-                    </div>
-                    <input
-                        type="submit"
-                        class="save"
-                        :value="$t('save-changes')"
-                        v-if="user.role == 'admin'"
-                    />
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

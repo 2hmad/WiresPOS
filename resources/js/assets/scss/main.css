@@ -7,7 +7,7 @@
 
 html,
 body {
-  background-color: #f9f8fb;
+  background-color: #f7f7f7;
 }
 
 .app-en {
@@ -1150,8 +1150,8 @@ input[type="submit"] {
 }
 
 .setting .side .container {
-  max-width: 550px;
-  margin: 0 auto;
+  max-width: 540px;
+  margin: 3% auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1160,6 +1160,37 @@ input[type="submit"] {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 30px;
+}
+
+.setting .side .container .header {
+  background-color: #eee;
+  width: 100%;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+          box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  direction: rtl;
+}
+
+.setting .side .container .header h3 {
+  font-size: 15px;
+}
+
+.setting .side .container .header a {
+  direction: ltr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  font-size: 14px;
 }
 
 .setting .side .container .info {
@@ -1302,13 +1333,42 @@ input[type="submit"] {
   color: #336699;
 }
 
+.setting .side .container .branches {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.setting .side .container .branches .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.setting .side .container .branches .item .delete img {
+  max-width: 25px;
+}
+
 .setting .side h3 {
   font-size: 25px;
   font-weight: 600;
 }
 
 .setting .side form {
-  margin-top: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1318,6 +1378,11 @@ input[type="submit"] {
           flex-direction: column;
   gap: 15px;
   max-width: 550px;
+  background-color: white;
+  padding: 50px 25px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+          box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
 }
 
 .setting .side form .pic-change {
@@ -1328,6 +1393,7 @@ input[type="submit"] {
       -ms-flex-align: center;
           align-items: center;
   gap: 15px;
+  margin: 0 auto;
 }
 
 .setting .side form .pic-change img {
@@ -1346,13 +1412,11 @@ input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 20px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
 }
 
 .setting .side form .input-group label {
@@ -1363,7 +1427,7 @@ input[type="submit"] {
 .setting .side form .input-group select,
 .setting .side form .input-group textarea {
   padding: 10px;
-  width: 250px;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;

@@ -3,52 +3,63 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("settings") }}</h3>
-
-                <form @submit.prevent="updateProfile">
-                    <div class="pic-change">
-                        <label for="change">
-                            <img
-                                :src="`/storage/users/${user.pic}`"
-                                v-if="user.pic !== '' && user.pic !== null"
+                <div class="container" style="gap: 0">
+                    <div class="header">
+                        <h3>{{ $t("my-details") }}</h3>
+                        <router-link to="/settings">
+                            <font-awesome-icon :icon="['fas', 'angle-left']" />
+                            {{ $t("settings") }}
+                        </router-link>
+                    </div>
+                    <form @submit.prevent="updateProfile">
+                        <div class="pic-change">
+                            <label for="change">
+                                <img
+                                    :src="`/storage/users/${user.pic}`"
+                                    v-if="user.pic !== '' && user.pic !== null"
+                                />
+                                <img :src="`/images/default.jpg`" v-else />
+                            </label>
+                            <input
+                                type="file"
+                                id="change"
+                                @change="uploadPic"
                             />
-                            <img :src="`/images/default.jpg`" v-else />
-                        </label>
-                        <input type="file" id="change" @change="uploadPic" />
-                    </div>
-                    <div class="input-group">
-                        <label for="fullname">{{ $t("full-name") }}</label>
+                        </div>
+                        <div class="input-group">
+                            <label for="fullname">{{ $t("full-name") }}</label>
+                            <input
+                                type="text"
+                                placeholder="Full name"
+                                id="fullname"
+                                v-model="form.fullName"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="email">{{ $t("email") }}</label>
+                            <input
+                                type="email"
+                                placeholder="Email Address"
+                                id="email"
+                                v-model="form.email"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">{{ $t("phone") }}</label>
+                            <input
+                                type="tel"
+                                placeholder="Phone"
+                                id="phone"
+                                v-model="form.phone"
+                            />
+                        </div>
                         <input
-                            type="text"
-                            placeholder="Full name"
-                            id="fullname"
-                            v-model="form.fullName"
+                            type="submit"
+                            class="save"
+                            :value="$t('save-changes')"
                         />
-                    </div>
-                    <div class="input-group">
-                        <label for="email">{{ $t("email") }}</label>
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            id="email"
-                            v-model="form.email"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="phone">{{ $t("phone") }}</label>
-                        <input
-                            type="tel"
-                            placeholder="Phone"
-                            id="phone"
-                            v-model="form.phone"
-                        />
-                    </div>
-                    <input
-                        type="submit"
-                        class="save"
-                        :value="$t('save-changes')"
-                    />
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -10,11 +10,30 @@
             margin-left: 20px;
         }
         .container {
-            max-width: 550px;
-            margin: 0 auto;
+            max-width: 540px;
+            margin: 3% auto;
             display: flex;
             flex-direction: column;
             gap: 30px;
+            .header {
+                background-color: #eee;
+                width: 100%;
+                box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+                padding: 5px 10px;
+                display: flex;
+                justify-content: space-between;
+                direction: rtl;
+                h3 {
+                    font-size: 15px;
+                }
+                a {
+                    direction: ltr;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 14px;
+                }
+            }
             .info {
                 display: flex;
                 gap: 15px;
@@ -102,22 +121,44 @@
                     }
                 }
             }
+            .branches {
+                display: flex;
+                flex-direction: column;
+                .item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 7px 10px;
+                    .delete {
+                        img {
+                            max-width: 25px;
+                        }
+                    }
+                }
+            }
         }
         h3 {
             font-size: 25px;
             font-weight: 600;
         }
         form {
-            margin-top: 3%;
+            // margin-top: 3%;
             display: flex;
             flex-direction: column;
             gap: 15px;
             max-width: 550px;
-            // margin: 3% auto;
+            background-color: white;
+            padding: 50px 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
             .pic-change {
                 display: flex;
                 align-items: center;
                 gap: 15px;
+                margin: 0 auto;
                 img {
                     max-width: 90px;
                     height: 90px;
@@ -130,9 +171,8 @@
             }
             .input-group {
                 display: flex;
-                align-items: center;
-                gap: 20px;
-                justify-content: space-between;
+                flex-direction: column;
+                gap: 5px;
                 label {
                     font-size: 15px;
                 }
@@ -140,7 +180,7 @@
                 select,
                 textarea {
                     padding: 10px;
-                    width: 250px;
+                    width: 100%;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                     outline: none;

@@ -1,60 +1,71 @@
 <template>
     <div :class="`app-${$i18n.locale}`">
-        <div class="branches-page">
+        <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("settings") }}</h3>
-
-                <form method="POST" @submit.prevent="addBranch">
-                    <div class="input-group">
-                        <label for="branchName">{{ $t("branch-name") }}</label>
-                        <input
-                            type="text"
-                            id="branchName"
-                            v-model="form.branch_name"
-                        />
+                <div class="container" style="gap: 0">
+                    <div class="header">
+                        <h3>{{ $t("branches") }}</h3>
+                        <router-link to="/settings">
+                            <font-awesome-icon :icon="['fas', 'angle-left']" />
+                            {{ $t("settings") }}
+                        </router-link>
                     </div>
-                    <div class="input-group">
-                        <label for="branchAddress">{{
-                            $t("branch-address")
-                        }}</label>
-                        <input
-                            type="text"
-                            id="branchAddress"
-                            v-model="form.branch_address"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="branchTel">{{ $t("branch-phone") }}</label>
-                        <input
-                            type="tel"
-                            id="branchTel"
-                            v-model="form.branch_phone"
-                        />
-                    </div>
-                    <input
-                        type="submit"
-                        class="save"
-                        :value="$t('add-branch')"
-                    />
-                    <h4 v-if="branches.length > 0">{{ $t("branches") }}</h4>
-                    <div class="branches">
-                        <div
-                            class="item"
-                            v-for="branch of branches"
-                            :key="branch.id"
-                        >
-                            <div class="name">{{ branch.name }}</div>
-                            <button
-                                class="delete"
-                                type="button"
-                                @click="deleteBranch(branch.id)"
-                            >
-                                <img src="/icons/icons8-remove.svg" />
-                            </button>
+                    <form method="POST" @submit.prevent="addBranch">
+                        <div class="input-group">
+                            <label for="branchName">{{
+                                $t("branch-name")
+                            }}</label>
+                            <input
+                                type="text"
+                                id="branchName"
+                                v-model="form.branch_name"
+                            />
                         </div>
-                    </div>
-                </form>
+                        <div class="input-group">
+                            <label for="branchAddress">
+                                {{ $t("branch-address") }}
+                            </label>
+                            <input
+                                type="text"
+                                id="branchAddress"
+                                v-model="form.branch_address"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="branchTel">{{
+                                $t("branch-phone")
+                            }}</label>
+                            <input
+                                type="tel"
+                                id="branchTel"
+                                v-model="form.branch_phone"
+                            />
+                        </div>
+                        <input
+                            type="submit"
+                            class="save"
+                            :value="$t('add-branch')"
+                        />
+                        <h4 v-if="branches.length > 0">{{ $t("branches") }}</h4>
+                        <div class="branches">
+                            <div
+                                class="item"
+                                v-for="branch of branches"
+                                :key="branch.id"
+                            >
+                                <div class="name">{{ branch.name }}</div>
+                                <button
+                                    class="delete"
+                                    type="button"
+                                    @click="deleteBranch(branch.id)"
+                                >
+                                    <img src="/icons/icons8-remove.svg" />
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

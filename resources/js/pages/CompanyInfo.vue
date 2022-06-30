@@ -3,64 +3,96 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("company-info") }}</h3>
-                <form @submit.prevent="updateStore">
-                    <div class="pic-change">
-                        <label for="change">
-                            <img
-                                :src="`/storage/stores/${store_logo}`"
-                                v-if="store_logo !== null && store_logo !== ''"
+                <div class="container" style="gap: 0">
+                    <div class="header">
+                        <h3>{{ $t("company-info") }}</h3>
+                        <router-link to="/settings">
+                            <font-awesome-icon :icon="['fas', 'angle-left']" />
+                            {{ $t("settings") }}
+                        </router-link>
+                    </div>
+                    <form @submit.prevent="updateStore">
+                        <div class="pic-change">
+                            <label for="change">
+                                <img
+                                    :src="`/storage/stores/${store_logo}`"
+                                    v-if="
+                                        store_logo !== null && store_logo !== ''
+                                    "
+                                />
+                                <img
+                                    :src="`/images/placeholder-restaurant.png`"
+                                    v-else
+                                />
+                            </label>
+                            <input
+                                type="file"
+                                id="change"
+                                accept="jpg,png,jpeg,svg"
+                                @change="uploadPic"
                             />
-                            <img
-                                :src="`/images/placeholder-restaurant.png`"
-                                v-else
+                        </div>
+                        <div class="input-group">
+                            <label for="fullname">{{
+                                $t("company-name")
+                            }}</label>
+                            <input
+                                type="text"
+                                id="fullname"
+                                v-model="form.name"
                             />
-                        </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">{{ $t("company-email") }}</label>
+                            <input
+                                type="email"
+                                id="email"
+                                v-model="form.email"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="email">{{
+                                $t("company-address")
+                            }}</label>
+                            <input
+                                type="text"
+                                id="email"
+                                v-model="form.address"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">{{ $t("company-phone") }}</label>
+                            <vue-tel-input
+                                v-model="form.phone"
+                                mode="international"
+                            ></vue-tel-input>
+                        </div>
+                        <div class="input-group">
+                            <label for="website">{{
+                                $t("company-website")
+                            }}</label>
+                            <input
+                                type="url"
+                                id="website"
+                                v-model="form.website"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="lagally">
+                                {{ $t("legally-registered") }}
+                            </label>
+                            <select id="lagally" v-model="form.legally">
+                                <option value="yes">{{ $t("yes") }}</option>
+                                <option value="no">{{ $t("no") }}</option>
+                            </select>
+                        </div>
                         <input
-                            type="file"
-                            id="change"
-                            accept="jpg,png,jpeg,svg"
-                            @change="uploadPic"
+                            type="submit"
+                            class="save"
+                            :value="$t('save-changes')"
                         />
-                    </div>
-                    <div class="input-group">
-                        <label for="fullname">{{ $t("company-name") }}</label>
-                        <input type="text" id="fullname" v-model="form.name" />
-                    </div>
-                    <div class="input-group">
-                        <label for="email">{{ $t("company-email") }}</label>
-                        <input type="email" id="email" v-model="form.email" />
-                    </div>
-                    <div class="input-group">
-                        <label for="email">{{ $t("company-address") }}</label>
-                        <input type="text" id="email" v-model="form.address" />
-                    </div>
-                    <div class="input-group">
-                        <label for="phone">{{ $t("company-phone") }}</label>
-                        <vue-tel-input
-                            v-model="form.phone"
-                            mode="international"
-                        ></vue-tel-input>
-                    </div>
-                    <div class="input-group">
-                        <label for="website">{{ $t("company-website") }}</label>
-                        <input type="url" id="website" v-model="form.website" />
-                    </div>
-                    <div class="input-group">
-                        <label for="lagally">
-                            {{ $t("legally-registered") }}
-                        </label>
-                        <select id="lagally" v-model="form.legally">
-                            <option value="yes">{{ $t("yes") }}</option>
-                            <option value="no">{{ $t("no") }}</option>
-                        </select>
-                    </div>
-                    <input
-                        type="submit"
-                        class="save"
-                        :value="$t('save-changes')"
-                    />
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

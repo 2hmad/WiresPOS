@@ -3,45 +3,52 @@
         <div class="setting">
             <Sidebar />
             <div class="side">
-                <h3>{{ $t("settings") }}</h3>
-
-                <form method="POST" @submit.prevent="changePassword">
-                    <div class="input-group">
-                        <label for="oldPassword">
-                            {{ $t("old-password") }}
-                        </label>
-                        <input
-                            type="password"
-                            id="oldPassword"
-                            v-model="form.old_password"
-                        />
+                <div class="container" style="gap: 0">
+                    <div class="header">
+                        <h3>{{ $t("change-password") }}</h3>
+                        <router-link to="/settings">
+                            <font-awesome-icon :icon="['fas', 'angle-left']" />
+                            {{ $t("settings") }}
+                        </router-link>
                     </div>
-                    <div class="input-group">
-                        <label for="newPassword">
-                            {{ $t("new-password") }}
-                        </label>
+                    <form method="POST" @submit.prevent="changePassword">
+                        <div class="input-group">
+                            <label for="oldPassword">
+                                {{ $t("old-password") }}
+                            </label>
+                            <input
+                                type="password"
+                                id="oldPassword"
+                                v-model="form.old_password"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="newPassword">
+                                {{ $t("new-password") }}
+                            </label>
+                            <input
+                                type="password"
+                                id="newPassword"
+                                v-model="form.new_password"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="ConfPassword">
+                                {{ $t("confirm-new-password") }}
+                            </label>
+                            <input
+                                type="password"
+                                id="ConfPassword"
+                                v-model="confirm_new_password"
+                            />
+                        </div>
                         <input
-                            type="password"
-                            id="newPassword"
-                            v-model="form.new_password"
+                            type="submit"
+                            class="save"
+                            :value="$t('save-changes')"
                         />
-                    </div>
-                    <div class="input-group">
-                        <label for="ConfPassword">
-                            {{ $t("confirm-new-password") }}
-                        </label>
-                        <input
-                            type="password"
-                            id="ConfPassword"
-                            v-model="confirm_new_password"
-                        />
-                    </div>
-                    <input
-                        type="submit"
-                        class="save"
-                        :value="$t('save-changes')"
-                    />
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
