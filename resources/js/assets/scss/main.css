@@ -309,6 +309,12 @@ input[type="submit"] {
   padding-right: 1%;
 }
 
+@media screen and (max-width: 768px) {
+  .dashboard .side {
+    margin-left: 0 !important;
+  }
+}
+
 .dashboard .side .card-steps {
   width: 100%;
   display: -webkit-box;
