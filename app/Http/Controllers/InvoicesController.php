@@ -11,7 +11,13 @@ class InvoicesController extends Controller
 {
     public function get(Request $request)
     {
-        return Invoices::where('invoice_id', $request->id)->first();
+        $user = User::where('token', $request->header('token'))->first();
+        $invoice = Invoices::where('id', $request->id)->with('store')->first();
+        if ($invoice->store_id == $user->store) {
+            return $invoice;
+        } else {
+            return response()->json(['alert' => 'permission denied'], 404);
+        }
     }
     public function getAll(Request $request)
     {

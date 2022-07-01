@@ -2005,8 +2005,12 @@ input[type="submit"] {
 }
 
 .ticket {
-  width: 155px;
-  max-width: 155px;
+  width: 220px;
+  max-width: 220px;
+}
+
+.ticket * {
+  font-family: "Poppins", sans-serif;
 }
 
 .ticket img {
@@ -2017,8 +2021,33 @@ input[type="submit"] {
 
 .ticket .centered {
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1.5em;
+  font-size: 14px;
+}
+
+.ticket table {
+  text-align: center;
+  width: 100%;
+}
+
+.ticket table tbody {
+  line-height: 1.8em;
+  width: 100%;
+}
+
+.ticket .line {
+  border-top: 1px dashed black;
+  margin: 5% auto;
+}
+
+.ticket .side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 14px;
 }
 
@@ -2027,22 +2056,20 @@ input[type="submit"] {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  gap: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .ticket .sides .side {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 80px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0;
-          flex: 1 0;
-}
-
-.ticket .sides .side input {
-  background-color: transparent;
-  border: none;
-  outline: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 14px;
 }
 
 .upgrade-page {

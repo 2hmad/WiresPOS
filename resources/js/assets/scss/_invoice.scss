@@ -1,6 +1,9 @@
 .ticket {
-    width: 155px;
-    max-width: 155px;
+    width: 220px;
+    max-width: 220px;
+    * {
+        font-family: "Poppins", sans-serif;
+    }
     img {
         max-width: 120px;
         margin: 3% auto;
@@ -8,22 +11,36 @@
     }
     .centered {
         text-align: center;
-        font-weight: bold;
+        font-weight: 500;
         line-height: 1.5em;
+        font-size: 14px;
+    }
+    table {
+        text-align: center;
+        width: 100%;
+        tbody {
+            line-height: 1.8em;
+            width: 100%;
+        }
+    }
+    .line {
+        border-top: 1px dashed black;
+        margin: 5% auto;
+    }
+    .side {
+        display: flex;
+        justify-content: space-between;
         font-size: 14px;
     }
     .sides {
         display: flex;
         width: 100%;
+        gap: 10px;
+        justify-content: space-between;
         .side {
             display: flex;
-            max-width: 80px;
-            flex: 1 0;
-            input {
-                background-color: transparent;
-                border: none;
-                outline: none;
-            }
+            justify-content: space-between;
+            font-size: 14px;
         }
     }
 }
