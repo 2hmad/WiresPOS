@@ -41,6 +41,12 @@
                                 <li>
                                     <font-awesome-icon
                                         :icon="['fas', 'check-circle']"
+                                        v-if="branches.length == 0"
+                                    />
+                                    <font-awesome-icon
+                                        :icon="['fas', 'check-circle']"
+                                        v-else
+                                        class="completed"
                                     />
                                     <span>
                                         {{ $t("add-branch-to-your-store") }}
@@ -140,6 +146,7 @@ export default {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             systemSettings: [],
             company: [],
+            branches: [],
             monthly_revenue: null,
             day_revenue: null,
             monthly_invoices: null,
@@ -177,6 +184,18 @@ export default {
         };
     },
     async mounted() {
+        await axios
+            .post(
+                "/api/get-branches",
+                {},
+                { headers: { token: this.user.token } }
+            )
+            .then((result) => {
+                this.branches = result.data;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         await axios
             .post(
                 "/api/get-store",

@@ -413,6 +413,13 @@ input[type="submit"] {
   gap: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .dashboard .side .cards {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .dashboard .side .cards .card {
   padding: 10px 20px;
   width: 100%;

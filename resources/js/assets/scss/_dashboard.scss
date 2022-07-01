@@ -66,6 +66,9 @@
             justify-content: space-between;
             margin-top: 5%;
             gap: 15px;
+            @media screen and (max-width: 768px) {
+                flex-wrap: wrap;
+            }
             .card {
                 padding: 10px 20px;
                 width: 100%;
