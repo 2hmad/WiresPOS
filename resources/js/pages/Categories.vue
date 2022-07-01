@@ -21,77 +21,88 @@
                             </router-link>
                         </div>
                     </div>
-                    <vue-good-table
-                        :columns="columns"
-                        :rows="rows"
-                        :pagination-options="{
-                            enabled: true,
-                            perPage: 15,
-                            perPageDropdown: [3, 7, 9],
-                            nextLabel: 'next',
-                            prevLabel: 'prev',
-                        }"
-                        :search-options="{
-                            enabled: true,
-                        }"
-                        style="margin-top: 3%; direction: ltr"
-                    >
-                        <template #table-row="props">
-                            <span v-if="props.column.field == 'option'">
-                                <div class="action-btns">
-                                    <a :href="`/products/${props.row.id}`">
-                                        <button class="show-action">
-                                            <img
-                                                src="/icons/icons8-surprise.svg"
-                                            />
-                                            {{ $t("browse") }}
-                                        </button>
-                                    </a>
-                                    <a :href="`/edit-category/${props.row.id}`">
-                                        <button
-                                            class="edit-action"
-                                            v-if="user.role == 'admin'"
+                    <div class="main-wrapper">
+                        <vue-good-table
+                            :columns="columns"
+                            :rows="rows"
+                            :pagination-options="{
+                                enabled: true,
+                                perPage: 15,
+                                perPageDropdown: [3, 7, 9],
+                                nextLabel: 'next',
+                                prevLabel: 'prev',
+                            }"
+                            :search-options="{
+                                enabled: true,
+                            }"
+                            style="margin-top: 3%; direction: ltr"
+                        >
+                            <template #table-row="props">
+                                <span v-if="props.column.field == 'option'">
+                                    <div class="action-btns">
+                                        <a :href="`/products/${props.row.id}`">
+                                            <button class="show-action">
+                                                <font-awesome-icon
+                                                    :icon="['fas', 'eye']"
+                                                    color="#336699"
+                                                    style="font-size: 17px"
+                                                />
+                                            </button>
+                                        </a>
+                                        <a
+                                            :href="`/edit-category/${props.row.id}`"
                                         >
-                                            <img src="/icons/icons8-edit.svg" />
-                                            {{ $t("edit") }}
+                                            <button
+                                                class="edit-action"
+                                                v-if="user.role == 'admin'"
+                                            >
+                                                <font-awesome-icon
+                                                    :icon="['fas', 'pen']"
+                                                    color="#336699"
+                                                    style="font-size: 17px"
+                                                />
+                                            </button>
+                                        </a>
+                                        <button
+                                            class="delete-action"
+                                            v-if="user.role == 'admin'"
+                                            @click="deleteCat(props.row.id)"
+                                        >
+                                            <font-awesome-icon
+                                                :icon="['fas', 'trash']"
+                                                color="#336699"
+                                                style="font-size: 17px"
+                                            />
                                         </button>
-                                    </a>
-                                    <button
-                                        class="delete-action"
-                                        v-if="user.role == 'admin'"
-                                        @click="deleteCat(props.row.id)"
-                                    >
-                                        <img src="/icons/icons8-delete.svg" />
-                                        {{ $t("delete") }}
-                                    </button>
-                                </div>
-                            </span>
-                            <span
-                                v-else-if="
-                                    props.column.field == 'category_name'
-                                "
-                                style="
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 5px;
-                                "
-                            >
-                                <img
-                                    :src="`/storage/categories/${props.row.icon}`"
-                                    style="
-                                        max-width: 40px;
-                                        height: 40px;
-                                        border-radius: 50%;
-                                        object-fit: cover;
+                                    </div>
+                                </span>
+                                <span
+                                    v-else-if="
+                                        props.column.field == 'category_name'
                                     "
-                                />
-                                {{ props.row.category_name }}
-                            </span>
-                            <span v-else>
-                                {{ props.formattedRow[props.column.field] }}
-                            </span>
-                        </template>
-                    </vue-good-table>
+                                    style="
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 5px;
+                                    "
+                                >
+                                    <img
+                                        :src="`/storage/categories/${props.row.icon}`"
+                                        style="
+                                            max-width: 40px;
+                                            height: 40px;
+                                            border-radius: 50%;
+                                            object-fit: cover;
+                                        "
+                                    />
+                                    {{ props.row.category_name }}
+                                </span>
+                                <span v-else>
+                                    {{ props.formattedRow[props.column.field] }}
+                                </span>
+                            </template>
+                        </vue-good-table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,16 +156,20 @@ export default {
     },
     methods: {
         deleteCat(id) {
-            axios
-                .post(
-                    "/api/delete-category",
-                    { id: id },
-                    { headers: { token: this.user.token } }
-                )
-                .then((res) => {
-                    alert(this.$t("operation-successful")), location.reload();
-                })
-                .catch((err) => alert(this.$t("something-went-wrong")));
+            var confirm = window.confirm(this.$t("are-your-sure"));
+            if (confirm) {
+                axios
+                    .post(
+                        "/api/delete-category",
+                        { id: id },
+                        { headers: { token: this.user.token } }
+                    )
+                    .then((res) => {
+                        alert(this.$t("operation-successful")),
+                            location.reload();
+                    })
+                    .catch((err) => alert(this.$t("something-went-wrong")));
+            }
         },
     },
 };

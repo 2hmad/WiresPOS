@@ -98,12 +98,11 @@ input[type="submit"] {
 .action-btns {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     .show-action,
     .delete-action,
     .edit-action {
-        background: $primary;
-        padding: 5px 15px;
+        // padding: 5px 15px;
         border-radius: 5px;
         display: flex;
         justify-content: center;

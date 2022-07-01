@@ -62,8 +62,11 @@
                                         class="delete-action"
                                         @click="deleteProduct(props.row.id)"
                                     >
-                                        <img src="/icons/icons8-delete.svg" />
-                                        {{ $t("delete") }}
+                                        <font-awesome-icon
+                                            :icon="['fas', 'trash']"
+                                            color="#336699"
+                                            style="font-size: 17px"
+                                        />
                                     </button>
                                 </div>
                             </span>
@@ -130,16 +133,20 @@ export default {
     },
     methods: {
         deleteProduct(id) {
-            axios
-                .post(
-                    "/api/delete-product",
-                    { id: id },
-                    { headers: { token: this.user.token } }
-                )
-                .then((res) => {
-                    alert(this.$t("operation-successful")), location.reload();
-                })
-                .catch((err) => alert(this.$t("something-went-wrong")));
+            var confirm = window.confirm(this.$t("are-your-sure"));
+            if (confirm) {
+                axios
+                    .post(
+                        "/api/delete-product",
+                        { id: id },
+                        { headers: { token: this.user.token } }
+                    )
+                    .then((res) => {
+                        alert(this.$t("operation-successful")),
+                            location.reload();
+                    })
+                    .catch((err) => alert(this.$t("something-went-wrong")));
+            }
         },
     },
 };
