@@ -162,6 +162,7 @@ input[type="submit"] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px;
+  position: relative;
 }
 
 .login .sides .side {
