@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div v-if="search === ''">
-                        <div class="categories">
+                        <div class="categories" v-if="items.length > 0">
                             <div class="cards">
                                 <Carousel
                                     :settings="settings"
@@ -98,7 +98,10 @@
                                 </Carousel>
                             </div>
                         </div>
-                        <h2 style="font-weight: 600; margin-top: 3%">
+                        <h2
+                            style="font-weight: 600; margin-top: 3%"
+                            v-if="items.length > 0"
+                        >
                             {{
                                 selectedCat
                                     ? items.find(
@@ -107,7 +110,7 @@
                                     : ""
                             }}
                         </h2>
-                        <div class="products">
+                        <div class="products" v-if="items.length > 0">
                             <div
                                 class="product"
                                 v-for="product in filterProducts"
