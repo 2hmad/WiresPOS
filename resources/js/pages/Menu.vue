@@ -478,7 +478,7 @@ import axios from "axios";
 import Modal from "../components/Modal.vue";
 import Swal from "sweetalert2";
 export default {
-    name: "menu",
+    name: "menu-page",
     components: {
         Sidebar,
         Carousel,

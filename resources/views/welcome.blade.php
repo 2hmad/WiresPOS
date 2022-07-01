@@ -10,8 +10,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" href="/favicon.ico">
-    <link rel="preload" href="https://fonts.googleapis.com" as="font">
-    <link rel="preload" href="https://fonts.gstatic.com" crossorigin as="font">
+    {{-- <link rel="preload" href="https://fonts.googleapis.com" as="font">
+    <link rel="preload" href="https://fonts.gstatic.com" crossorigin as="font"> --}}
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet" fetchpriority="low">
