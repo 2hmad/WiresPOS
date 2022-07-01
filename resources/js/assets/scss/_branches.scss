@@ -86,18 +86,111 @@
         .branches {
             display: flex;
             flex-direction: column;
-            .item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                border: 1px solid #ccc;
+            gap: 15px;
+            .branch-card {
+                background-color: white;
+                width: 700px;
+                margin: 0 auto;
+                padding: 20px 30px;
                 border-radius: 5px;
-                padding: 7px 10px;
-                .delete {
-                    img {
-                        max-width: 25px;
+                box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+                position: relative;
+                overflow: hidden;
+                max-width: 100%;
+                .info {
+                    display: flex;
+                    gap: 20px;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    .logo {
+                        max-width: 90px;
+                        height: 90px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                        }
                     }
+                    .information {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        .name {
+                            font-weight: bold;
+                            color: $primary;
+                            font-size: 18px;
+                        }
+                        .email,
+                        .phone,
+                        .address {
+                            font-size: 14px;
+                            color: #3e5b78;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+                }
+                .current {
+                    position: absolute;
+                    left: -36px;
+                    background-color: $primary;
+                    color: #fff;
+                    transform: rotate(-45deg);
+                    padding: 5px 45px;
+                    top: 5px;
+                }
+            }
+            .upgrade {
+                background-color: white;
+                width: 700px;
+                margin: 0 auto;
+                padding: 0 30px;
+                border-radius: 5px;
+                box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+                max-width: 100%;
+                img {
+                    max-width: 250px;
+                    margin: 0 auto;
+                    display: block;
+                }
+                h3 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                .upgrade-btn {
+                    background-color: #fcc201;
+                    padding: 5px 35px;
+                    font-size: 16px;
+                    border-radius: 25px;
+                    margin: 3% auto;
+                    display: block;
+                    font-weight: 500;
+                }
+            }
+            .add-branches {
+                background-color: white;
+                width: 700px;
+                margin: 0 auto;
+                padding: 20px 30px;
+                border-radius: 5px;
+                box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+                max-width: 100%;
+                h3 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                .add-btn {
+                    background-color: $primary;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 16px;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                    display: block;
+                    font-weight: 500;
+                    color: white;
                 }
             }
         }

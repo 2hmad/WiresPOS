@@ -16,6 +16,7 @@ import Permissions from "../pages/Permissions.vue";
 import SystemSettings from "../pages/SystemSettings.vue";
 import CompanyInfo from "../pages/CompanyInfo.vue";
 import Branches from "../pages/Branches.vue";
+import AddBranch from "../pages/AddBranch.vue";
 import store from "../store";
 import Invoice from "../pages/Invoice.vue";
 const routes = [
@@ -113,6 +114,13 @@ const routes = [
     {
         path: "/branches",
         component: Branches,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/add-branch",
+        component: AddBranch,
         meta: {
             requiresAuth: true,
         },

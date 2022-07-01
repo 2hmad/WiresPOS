@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branches;
 use App\Models\Stores;
 use App\Models\SystemSettings;
 use App\Models\User;
@@ -41,13 +42,20 @@ class AuthController extends Controller
                 'service_rate' => 0,
                 'currency' => "usd"
             ]);
+            Branches::create([
+                'name' => $getStore->store_name,
+                'address' => $getStore->address,
+                'phone' => $getStore->phone,
+                'store_id' => $getStore->id
+            ]);
+            $getBranch = Branches::where('name', $getStore->store_name)->first();
             User::create([
                 'full_name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'phone' => str_replace(' ', '', $request->phone),
                 'store' => $getStore->id,
-                'branch' => '',
+                'branch' => $getBranch->id,
                 'role' => 'admin',
                 'token' => md5(time())
             ]);

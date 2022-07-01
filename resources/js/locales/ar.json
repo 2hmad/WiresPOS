@@ -63,6 +63,7 @@
     "confirm-new-password": "تأكيد كلمة المرور الجديدة",
     "branch-name": "اسم الفرع",
     "branch-address": "عنوان الفرع",
+    "branch-email": "بريد الكتروني للفرع",
     "branch-phone": "رقم موبايل الفرع",
     "add-branch": "اضافة فرع",
     "branch": "الفرع",
@@ -141,5 +142,8 @@
     "are-you-sure?": "هل انت متأكد ؟",
     "invoice-refunded": "تم استرداد الفاتورة",
     "date": "التاريخ",
-    "you-have-reached-invoices-limit": "لقد وصلت إلى الحد الأقصى للفواتير في الخطة المجانية هذا الشهر"
+    "you-have-reached-invoices-limit": "لقد وصلت إلى الحد الأقصى للفواتير في الخطة المجانية هذا الشهر",
+    "current": "الحالي",
+    "upgrade-to-add-more-branches": "قم بترقية حسابك لإضافة المزيد من الفروع",
+    "add-more-branches": "اضف المزيد من الفروع"
 }

@@ -1,71 +1,66 @@
 <template>
     <div :class="`app-${$i18n.locale}`">
-        <div class="setting">
+        <div class="branches-page">
             <Sidebar />
             <div class="side">
-                <div class="container" style="gap: 0">
-                    <div class="header">
-                        <h3>{{ $t("branches") }}</h3>
-                        <router-link to="/settings">
-                            <font-awesome-icon :icon="['fas', 'angle-left']" />
-                            {{ $t("settings") }}
-                        </router-link>
-                    </div>
-                    <form method="POST" @submit.prevent="addBranch">
-                        <div class="input-group">
-                            <label for="branchName">{{
-                                $t("branch-name")
-                            }}</label>
-                            <input
-                                type="text"
-                                id="branchName"
-                                v-model="form.branch_name"
-                            />
-                        </div>
-                        <div class="input-group">
-                            <label for="branchAddress">
-                                {{ $t("branch-address") }}
-                            </label>
-                            <input
-                                type="text"
-                                id="branchAddress"
-                                v-model="form.branch_address"
-                            />
-                        </div>
-                        <div class="input-group">
-                            <label for="branchTel">
-                                {{ $t("branch-phone") }}
-                            </label>
-                            <vue-tel-input
-                                v-model="form.branch_phone"
-                                mode="international"
-                                :inputOptions="telInputOptions"
-                                id="branchTel"
-                            ></vue-tel-input>
-                        </div>
-                        <input
-                            type="submit"
-                            class="save"
-                            :value="$t('add-branch')"
-                        />
-                        <h4 v-if="branches.length > 0">{{ $t("branches") }}</h4>
-                        <div class="branches">
-                            <div
-                                class="item"
-                                v-for="branch of branches"
-                                :key="branch.id"
-                            >
-                                <div class="name">{{ branch.name }}</div>
-                                <button
-                                    class="delete"
-                                    type="button"
-                                    @click="deleteBranch(branch.id)"
-                                >
-                                    <img src="/icons/icons8-remove.svg" />
-                                </button>
+                <div class="branches">
+                    <div
+                        class="branch-card"
+                        v-for="branch in branches"
+                        :key="branch.id"
+                    >
+                        <div class="info">
+                            <div class="logo">
+                                <img
+                                    :src="`/images/placeholder-restaurant.png`"
+                                />
+                            </div>
+                            <div class="information">
+                                <span class="name">
+                                    {{ branch.name }}
+                                </span>
+                                <span class="email">
+                                    <font-awesome-icon
+                                        :icon="['fas', 'envelope']"
+                                    />
+                                    {{ branch.email }}
+                                </span>
+                                <span class="phone">
+                                    <font-awesome-icon
+                                        :icon="['fas', 'phone']"
+                                    />
+                                    {{ branch.phone }}
+                                </span>
+                                <span class="address">
+                                    <font-awesome-icon
+                                        :icon="['fas', 'location-pin']"
+                                    />
+                                    {{ branch.address }}
+                                </span>
                             </div>
                         </div>
-                    </form>
+                        <div class="current" v-if="user.branch == branch.id">
+                            {{ $t("current") }}
+                        </div>
+                    </div>
+                    <div class="upgrade" v-if="company.plan == 'free'">
+                        <img src="/images/20943640.svg" />
+                        <h3>{{ $t("upgrade-to-add-more-branches") }}</h3>
+                        <router-link to="/upgrade">
+                            <button class="upgrade-btn">
+                                <font-awesome-icon :icon="['fas', 'crown']" />
+                                {{ $t("upgrade") }}
+                            </button>
+                        </router-link>
+                    </div>
+                    <div class="add-branches" v-else>
+                        <router-link to="/add-branch">
+                            <button class="add-btn">
+                                <font-awesome-icon :icon="['fas', 'plus']" />
+                            </button>
+                        </router-link>
+                        <h3>{{ $t("add-more-branches") }}</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,6 +80,7 @@ export default {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             branches: [],
+            company: [],
             telInputOptions: {
                 placeholder: this.$t("phone"),
             },
@@ -108,6 +104,20 @@ export default {
             .catch((err) => {
                 console.log(err);
             });
+        await axios
+            .post(
+                "/api/get-store",
+                {},
+                {
+                    headers: {
+                        token: this.user.token,
+                    },
+                }
+            )
+            .then((result) => {
+                this.company = result.data;
+            })
+            .catch((err) => console.log(err));
     },
     methods: {
         addBranch() {

@@ -21,7 +21,8 @@ class BranchesController extends Controller
             Branches::create([
                 'name' => $request->branch_name,
                 'address' => $request->branch_name,
-                'phone' => $request->branch_name,
+                'email' => $request->branch_email,
+                'phone' => str_replace(' ', '', $request->branch_phone),
                 'store_id' => $user->store
             ]);
         } else {

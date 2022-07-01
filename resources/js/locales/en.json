@@ -63,6 +63,7 @@
     "confirm-new-password": "Confirm New Password",
     "branch-name": "Branch name",
     "branch-address": "Branch address",
+    "branch-email": "Branch email",
     "branch-phone": "Branch phone",
     "add-branch": "Add Branch",
     "branch": "Branch",
@@ -141,5 +142,8 @@
     "are-you-sure?": "Are you sure ?",
     "invoice-refunded": "Invoice refunded",
     "date": "Date",
-    "you-have-reached-invoices-limit": "You have reached your invoices limit on the free plan this month"
+    "you-have-reached-invoices-limit": "You have reached your invoices limit on the free plan this month",
+    "current": "Current",
+    "upgrade-to-add-more-branches": "Upgrade your account to add more branches",
+    "add-more-branches": "Add more branches"
 }

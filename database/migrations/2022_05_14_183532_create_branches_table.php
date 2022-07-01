@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->text('address');
-            $table->text('phone');
+            $table->text('address')->nullable();
+            $table->text('email')->nullable();
+            $table->text('phone')->nullable();
             $table->unsignedInteger('store_id');
         });
     }

@@ -30,6 +30,11 @@ body {
   font-family: "Cairo", sans-serif !important;
 }
 
+.app-ar .dashboard .side {
+  padding-left: 1%;
+  padding-right: 0 !important;
+}
+
 .app-ar .sidebar {
   right: 0;
   left: auto;
@@ -146,131 +151,89 @@ input[type="submit"] {
 }
 
 .login .sides {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   height: 100%;
   min-height: 100vh;
-}
-
-.login .sides .side {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  width: 100%;
-}
-
-.login .sides .side:nth-child(1) {
-  text-align: center;
-  background: #336699;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .login .sides .side:nth-child(1) {
-    display: none;
-  }
-}
-
-.login .sides .side:nth-child(1) .image {
-  width: 400px;
-  height: 400px;
-  max-width: 100%;
-}
-
-.login .sides .side:nth-child(1) .text {
-  color: white;
-  max-width: 250px;
-}
-
-.login .sides .side:nth-child(1) .text h4 {
-  font-size: 25px;
-  font-weight: 400;
-  text-transform: capitalize;
-}
-
-.login .sides .side:nth-child(1) .text p {
-  line-height: 1.6em;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-@media screen and (max-width: 768) {
-  .login .sides .side:nth-child(1) {
-    display: none;
-  }
-}
-
-.login .sides .side:nth-child(2) {
-  padding: 40px;
-}
-
-.login .sides .side:nth-child(2) .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 10%;
-}
-
-.login .sides .side:nth-child(2) .header .brand {
-  max-width: 55px;
-}
-
-.login .sides .side:nth-child(2) .header .brand img {
+.login .sides .side {
   width: 100%;
 }
 
-.login .sides .side:nth-child(2) .header .lang-switcher {
+.login .sides .side .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 5px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login .sides .side .header .brand {
+  max-width: 60px;
+  display: block;
+}
+
+.login .sides .side .header .brand img {
+  width: 100%;
+}
+
+.login .sides .side .header .lang-switcher {
   font-weight: bold;
   font-size: 15px;
 }
 
-.login .sides .side:nth-child(2) .header .lang-switcher .link {
+.login .sides .side .header .lang-switcher .link {
   color: #727272;
 }
 
-.login .sides .side:nth-child(2) .header .lang-switcher .active {
+.login .sides .side .header .lang-switcher .active {
   color: black !important;
 }
 
-.login .sides .side:nth-child(2) h4 {
+.login .sides .side h4 {
   text-align: center;
 }
 
-.login .sides .side:nth-child(2) .form {
-  max-width: 400px;
-  margin: 5% auto;
+.login .sides .side .form {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: white;
+  -webkit-box-shadow: 0 6px 20px 0 rgba(18, 45, 46, 0.1);
+          box-shadow: 0 6px 20px 0 rgba(18, 45, 46, 0.1);
+  padding: 25px;
+  border-radius: 5px;
 }
 
-.login .sides .side:nth-child(2) .form h2 {
+.login .sides .side .form h2 {
   text-align: center;
   font-weight: bold;
+  font-size: 20px;
 }
 
-.login .sides .side:nth-child(2) .form p {
+.login .sides .side .form p {
   text-align: center;
-  color: #b0b3c4;
+  color: #5c5f6e;
+  font-size: 14px;
 }
 
-.login .sides .side:nth-child(2) .form form {
+.login .sides .side .form form {
   text-align: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -279,10 +242,10 @@ input[type="submit"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-.login .sides .side:nth-child(2) .form form .form-group .input-label {
+.login .sides .side .form form .form-group .input-label {
   display: inline-block;
   background: white;
   position: relative;
@@ -292,8 +255,10 @@ input[type="submit"] {
   color: #4b4b4b;
 }
 
-.login .sides .side:nth-child(2) .form form .form-group #email-input,
-.login .sides .side:nth-child(2) .form form .form-group #password-input {
+.login .sides .side .form form .form-group #name-input,
+.login .sides .side .form form .form-group #email-input,
+.login .sides .side .form form .form-group #phone-input,
+.login .sides .side .form form .form-group #password-input {
   width: 100%;
   padding: 12px;
   border: 1px solid #e0e0e0;
@@ -303,16 +268,18 @@ input[type="submit"] {
   transition: 0.4s;
 }
 
-.login .sides .side:nth-child(2) .form form .form-group:focus-within #email-input,
-.login .sides .side:nth-child(2) .form form .form-group:focus-within #password-input {
+.login .sides .side .form form .form-group:focus-within #name-input,
+.login .sides .side .form form .form-group:focus-within #email-input,
+.login .sides .side .form form .form-group:focus-within #phone-input,
+.login .sides .side .form form .form-group:focus-within #password-input {
   border: 1px solid #336699;
 }
 
-.login .sides .side:nth-child(2) .form form .form-group:focus-within .input-label {
+.login .sides .side .form form .form-group:focus-within .input-label {
   color: #336699;
 }
 
-.login .sides .side:nth-child(2) .form form .login-btn {
+.login .sides .side .form form .login-btn {
   background-color: #336699;
   width: 100%;
   padding: 10px;
@@ -323,7 +290,7 @@ input[type="submit"] {
   transition: 0.5s;
 }
 
-.login .sides .side:nth-child(2) .form form .login-btn:focus {
+.login .sides .side .form form .login-btn:focus {
   background-color: #4065c4;
 }
 
@@ -331,6 +298,8 @@ input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   min-height: 100vh;
 }
 
@@ -338,6 +307,99 @@ input[type="submit"] {
   margin-left: 175px;
   width: 100%;
   padding-right: 1%;
+}
+
+.dashboard .side .card-steps {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  -webkit-box-shadow: 0 6px 20px 0 rgba(18, 45, 46, 0.1);
+          box-shadow: 0 6px 20px 0 rgba(18, 45, 46, 0.1);
+  margin-top: 3%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard .side .card-steps {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.dashboard .side .card-steps .info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard .side .card-steps .info h4 {
+  color: #336699;
+  font-size: 15px;
+}
+
+.dashboard .side .card-steps .info p {
+  font-weight: bold;
+}
+
+.dashboard .side .card-steps .steps {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 0 0px;
+          flex: 2 0 0;
+}
+
+.dashboard .side .card-steps .steps ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard .side .card-steps .steps ul a li {
+  background-color: rgba(51, 102, 153, 0.08);
+  padding: 8px 10px;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard .side .card-steps .steps ul a li svg {
+  font-size: 20px;
+  opacity: 0.1;
+  color: #336699;
+}
+
+.dashboard .side .card-steps .steps ul a li svg.completed {
+  opacity: 1 !important;
+}
+
+.dashboard .side .card-steps .steps ul a li span {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .dashboard .side .cards {
@@ -356,7 +418,7 @@ input[type="submit"] {
   width: 100%;
   -webkit-box-shadow: 0px 3px 7px 0px #ebebeb;
           box-shadow: 0px 3px 7px 0px #ebebeb;
-  border-radius: 25px;
+  border-radius: 7px;
   background: rgba(49, 83, 170, 0.172549);
   color: #336699;
   border: 1px solid #336699;
@@ -1629,26 +1691,148 @@ input[type="submit"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 15px;
 }
 
-.branches-page .side .branches .item {
+.branches-page .side .branches .branch-card {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+          box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.branches-page .side .branches .branch-card .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  gap: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 7px 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.branches-page .side .branches .item .delete img {
-  max-width: 25px;
+.branches-page .side .branches .branch-card .info .logo {
+  max-width: 90px;
+  height: 90px;
+}
+
+.branches-page .side .branches .branch-card .info .logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.branches-page .side .branches .branch-card .info .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.branches-page .side .branches .branch-card .info .information .name {
+  font-weight: bold;
+  color: #336699;
+  font-size: 18px;
+}
+
+.branches-page .side .branches .branch-card .info .information .email,
+.branches-page .side .branches .branch-card .info .information .phone,
+.branches-page .side .branches .branch-card .info .information .address {
+  font-size: 14px;
+  color: #3e5b78;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.branches-page .side .branches .branch-card .current {
+  position: absolute;
+  left: -36px;
+  background-color: #336699;
+  color: #fff;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  padding: 5px 45px;
+  top: 5px;
+}
+
+.branches-page .side .branches .upgrade {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  padding: 0 30px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+          box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+  max-width: 100%;
+}
+
+.branches-page .side .branches .upgrade img {
+  max-width: 250px;
+  margin: 0 auto;
+  display: block;
+}
+
+.branches-page .side .branches .upgrade h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.branches-page .side .branches .upgrade .upgrade-btn {
+  background-color: #fcc201;
+  padding: 5px 35px;
+  font-size: 16px;
+  border-radius: 25px;
+  margin: 3% auto;
+  display: block;
+  font-weight: 500;
+}
+
+.branches-page .side .branches .add-branches {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+          box-shadow: 0 6px 20px 0 rgba(204, 224, 224, 0.1);
+  max-width: 100%;
+}
+
+.branches-page .side .branches .add-branches h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.branches-page .side .branches .add-branches .add-btn {
+  background-color: #336699;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  font-weight: 500;
+  color: white;
 }
 
 .addProduct {

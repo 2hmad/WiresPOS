@@ -162,8 +162,11 @@ export default {
                 const details = JSON.stringify({
                     id: this.user.store,
                     name: this.form.name,
+                    email: this.form.email,
                     address: this.form.address,
                     phone: this.form.phone,
+                    website: this.form.website,
+                    legally: this.form.legally,
                 });
                 data.append("data", details);
                 const config = {
