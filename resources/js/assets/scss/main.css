@@ -118,14 +118,12 @@ input[type="submit"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 15px;
+  gap: 25px;
 }
 
 .action-btns .show-action,
 .action-btns .delete-action,
 .action-btns .edit-action {
-  background: #336699;
-  padding: 5px 15px;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
