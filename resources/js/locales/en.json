@@ -145,5 +145,17 @@
     "you-have-reached-invoices-limit": "You have reached your invoices limit on the free plan this month",
     "current": "Current",
     "upgrade-to-add-more-branches": "Upgrade your account to add more branches",
-    "add-more-branches": "Add more branches"
+    "add-more-branches": "Add more branches",
+    "limited-invoices-10": "Limited invoices and orders (Only 10 / month)",
+    "branches-limited-1": "Limited branches (1 only)",
+    "current-package": "Current Package",
+    "we-provide-free-package-for-you": "We offer you a free package suitable for small businesses",
+    "we-provide-premium-package-for-you": "All the services and products you need to help with your sales and production",
+    "unlimited-invoices": "Unlimited invoices and orders",
+    "unlimited-branches": "Unlimited branches",
+    "integrated-cashier": "Integrated cashier system (POS)",
+    "professional-reports": "Prefessional reports",
+    "share-via-sms-email": "Share invoices via SMS, Email",
+    "monthly": "Monthly",
+    "yearly": "Yearly"
 }

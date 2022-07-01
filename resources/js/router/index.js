@@ -19,6 +19,7 @@ import Branches from "../pages/Branches.vue";
 import AddBranch from "../pages/AddBranch.vue";
 import store from "../store";
 import Invoice from "../pages/Invoice.vue";
+import Upgrade from "../pages/Upgrade.vue";
 const routes = [
     {
         path: "/login",
@@ -149,6 +150,13 @@ const routes = [
     {
         path: "/invoice/:id",
         component: Invoice,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/upgrade",
+        component: Upgrade,
         meta: {
             requiresAuth: true,
         },

@@ -145,5 +145,17 @@
     "you-have-reached-invoices-limit": "لقد وصلت إلى الحد الأقصى للفواتير في الخطة المجانية هذا الشهر",
     "current": "الحالي",
     "upgrade-to-add-more-branches": "قم بترقية حسابك لإضافة المزيد من الفروع",
-    "add-more-branches": "اضف المزيد من الفروع"
+    "add-more-branches": "اضف المزيد من الفروع",
+    "limited-invoices-10": "فواتير و طلبات محدودة (10 فقط / شهر)",
+    "branches-limited-1": "عدد محدود من الفروع (1 فقط)",
+    "current-package": "الباقة الحالية",
+    "we-provide-free-package-for-you": "نقدم لك خدمة مجانية تناسب الانشطة التجارية الصغيرة",
+    "we-provide-premium-package-for-you": "جميع الخدمات والمنتجات التي تحتاجها للمساعده في مبيعاتك وانتاجك",
+    "unlimited-invoices": "فواتير وطلبات غير محدودة",
+    "unlimited-branches": "فروع غير محدودة",
+    "integrated-cashier": "نظام كاشير متكامل (POS)",
+    "professional-reports": "تقارير احترافية",
+    "share-via-sms-email": "مشاركة الفواتير عبر SMS, Email",
+    "monthly": "شهرياً",
+    "yearly": "سنوياً"
 }

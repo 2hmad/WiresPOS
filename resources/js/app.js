@@ -27,6 +27,7 @@ import {
     faArrowRightArrowLeft,
     faLocationPin,
     faPlus,
+    faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 const { DateTime } = require("luxon");
 // I18n Configurations
@@ -55,7 +56,8 @@ library.add(
     faCashRegister,
     faArrowRightArrowLeft,
     faLocationPin,
-    faPlus
+    faPlus,
+    faCheck
 );
 
 const app = createApp({});

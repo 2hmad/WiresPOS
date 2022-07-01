@@ -1,0 +1,180 @@
+.upgrade-page {
+    display: flex;
+    box-sizing: border-box;
+    min-height: 100vh;
+    .side {
+        margin-left: 175px;
+        width: 100%;
+        padding-right: 1%;
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 900px;
+            margin: 5% auto;
+            padding: 10px;
+            .free-card {
+                background-color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px;
+                box-shadow: 0 6px 20px 0 rgba(196, 196, 196, 0.1);
+                border-radius: 5px;
+                flex-wrap: wrap;
+                gap: 70px;
+                @media screen and (max-width: 768px) {
+                    gap: 10px;
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .heading {
+                    flex: 1;
+                    p {
+                        font-size: 14px;
+                        color: #5c5f6e;
+                    }
+                }
+                .benefits {
+                    flex: 2 0 0;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 7px;
+                        li {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            svg {
+                                color: $primary;
+                            }
+                        }
+                    }
+                }
+                .price {
+                    font-weight: bold;
+                    font-size: 14px;
+                    flex: 1.5 0 0;
+                    text-align: center;
+                    svg {
+                        color: $primary;
+                    }
+                }
+            }
+            .premium-card {
+                background-color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px;
+                box-shadow: 0 6px 20px 0 rgba(196, 196, 196, 0.1);
+                border-radius: 5px;
+                flex-wrap: wrap;
+                gap: 70px;
+                border: 3px solid $primary;
+                @media screen and (max-width: 768px) {
+                    gap: 10px;
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .heading {
+                    flex: 1;
+                    p {
+                        font-size: 14px;
+                        color: #5c5f6e;
+                    }
+                }
+                .benefits {
+                    flex: 2 0 0;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 7px;
+                        li {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            svg {
+                                color: $primary;
+                            }
+                        }
+                    }
+                }
+                .price {
+                    font-weight: bold;
+                    font-size: 14px;
+                    flex: 1.5 0 0;
+                    text-align: center;
+                    svg {
+                        color: $primary;
+                    }
+                    div {
+                        .replace-packages {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            justify-content: center;
+                            input[type="checkbox"] {
+                                width: 0;
+                                height: 0;
+                                display: none;
+                            }
+                            label {
+                                width: 60px;
+                                height: 20px;
+                                display: block;
+                                background-color: #477a85;
+                                border-radius: 100px;
+                                position: relative;
+                                cursor: pointer;
+                                transition: 0.5s;
+                                box-shadow: 0 0 20px #477a8550;
+                            }
+                            label::after {
+                                content: "";
+                                width: 15px;
+                                height: 15px;
+                                background-color: #e8f5f7;
+                                position: absolute;
+                                border-radius: 70px;
+                                top: 2px;
+                                left: 2px;
+                                transition: 0.5s;
+                            }
+
+                            input:checked + label:after {
+                                left: calc(100% - 2px);
+                                transform: translateX(-100%);
+                            }
+
+                            input:checked + label {
+                                background-color: #243d42;
+                            }
+                        }
+                        .price {
+                            font-size: 40px;
+                            .currency {
+                                font-size: 15px;
+                            }
+                            .duration {
+                                font-size: 15px;
+                            }
+                        }
+                        .subscribe-btn {
+                            background-color: $primary;
+                            display: block;
+                            width: 100%;
+                            padding: 5px;
+                            border-radius: 25px;
+                            color: white;
+                            font-size: 15px;
+                            svg {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
