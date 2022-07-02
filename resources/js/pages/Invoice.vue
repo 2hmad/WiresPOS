@@ -101,7 +101,7 @@
             </span>
             <qrcode-vue
                 :value="`Seller name: ${company.store_name}
-Invoice number: ${invoice_id}
+Invoice number: ${invoice_number}
 Date: ${$luxonDateTime
                     .fromISO(created_at)
                     .toFormat('y-LL-d')}, Time: ${$luxonDateTime
