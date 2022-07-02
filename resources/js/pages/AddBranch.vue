@@ -97,7 +97,7 @@ export default {
                 })
                 .then((succ) => {
                     alert(this.$t("branch-added")),
-                        (location.href = "/branches");
+                        this.$router.push("/branches");
                 })
                 .catch((err) => {
                     alert(this.$t("branch-exist"));

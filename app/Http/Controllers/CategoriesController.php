@@ -10,10 +10,10 @@ class CategoriesController extends Controller
 {
     public function get()
     {
-        return Categories::get();
+        return Categories::orderBy('id', 'DESC')->get();
     }
     public function getProducts($category_id)
     {
-        return Products::where('category', $category_id)->with(['store', 'category'])->get();
+        return Products::where('category', $category_id)->orderBy('id', 'DESC')->with(['store', 'category'])->get();
     }
 }

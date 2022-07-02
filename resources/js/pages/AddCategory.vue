@@ -74,7 +74,7 @@ export default {
                 .post("/api/add-category", data, config)
                 .then((result) => {
                     alert(this.$t("operation-successful")),
-                        (location.href = "/categories");
+                        this.$router.push("/categories");
                 })
                 .catch((err) => {
                     alert(this.$t("added-before"));

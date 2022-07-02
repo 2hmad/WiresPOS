@@ -1,25 +1,25 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Login from "../pages/Login.vue";
-import Register from "../pages/Register.vue";
-import Dashboard from "../pages/Dashboard.vue";
-import Menu from "../pages/Menu.vue";
-import History from "../pages/History.vue";
-import Products from "../pages/Products.vue";
-import Categories from "../pages/Categories.vue";
-import AddProduct from "../pages/AddProduct.vue";
-import AddCategory from "../pages/AddCategory.vue";
-import EditCategory from "../pages/EditCategory.vue";
-import Settings from "../pages/Settings.vue";
-import PersonalInfo from "../pages/PersonalInfo.vue";
-import Password from "../pages/Password.vue";
-import Permissions from "../pages/Permissions.vue";
-import SystemSettings from "../pages/SystemSettings.vue";
-import CompanyInfo from "../pages/CompanyInfo.vue";
-import Branches from "../pages/Branches.vue";
-import AddBranch from "../pages/AddBranch.vue";
 import store from "../store";
-import Invoice from "../pages/Invoice.vue";
-import Upgrade from "../pages/Upgrade.vue";
+const Login = () => import("../pages/Login.vue");
+const Register = () => import("../pages/Register.vue");
+const Dashboard = () => import("../pages/Dashboard.vue");
+const Menu = () => import("../pages/Menu.vue");
+const History = () => import("../pages/History.vue");
+const Products = () => import("../pages/Products.vue");
+const Categories = () => import("../pages/Categories.vue");
+const AddProduct = () => import("../pages/AddProduct.vue");
+const AddCategory = () => import("../pages/AddCategory.vue");
+const EditCategory = () => import("../pages/EditCategory.vue");
+const Settings = () => import("../pages/Settings.vue");
+const PersonalInfo = () => import("../pages/PersonalInfo.vue");
+const Password = () => import("../pages/Password.vue");
+const Permissions = () => import("../pages/Permissions.vue");
+const SystemSettings = () => import("../pages/SystemSettings.vue");
+const CompanyInfo = () => import("../pages/CompanyInfo.vue");
+const Branches = () => import("../pages/Branches.vue");
+const AddBranch = () => import("../pages/AddBranch.vue");
+const Invoice = () => import("../pages/Invoice.vue");
+const Upgrade = () => import("../pages/Upgrade.vue");
 const routes = [
     {
         path: "/login",
