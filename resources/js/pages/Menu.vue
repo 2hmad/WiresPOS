@@ -603,7 +603,7 @@ export default {
                     { headers: { token: this.user.token } }
                 )
                 .then((result) => {
-                    location.href = `/invoice/${result.data.invoice_id}`;
+                    location.href = `/invoice/${result.data.id}`;
                 })
                 .catch((err) => {
                     if (err.response.data.alert == "rechead maximum invoices") {

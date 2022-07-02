@@ -23,7 +23,7 @@
             </span>
         </div>
         <div class="side">
-            <p>Order: {{ invoice_id }}</p>
+            <p>Order: {{ invoice_number }}</p>
         </div>
         <div class="side">
             <p>
@@ -138,6 +138,7 @@ export default {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             invoice_id: this.$route.params.id,
+            invoice_number: null,
             items: null,
             subtotal: null,
             payment: null,
@@ -174,7 +175,8 @@ export default {
                 }
             )
             .then((res) => {
-                (this.items = res.data.items),
+                (this.invoice_number = res.data.invoice_id),
+                    (this.items = res.data.items),
                     (this.subtotal = res.data.subtotal),
                     (this.payment = res.data.payment),
                     (this.created_at = res.data.created_at),
