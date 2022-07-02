@@ -9,6 +9,7 @@ import store from "./store";
 import VueApexCharts from "vue3-apexcharts";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import serviceWorker from "../../public/service-worker.js";
 import {
     faPhone,
     faEnvelope,

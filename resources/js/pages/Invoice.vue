@@ -22,18 +22,16 @@
                 {{ $luxonDateTime.fromISO(created_at).toFormat("HH:mm:ss") }}
             </span>
         </div>
-        <div class="sides">
-            <div class="side">
-                <p>Order: {{ invoice_id }}</p>
-            </div>
-            <div class="side">
-                <p>
-                    Taken by:
-                    <span v-if="payment == 1"> Cash </span>
-                    <span v-else-if="payment == 2"> Credit Card </span>
-                    <span v-else-if="payment == 3"> E-wallet </span>
-                </p>
-            </div>
+        <div class="side">
+            <p>Order: {{ invoice_id }}</p>
+        </div>
+        <div class="side">
+            <p>
+                Taken by:
+                <span v-if="payment == 1"> Cash </span>
+                <span v-else-if="payment == 2"> Credit Card </span>
+                <span v-else-if="payment == 3"> E-wallet </span>
+            </p>
         </div>
         <div class="line" />
         <table>
@@ -47,6 +45,11 @@
                         {{ item[0].price * item[0].quantity }}
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <div class="line" />
+        <table>
+            <tbody>
                 <tr style="border-top: 1px solid #ccc">
                     <td style="font-weight: 500">Sub Total</td>
                     <td style="font-weight: 500">{{ subtotal }}</td>
@@ -96,6 +99,19 @@
             <span v-if="company.website !== null">
                 {{ company.website }}
             </span>
+            <qrcode-vue
+                :value="`Seller name: ${company.store_name}
+Invoice number: ${invoice_id}
+Date: ${$luxonDateTime
+                    .fromISO(created_at)
+                    .toFormat('y-LL-d')}, Time: ${$luxonDateTime
+                    .fromISO(created_at)
+                    .toFormat('HH:mm:ss')}
+Invoice total amount: ${total}
+Invoice tax amount: ${settings.tax_rate}`"
+                size="100"
+                style="display: block; margin: 0 auto"
+            />
             <span
                 v-if="company.plan == 'free'"
                 style="
@@ -113,7 +129,11 @@
 </template>
 <script>
 import axios from "axios";
+import QrcodeVue from "qrcode.vue";
 export default {
+    components: {
+        QrcodeVue,
+    },
     data() {
         return {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
@@ -163,7 +183,7 @@ export default {
                     (this.company = res.data.store);
             })
             .catch((err) => {
-                this.$router.push("/");
+                console.log(err);
             });
     },
     computed: {

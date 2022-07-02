@@ -22,7 +22,7 @@ class InvoicesController extends Controller
     public function getAll(Request $request)
     {
         $user = User::where('token', $request->header('token'))->first();
-        return Invoices::where('user_id', $user->id)->get();
+        return Invoices::where('user_id', $user->id)->orderBy('id', 'DESC')->get();
     }
     public function create(Request $request)
     {

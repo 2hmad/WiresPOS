@@ -8,7 +8,7 @@
                 <li>
                     <router-link to="/" class-active="active" exact>
                         <div class="icon">
-                            <img src="/icons/icons8-home.svg" />
+                            <home-icon />
                         </div>
                         <div class="title">{{ $t("home") }}</div>
                     </router-link>
@@ -16,7 +16,7 @@
                 <li>
                     <router-link to="/menu" class-active="active" exact>
                         <div class="icon">
-                            <img src="/icons/icons8-cooking-pot.svg" />
+                            <cooking-pot-icon />
                         </div>
                         <div class="title">{{ $t("menu") }}</div>
                     </router-link>
@@ -24,7 +24,7 @@
                 <li>
                     <router-link to="/history" class-active="active" exact>
                         <div class="icon">
-                            <img src="/icons/icons8-clock.svg" />
+                            <clock-icon />
                         </div>
                         <div class="title">{{ $t("history") }}</div>
                     </router-link>
@@ -32,7 +32,7 @@
                 <li>
                     <router-link to="/categories" class-active="active" exact>
                         <div class="icon">
-                            <img src="/icons/icons8-product.svg" />
+                            <product-icon />
                         </div>
                         <div class="title">{{ $t("categories") }}</div>
                     </router-link>
@@ -40,7 +40,7 @@
                 <li>
                     <router-link to="/settings" class-active="active" exact>
                         <div class="icon">
-                            <img src="/icons/icons8-settings.svg" />
+                            <settings-icon />
                         </div>
                         <div class="title">{{ $t("settings") }}</div>
                     </router-link>
@@ -48,7 +48,7 @@
                 <li>
                     <a href="#" @click="logout">
                         <div class="icon">
-                            <img src="/icons/icons8-logout.svg" />
+                            <logout-icon />
                         </div>
                         <div class="title">{{ $t("logout") }}</div>
                     </a>
@@ -59,7 +59,21 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+import HomeIcon from "./HomeIcon.vue";
+import CookingPotIcon from "./CookingPotIcon.vue";
+import ClockIcon from "./ClockIcon.vue";
+import ProductIcon from "./ProductIcon.vue";
+import SettingsIcon from "./SettingsIcon.vue";
+import LogoutIcon from "./LogoutIcon.vue";
 export default {
+    components: {
+        HomeIcon,
+        CookingPotIcon,
+        ClockIcon,
+        ProductIcon,
+        SettingsIcon,
+        LogoutIcon,
+    },
     data() {
         return {};
     },
