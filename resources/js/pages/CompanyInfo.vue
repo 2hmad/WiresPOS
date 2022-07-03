@@ -184,6 +184,7 @@ export default {
                     address: this.form.address,
                     phone: this.form.phone,
                     website: this.form.website,
+                    business_type: this.form.business_type,
                     legally: this.form.legally,
                 });
                 data.append("data", details);
