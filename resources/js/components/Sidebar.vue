@@ -29,7 +29,7 @@
                         <div class="title">{{ $t("history") }}</div>
                     </router-link>
                 </li>
-                <li>
+                <li v-if="store.business_type == '2'">
                     <router-link to="/tables" class-active="active" exact>
                         <div class="icon">
                             <TableIcon />
@@ -85,7 +85,26 @@ export default {
         TableIcon,
     },
     data() {
-        return {};
+        return {
+            user: JSON.parse(localStorage.getItem("wiresPOSUser")),
+            store: [],
+        };
+    },
+    async mounted() {
+        await axios
+            .post(
+                "/api/get-store",
+                {},
+                {
+                    headers: {
+                        token: this.user.token,
+                    },
+                }
+            )
+            .then((result) => {
+                this.store = result.data;
+            })
+            .catch((err) => console.log(err));
     },
     methods: {
         ...mapActions(["LogOut"]),

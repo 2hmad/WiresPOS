@@ -1016,8 +1016,19 @@ input[type="submit"] {
   font-size: 17px;
 }
 
+.menu .menu-sides .menu-side:nth-child(2) .table {
+  width: 100%;
+  margin-top: 2%;
+  display: block;
+  border: 1px solid #ccc;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 .menu .menu-sides .menu-side:nth-child(2) .payment {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .menu .menu-sides .menu-side:nth-child(2) .payment .cards {
@@ -2592,6 +2603,7 @@ input[type="submit"] {
 .sidebar .items {
   text-align: center;
   margin-top: 20px;
+  height: 100%;
 }
 
 .sidebar .items ul {
@@ -2605,6 +2617,10 @@ input[type="submit"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .sidebar .items ul li {

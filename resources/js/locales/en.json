@@ -168,5 +168,6 @@
     "seats": "Seats",
     "seats-number": "Seats number",
     "table-number": "Table number",
-    "add-table": "Add table"
+    "add-table": "Add table",
+    "select-table": "Select table"
 }

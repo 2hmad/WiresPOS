@@ -173,6 +173,23 @@
                         </div>
                     </div>
                     <div class="bills">
+                        <select
+                            class="table"
+                            v-if="store.business_type == '2'"
+                            v-model="chosenTable"
+                        >
+                            <option selected hidden :value="null">
+                                --{{ $t("select-table") }}--
+                            </option>
+                            <option
+                                v-for="table in tables"
+                                :key="table.id"
+                                :value="table.table_number"
+                            >
+                                {{ $t("table") + ": " + table.table_number }}
+                                ({{ table.seats_number + " " + $t("seats") }})
+                            </option>
+                        </select>
                         <h3>{{ $t("bills") }}</h3>
                         <div class="cards">
                             <div
@@ -438,6 +455,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="payment">
                         <h3>{{ $t("payment-method") }}</h3>
                         <div class="cards">
@@ -514,6 +532,9 @@ export default {
             bill: null,
             filterBills: [],
             systemSettings: [],
+            tables: [],
+            store: [],
+            chosenTable: null,
             settings: {
                 itemsToShow: 1,
                 snapAlign: "start",
@@ -531,6 +552,32 @@ export default {
         };
     },
     async mounted() {
+        await axios
+            .post(
+                "/api/tables",
+                {},
+                {
+                    headers: { token: this.user.token },
+                }
+            )
+            .then((result) => {
+                this.tables = result.data;
+            })
+            .catch((err) => console.log(err));
+        await axios
+            .post(
+                "/api/get-store",
+                {},
+                {
+                    headers: {
+                        token: this.user.token,
+                    },
+                }
+            )
+            .then((result) => {
+                this.store = result.data;
+            })
+            .catch((err) => console.log(err));
         await axios
             .get("/api/categories")
             .then((result) => (this.items = result.data))
@@ -594,10 +641,6 @@ export default {
             this.filterBills.push(
                 this.products.filter((p) => p.id === this.bill)
             );
-            // this.subTotal = this.filterBills.reduce(
-            //     (accumulator, current) => accumulator + current[0].price,
-            //     0
-            // );
         },
         createInvoice() {
             axios
@@ -609,6 +652,7 @@ export default {
                         discount: this.discount,
                         discount_type: this.discountType,
                         payment: this.method,
+                        selected_table: this.chosenTable,
                     },
                     { headers: { token: this.user.token } }
                 )

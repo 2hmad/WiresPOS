@@ -42,6 +42,7 @@ class InvoicesController extends Controller
                         'discount' => $request->discount,
                         'discount_type' => $request->discount_type,
                         'payment' => $request->payment,
+                        'selected_table' => $request->selected_table,
                         'status' => 'paid',
                         'created_at' => date('Y-m-d H:i:s')
                     ]);
@@ -59,6 +60,7 @@ class InvoicesController extends Controller
                     'discount' => $request->discount,
                     'discount_type' => $request->discount_type,
                     'payment' => $request->payment,
+                    'selected_table' => $request->selected_table,
                     'status' => 'paid',
                     'created_at' => date('Y-m-d H:i:s')
                 ]);

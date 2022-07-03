@@ -18,6 +18,7 @@ class Invoices extends Model
         'discount',
         'discount_type',
         'payment',
+        'selected_table',
         'status',
         'created_at',
     ];

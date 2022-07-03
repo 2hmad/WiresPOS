@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('discount')->nullable();
             $table->text('discount_type')->nullable();
             $table->text('payment');
+            $table->text('selected_table')->nullable();
             $table->text('status');
             $table->timestamp('created_at');
         });

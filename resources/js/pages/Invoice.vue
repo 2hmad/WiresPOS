@@ -10,6 +10,9 @@
         <p class="centered">{{ company.address }}</p>
         <p class="centered">Tel: {{ company.phone }}</p>
         <div class="line" />
+        <div class="side" v-if="company.business_type == '2'">
+            <p>Table: {{ table }}</p>
+        </div>
         <div class="side">
             <span>
                 Date:
@@ -145,6 +148,7 @@ export default {
             created_at: "",
             discount: null,
             discount_type: "",
+            table: null,
             company: [],
             settings: [],
         };
@@ -179,6 +183,7 @@ export default {
                     (this.items = res.data.items),
                     (this.subtotal = res.data.subtotal),
                     (this.payment = res.data.payment),
+                    (this.table = res.data.selected_table),
                     (this.created_at = res.data.created_at),
                     (this.discount = res.data.discount),
                     (this.discount_type = res.data.discount_type),

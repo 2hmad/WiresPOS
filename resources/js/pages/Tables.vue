@@ -8,7 +8,12 @@
                         <div style="width: 100%">
                             <h3>{{ $t("tables") }}</h3>
                         </div>
-                        <div>
+                        <div
+                            v-if="
+                                store.business_type == '2' &&
+                                user.role == 'admin'
+                            "
+                        >
                             <router-link to="/add-table">
                                 <button class="add">
                                     <img src="/icons/icons8-plus-math.svg" />
@@ -54,9 +59,24 @@ export default {
             user: JSON.parse(localStorage.getItem("wiresPOSUser")),
             systemSettings: [],
             tables: [],
+            store: [],
         };
     },
     async mounted() {
+        await axios
+            .post(
+                "/api/get-store",
+                {},
+                {
+                    headers: {
+                        token: this.user.token,
+                    },
+                }
+            )
+            .then((result) => {
+                this.store = result.data;
+            })
+            .catch((err) => console.log(err));
         await axios
             .post(
                 "/api/tables",
