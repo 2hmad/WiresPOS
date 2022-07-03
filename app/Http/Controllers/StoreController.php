@@ -35,6 +35,7 @@ class StoreController extends Controller
                         'address' => $reqDecode['address'],
                         'phone' => $reqDecode['phone'],
                         'website' => $reqDecode['website'],
+                        'business_type' => $reqDecode['business_type'],
                         'legally' => $reqDecode['legally'],
                         'logo' => $file_name
                     ]);
@@ -45,6 +46,7 @@ class StoreController extends Controller
                         'address' => $reqDecode['address'],
                         'phone' => $reqDecode['phone'],
                         'website' => $reqDecode['website'],
+                        'business_type' => $reqDecode['business_type'],
                         'legally' => $reqDecode['legally'],
                         'logo' => $file_name,
                         'plan' => 'free'
@@ -60,6 +62,7 @@ class StoreController extends Controller
                     'address' => $request->address,
                     'phone' => str_replace(' ', '', $request->phone),
                     'website' => $request->website,
+                    'business_type' => $request->business_type,
                     'legally' => $request->legally,
                 ]);
             } else {
@@ -69,6 +72,7 @@ class StoreController extends Controller
                     'address' => $request->address,
                     'phone' => str_replace(' ', '', $request->phone),
                     'website' => $request->website,
+                    'business_type' => $request->business_type,
                     'legally' => $request->legally,
                     'plan' => 'free'
                 ]);

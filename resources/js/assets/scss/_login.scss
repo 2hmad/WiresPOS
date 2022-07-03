@@ -75,7 +75,8 @@
                         #name-input,
                         #email-input,
                         #phone-input,
-                        #password-input {
+                        #password-input,
+                        #business-type {
                             width: 100%;
                             padding: 12px;
                             border: 1px solid rgb(224, 224, 224);
@@ -87,7 +88,8 @@
                             #name-input,
                             #email-input,
                             #phone-input,
-                            #password-input {
+                            #password-input,
+                            #business-type {
                                 border: 1px solid $primary;
                             }
                             .input-label {

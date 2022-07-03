@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SystemSettingsController;
+use App\Http\Controllers\TablesController;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ Route::get('get-category/{id}', function ($id) {
 });
 Route::group(['middleware' => "userToken"], function () {
     Route::post('search', [SearchController::class, 'search']);
+
+    Route::post('tables', [TablesController::class, 'get']);
+    Route::post('add-table', [TablesController::class, 'add']);
+    Route::post('delete-table', [TablesController::class, 'delete']);
 
     Route::post('create-invoice', [InvoicesController::class, 'create']);
     Route::post('invoice', [InvoicesController::class, 'get']);

@@ -30,6 +30,14 @@
                     </router-link>
                 </li>
                 <li>
+                    <router-link to="/tables" class-active="active" exact>
+                        <div class="icon">
+                            <TableIcon />
+                        </div>
+                        <div class="title">{{ $t("tables") }}</div>
+                    </router-link>
+                </li>
+                <li>
                     <router-link to="/categories" class-active="active" exact>
                         <div class="icon">
                             <product-icon />
@@ -64,6 +72,7 @@ import CookingPotIcon from "./CookingPotIcon.vue";
 import ClockIcon from "./ClockIcon.vue";
 import ProductIcon from "./ProductIcon.vue";
 import SettingsIcon from "./SettingsIcon.vue";
+import TableIcon from "./TableIcon.vue";
 import LogoutIcon from "./LogoutIcon.vue";
 export default {
     components: {
@@ -73,6 +82,7 @@ export default {
         ProductIcon,
         SettingsIcon,
         LogoutIcon,
+        TableIcon,
     },
     data() {
         return {};

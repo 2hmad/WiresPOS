@@ -79,6 +79,22 @@
                             />
                         </div>
                         <div class="input-group">
+                            <label for="business-type">
+                                {{ $t("business-type") }}
+                            </label>
+                            <select
+                                id="business-type"
+                                v-model="form.business_type"
+                            >
+                                <option value="1">
+                                    {{ $t("retail-grocery-store") }}
+                                </option>
+                                <option value="2">
+                                    {{ $t("cafe-restaurant") }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-group">
                             <label for="lagally">
                                 {{ $t("legally-registered") }}
                             </label>
@@ -124,6 +140,7 @@ export default {
                 address: "",
                 phone: "",
                 website: "",
+                business_type: "",
                 legally: "",
                 pic: null,
             },
@@ -146,6 +163,7 @@ export default {
                     (this.form.address = result.data.address),
                     (this.form.phone = result.data.phone),
                     (this.form.website = result.data.website),
+                    (this.form.business_type = result.data.business_type),
                     (this.form.legally = result.data.legally),
                     (this.store_logo = result.data.logo);
             })

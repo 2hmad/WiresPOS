@@ -94,6 +94,26 @@
                                         required
                                     />
                                 </div>
+                                <div class="form-group">
+                                    <label
+                                        class="input-label"
+                                        for="business-type-input"
+                                    >
+                                        {{ $t("business-type") }}
+                                    </label>
+                                    <select
+                                        id="business-type"
+                                        v-model="form.business_type"
+                                        required
+                                    >
+                                        <option value="1">
+                                            {{ $t("retail-grocery-store") }}
+                                        </option>
+                                        <option value="2">
+                                            {{ $t("cafe-restaurant") }}
+                                        </option>
+                                    </select>
+                                </div>
                                 <input
                                     type="submit"
                                     name="login"
@@ -152,6 +172,7 @@ export default {
                 email: "",
                 phone: "",
                 password: "",
+                business_type: "",
             },
         };
     },

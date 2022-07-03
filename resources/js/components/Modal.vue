@@ -86,6 +86,7 @@ export default {
     border-bottom: 1px solid #eeeeee;
     color: #336699;
     justify-content: space-between;
+    direction: ltr;
 }
 
 .modal-footer {

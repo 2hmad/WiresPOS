@@ -398,6 +398,16 @@
                                                 </option>
                                             </select>
                                         </template>
+                                        <template v-slot:action>
+                                            <button
+                                                type="button"
+                                                class="btn-green"
+                                                @click="close"
+                                                aria-label="Close modal"
+                                            >
+                                                {{ $t("save-changes") }}
+                                            </button>
+                                        </template>
                                     </Modal>
                                 </span>
                             </div>

@@ -158,5 +158,15 @@
     "share-via-sms-email": "Share invoices via SMS, Email",
     "monthly": "Monthly",
     "yearly": "Yearly",
-    "id": "ID"
+    "id": "ID",
+    "business-type": "Business type",
+    "retail-grocery-store": "Retail / Grocery Store",
+    "cafe-restaurant": "Cafe / Restaurant",
+    "tables": "Tables",
+    "new-table": "New table",
+    "table": "Table",
+    "seats": "Seats",
+    "seats-number": "Seats number",
+    "table-number": "Table number",
+    "add-table": "Add table"
 }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('phone')->nullable();
             $table->text('website')->nullable();
             $table->text('legally')->nullable();
+            $table->text('business_type')->nullable();
             $table->text('logo')->nullable();
             $table->text('plan')->nullable();
         });

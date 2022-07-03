@@ -5,6 +5,8 @@ const Register = () => import("../pages/Register.vue");
 const Dashboard = () => import("../pages/Dashboard.vue");
 const Menu = () => import("../pages/Menu.vue");
 const History = () => import("../pages/History.vue");
+const Tables = () => import("../pages/Tables.vue");
+const AddTable = () => import("../pages/AddTable.vue");
 const Products = () => import("../pages/Products.vue");
 const Categories = () => import("../pages/Categories.vue");
 const AddProduct = () => import("../pages/AddProduct.vue");
@@ -52,6 +54,20 @@ const routes = [
     {
         path: "/history",
         component: History,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/tables",
+        component: Tables,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/add-table",
+        component: AddTable,
         meta: {
             requiresAuth: true,
         },

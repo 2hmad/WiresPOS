@@ -33,6 +33,7 @@ class AuthController extends Controller
         if ($checkUser == null) {
             Stores::create([
                 'store_name' => $request->email . "'s store",
+                'business_type' => $request->business_type,
                 'plan' => 'free'
             ]);
             $getStore = Stores::where('store_name', $request->email . "'s store")->first();
