@@ -1,0 +1,202 @@
+.calc-page {
+    display: flex;
+    .side {
+        margin-left: 185px;
+        width: 100%;
+        margin-top: 3%;
+        padding-right: 1%;
+        @media screen and (max-width: 768px) {
+            margin-left: 20px;
+        }
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            gap: 15px;
+            @media screen and (max-width: 768px) {
+                flex-wrap: wrap;
+            }
+            h3 {
+                font-size: 25px;
+                font-weight: 600;
+            }
+            p {
+                font-size: 15px;
+                color: #666;
+            }
+            .add {
+                background-color: $primary;
+                padding: 10px;
+                color: white;
+                border-radius: 5px;
+                width: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                img {
+                    width: 15px;
+                }
+            }
+        }
+        .container {
+            max-width: 540px;
+            margin: 3% auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .header {
+                background-color: #eee;
+                width: 100%;
+                box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+                padding: 5px 10px;
+                display: flex;
+                justify-content: space-between;
+                direction: rtl;
+                h3 {
+                    font-size: 15px;
+                }
+                a {
+                    direction: ltr;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 14px;
+                }
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                max-width: 550px;
+                background-color: white;
+                padding: 50px 25px;
+                border-radius: 5px;
+                box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+                .input-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    label {
+                        font-size: 15px;
+                    }
+                    input,
+                    select,
+                    textarea {
+                        padding: 10px;
+                        width: 100%;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        outline: none;
+                        transition: 0.5s;
+                        &:focus {
+                            border: 1px solid $primary;
+                        }
+                    }
+                }
+                .save {
+                    background-color: $primary;
+                    padding: 10px;
+                    color: white;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    border: 1px solid $primary;
+                }
+            }
+        }
+    }
+}
+.add-ingredient-page {
+    display: flex;
+    min-height: 100vh;
+    .side {
+        margin-left: 185px;
+        width: 100%;
+        margin-top: 3%;
+        padding-right: 1%;
+        @media screen and (max-width: 768px) {
+            margin-left: 20px;
+        }
+        .group {
+            display: flex;
+            width: 100%;
+            gap: 5px;
+        }
+        .container {
+            max-width: 540px;
+            margin: 3% auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .header {
+                background-color: #eee;
+                width: 100%;
+                box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+                padding: 5px 10px;
+                display: flex;
+                justify-content: space-between;
+                direction: rtl;
+                h3 {
+                    font-size: 15px;
+                }
+                a {
+                    direction: ltr;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+        h3 {
+            font-size: 25px;
+            font-weight: 600;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 550px;
+            background-color: white;
+            padding: 50px 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px 0 rgba(18, 45, 46, 0.1);
+            .input-group {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                label {
+                    font-size: 15px;
+                }
+                input,
+                select,
+                textarea {
+                    padding: 10px;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    outline: none;
+                    transition: 0.5s;
+                    &:focus {
+                        border: 1px solid $primary;
+                    }
+                }
+            }
+            .save {
+                background-color: $primary;
+                padding: 10px;
+                color: white;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                border: 1px solid $primary;
+            }
+        }
+    }
+}

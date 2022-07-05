@@ -1,5 +1,5 @@
 const cacheName = "wirespos-site-v1";
-const filesToCache = ["/", "/login", "/menu", "/settings", "/history"];
+const filesToCache = ["/", "/login", "/settings", "/history"];
 
 self.addEventListener("install", (e) => {
     e.waitUntil(

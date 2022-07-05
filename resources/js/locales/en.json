@@ -169,5 +169,12 @@
     "seats-number": "Seats number",
     "table-number": "Table number",
     "add-table": "Add table",
-    "select-table": "Select table"
+    "select-table": "Select table",
+    "ingredients-calculator": "Ingredients Calculator",
+    "calculate-your-products-ingredients": "Calculate your products ingredients",
+    "add-ingredient": "Add ingredient",
+    "ingredient": "Ingredient",
+    "quantity": "Qty",
+    "gram": "g",
+    "unit": "Unit"
 }

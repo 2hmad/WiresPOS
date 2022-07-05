@@ -169,5 +169,12 @@
     "seats-number": "عدد المقاعد",
     "table-number": "رقم الطاولة",
     "add-table": "اضافة طاولة",
-    "select-table": "اختر الطاولة"
+    "select-table": "اختر الطاولة",
+    "ingredients-calculator": "حاسبة المقادير",
+    "calculate-your-products-ingredients": "احسب مكونات منتجاتك",
+    "add-ingredient": "اضف مكون",
+    "ingredient": "المكون",
+    "quantity": "كمية",
+    "gram": "جرام",
+    "unit": "وحدة"
 }

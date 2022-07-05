@@ -31,6 +31,7 @@ import {
     faCheck,
     faEllipsisVertical,
     faTrash,
+    faCalculator,
 } from "@fortawesome/free-solid-svg-icons";
 const { DateTime } = require("luxon");
 // I18n Configurations
@@ -62,7 +63,8 @@ library.add(
     faPlus,
     faCheck,
     faEllipsisVertical,
-    faTrash
+    faTrash,
+    faCalculator
 );
 
 const app = createApp({});

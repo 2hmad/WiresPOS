@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProductsController;
@@ -34,11 +35,11 @@ Route::post("auth", [AuthController::class, 'checkUser']);
 Route::post("register", [AuthController::class, 'register']);
 Route::get('categories', [CategoriesController::class, 'get']);
 Route::get('get-products/{category_id}', [CategoriesController::class, 'getProducts']);
-Route::get('products', [ProductsController::class, 'get']);
 Route::get('get-category/{id}', function ($id) {
     return Categories::where('id', $id)->first();
 });
 Route::group(['middleware' => "userToken"], function () {
+    Route::post('products', [ProductsController::class, 'get']);
     Route::post('search', [SearchController::class, 'search']);
 
     Route::post('tables', [TablesController::class, 'get']);
@@ -76,4 +77,9 @@ Route::group(['middleware' => "userToken"], function () {
 
     Route::post('get-store', [StoreController::class, 'get']);
     Route::post('update-store', [StoreController::class, 'update']);
+
+    Route::post('all-ingredients', [IngredientsController::class, 'getAll']);
+    Route::post('ingredient', [IngredientsController::class, 'get']);
+    Route::post('add-ingredient', [IngredientsController::class, 'add']);
+    Route::post('delete-ingredient', [IngredientsController::class, 'delete']);
 });

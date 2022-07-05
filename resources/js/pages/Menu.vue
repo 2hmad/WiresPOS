@@ -145,7 +145,7 @@
                 <!-- Menu -->
                 <div class="menu-side">
                     <div class="account">
-                        <div style="display: flex; gap: 10px">
+                        <div style="display: flex; gap: 10px; width: 100%">
                             <div class="avatar">
                                 <img
                                     :src="`/storage/users/${user.pic}`"
@@ -153,22 +153,42 @@
                                 />
                                 <img :src="`/images/default.jpg`" v-else />
                             </div>
-                            <div class="name">
-                                <span
-                                    class="job-title"
-                                    v-if="user.role == 'employee'"
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    width: 100%;
+                                    align-items: center;
+                                "
+                            >
+                                <div class="name">
+                                    <span
+                                        class="job-title"
+                                        v-if="user.role == 'employee'"
+                                    >
+                                        {{ $t("im-a-cashier") }}
+                                    </span>
+                                    <span
+                                        class="job-title"
+                                        v-else-if="user.role == 'admin'"
+                                    >
+                                        {{ $t("im-a-manager") }}
+                                    </span>
+                                    <span class="fullname">
+                                        {{ user.full_name }}
+                                    </span>
+                                </div>
+                                <router-link
+                                    class="calc"
+                                    :title="$t('ingredients-calculator')"
+                                    to="/calculator"
                                 >
-                                    {{ $t("im-a-cashier") }}
-                                </span>
-                                <span
-                                    class="job-title"
-                                    v-else-if="user.role == 'admin'"
-                                >
-                                    {{ $t("im-a-manager") }}
-                                </span>
-                                <span class="fullname">
-                                    {{ user.full_name }}
-                                </span>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'calculator']"
+                                        style="font-size: 20px"
+                                        color="#336699"
+                                    />
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -508,6 +528,7 @@ import { Carousel, Slide } from "vue3-carousel";
 import axios from "axios";
 import Modal from "../components/Modal.vue";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
     name: "menu-page",
     components: {
@@ -515,6 +536,7 @@ export default {
         Carousel,
         Slide,
         Modal,
+        FontAwesomeIcon,
     },
     data() {
         return {
@@ -583,7 +605,7 @@ export default {
             .then((result) => (this.items = result.data))
             .catch((err) => console.log(err));
         await axios
-            .get("/api/products")
+            .post("/api/products", {}, { headers: { token: this.user.token } })
             .then((result) => (this.products = result.data))
             .catch((err) => console.log(err));
         await axios
